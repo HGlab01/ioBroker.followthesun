@@ -123,10 +123,10 @@ class Followthesun extends utils.Adapter {
                 this.calcPosition();
             }
         });
-        let pollingtime = this.config.option1;
+        let executioninterval = this.config.option1;
         let insecond = this.config.option2;
-        this.log.info('Polling time is every ' + pollingtime + ' minute(s) in second ' + insecond)
-        const calcPos = schedule.scheduleJob('calcPosTimer', `${insecond} */${pollingtime} * * * *`, async () => {
+        this.log.info('Polling time is every ' + executioninterval + ' minute(s) in second ' + insecond)
+        const calcPos = schedule.scheduleJob('calcPosTimer', `${insecond} */${executioninterval} * * * *`, async () => {
             this.calcPosition();
         });
     }

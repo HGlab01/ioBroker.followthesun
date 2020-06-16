@@ -30,7 +30,8 @@
   "bundleDependencies": false,
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
-    "suncalc2": "^1.8.1"
+    "suncalc2": "^1.8.1",
+    "node-schedule": "^1.0.0"
   },
   "deprecated": false,
   "description": "followthesun",
