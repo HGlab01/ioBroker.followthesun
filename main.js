@@ -8,11 +8,11 @@
 // you need to create an adapter
 const utils = require('@iobroker/adapter-core');
 
-//const suncalc = require('suncalc');
-
 // Load your modules here, e.g.:
-//const fs = require("fs");
 const suncalc = require("suncalc2");
+const schedule = require('node-schedule');
+let lat, long, azimuth, altitude;
+
 
 class Followthesun extends utils.Adapter {
 
@@ -29,6 +29,7 @@ class Followthesun extends utils.Adapter {
         this.on('stateChange', this.onStateChange.bind(this));
         // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
+        //this.lat = 0;
     }
 
     /**
@@ -39,15 +40,16 @@ class Followthesun extends utils.Adapter {
 
         // The adapters config (in the instance object everything under the attribute "native") is accessible via
         // this.config:
-        this.log.info('config option1: ' + this.config.option1);
-        this.log.info('config option2: ' + this.config.option2);
+        //this.log.info('config option1: ' + this.config.option1);
+        //this.log.info('config option2: ' + this.config.option2);
+
 
         /*
         For every state in the system there has to be also an object of type state
         Here a simple template for a boolean variable named "testVariable"
         Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
         */
-        await this.setObjectAsync('testVariable', {
+        /*await this.setObjectAsync('testVariable', {
             type: 'state',
             common: {
                 name: 'testVariable',
@@ -55,6 +57,32 @@ class Followthesun extends utils.Adapter {
                 role: 'indicator',
                 read: true,
                 write: true,
+            },
+            native: {},
+        });*/
+
+        await this.setObjectAsync('altitude', {
+            type: 'state',
+            common: {
+                name: 'Current altitude of the sun',
+                type: 'number',
+                role: 'indicator',
+                unit: '°',
+                read: true,
+                write: false,
+            },
+            native: {},
+        });
+
+        await this.setObjectAsync('azimuth', {
+            type: 'state',
+            common: {
+                name: 'Current azimuth of the sun',
+                type: 'number',
+                role: 'indicator',
+                unit: '°',
+                read: true,
+                write: false,
             },
             native: {},
         });
@@ -67,21 +95,63 @@ class Followthesun extends utils.Adapter {
         you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
         */
         // the variable testVariable is set to true as command (ack=false)
-        await this.setStateAsync('testVariable', true);
+        //await this.setStateAsync('testVariable', true);
 
         // same thing, but the value is flagged "ack"
         // ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync('testVariable', { val: true, ack: true });
+        //await this.setStateAsync('testVariable', { val: true, ack: true });
 
         // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
+        //await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
 
         // examples for the checkPassword/checkGroup functions
-        let result = await this.checkPasswordAsync('admin', 'iobroker');
-        this.log.info('check user admin pw iobroker: ' + result);
+        //let result = await this.checkPasswordAsync('admin', 'iobroker');
+        //this.log.info('check user admin pw iobroker: ' + result);
 
-        result = await this.checkGroupAsync('admin', 'admin');
-        this.log.info('check group user admin group admin: ' + result);
+        //result = await this.checkGroupAsync('admin', 'admin');
+        //this.log.info('check group user admin group admin: ' + result);
+
+
+        this.getForeignObject('system.config', (err, obj) => {
+            if (err || !obj) {
+                this.log.info('Adapter could not read latitude/longitude from system config!');
+            } else {
+                lat = obj.common.latitude;
+                long = obj.common.longitude;
+                this.log.debug('LATITUDE from config: ' + lat);
+                this.log.debug('LONGITUDE from config: ' + long);
+                this.calcPosition();
+            }
+        });
+        let pollingtime = this.config.option1;
+        let insecond = this.config.option2;
+        this.log.info('Polling time is every ' + pollingtime + ' minute(s) in second ' + insecond)
+        const calcPos = schedule.scheduleJob('calcPosTimer', `${insecond} */${pollingtime} * * * *`, async () => {
+            this.calcPosition();
+        });
+    }
+
+    async calcPosition() {
+        try {
+            let now = new Date(); 
+            let sunpos = suncalc.getPosition(now, lat, long);
+            let altitude_old = altitude;
+            let azimuth_old = azimuth;
+            altitude = Math.round(sunpos.altitude * 180 / Math.PI);
+            azimuth = Math.round(sunpos.azimuth * 180 / Math.PI + 180);
+            //this.log.debug('Altitude: ' + altitude + ' Azimuth: ' + azimuth);
+
+            if (altitude != altitude_old || azimuth != azimuth_old) {
+                await this.setStateAsync('azimuth', { val: azimuth, ack: true });
+                await this.setStateAsync('altitude', { val: altitude, ack: true });
+                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') or azimuth (' + azimuth_old + '|' + azimuth +') changed');
+            } else {
+                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and azimuth (' + azimuth_old + '|' + azimuth +') did not change');
+            }
+
+        } catch (error) {
+            this.log.error(error);
+        }
     }
 
     /**
@@ -105,10 +175,10 @@ class Followthesun extends utils.Adapter {
     onObjectChange(id, obj) {
         if (obj) {
             // The object was changed
-            this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
+            this.log.debug(`object ${id} changed: ${JSON.stringify(obj)}`);
         } else {
             // The object was deleted
-            this.log.info(`object ${id} deleted`);
+            this.log.debug(`object ${id} deleted`);
         }
     }
 
@@ -120,10 +190,10 @@ class Followthesun extends utils.Adapter {
     onStateChange(id, state) {
         if (state) {
             // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+            this.log.debug(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
         } else {
             // The state was deleted
-            this.log.info(`state ${id} deleted`);
+            this.log.debug(`state ${id} deleted`);
         }
     }
 

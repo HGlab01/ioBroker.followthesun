@@ -1,98 +1,99 @@
 {
-    "common": {
-        "name": "followthesun",
-        "version": "0.0.1",
-        "news": {
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
-            }
-        },
-        "title": "FollowTheSun",
-        "titleLang": {
-            "en": "FollowTheSun",
-            "de": "Folge der Sonne",
-            "ru": "Следуй за Солнцем",
-            "pt": "Siga o sol",
-            "nl": "Volg de zon",
-            "fr": "Suis le soleil",
-            "it": "Segui il sole",
-            "es": "Sigue el sol",
-            "pl": "Podążaj za słońcem",
-            "zh-cn": "跟随太阳"
-        },
-        "desc": {
-            "en": "followthesun",
-            "de": "Folge der Sonne",
-            "ru": "Следуй за Солнцем",
-            "pt": "Siga o sol",
-            "nl": "Volg de zon",
-            "fr": "suis le soleil",
-            "it": "Segui il sole",
-            "es": "sigue el sol",
-            "pl": "Podążaj za słońcem",
-            "zh-cn": "跟随太阳"
-        },
-        "authors": [
-            "HGlab01 <no@e.mail.at>"
-        ],
-        "keywords": [
-            "ioBroker",
-            "template",
-            "Smart Home",
-            "home automation"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "followthesun.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/HGlab01/ioBroker.followthesun/master/admin/followthesun.png",
-        "readme": "https://github.com/HGlab01/ioBroker.followthesun/blob/master/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "general",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "materialize": true,
-        "materializeTab": true,
-        "adminTab": {
-            "singleton": true,
-            "name": {
-                "en": "FollowTheSun",
-                "de": "Folge der Sonne",
-                "ru": "Следуй за Солнцем",
-                "pt": "Siga o sol",
-                "nl": "Volg de zon",
-                "fr": "Suis le soleil",
-                "it": "Segui il sole",
-                "es": "Sigue el sol",
-                "pl": "Podążaj za słońcem",
-                "zh-cn": "跟随太阳"
-            },
-            "link": "",
-            "fa-icon": "info"
-        },
-        "supportCustoms": true,
-        "dependencies": [
-            {
-                "js-controller": ">=1.4.2"
-            }
-        ]
+  "common": {
+    "name": "followthesun",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版"
+      }
     },
-    "native": {
-        "option1": true,
-        "option2": "42"
+    "title": "FollowTheSun",
+    "titleLang": {
+      "en": "FollowTheSun",
+      "de": "Folge der Sonne",
+      "ru": "Следуй за Солнцем",
+      "pt": "Siga o sol",
+      "nl": "Volg de zon",
+      "fr": "Suis le soleil",
+      "it": "Segui il sole",
+      "es": "Sigue el sol",
+      "pl": "Podążaj za słońcem",
+      "zh-cn": "跟随太阳"
     },
-    "objects": [],
-    "instanceObjects": []
+    "desc": {
+      "en": "followthesun",
+      "de": "Folge der Sonne",
+      "ru": "Следуй за Солнцем",
+      "pt": "Siga o sol",
+      "nl": "Volg de zon",
+      "fr": "suis le soleil",
+      "it": "Segui il sole",
+      "es": "sigue el sol",
+      "pl": "Podążaj za słońcem",
+      "zh-cn": "跟随太阳"
+    },
+    "authors": [
+      "HGlab01 <no@e.mail.at>"
+    ],
+    "keywords": [
+      "ioBroker",
+      "template",
+      "Smart Home",
+      "home automation"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "followthesun.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/HGlab01/ioBroker.followthesun/master/admin/followthesun.png",
+    "readme": "https://github.com/HGlab01/ioBroker.followthesun/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "general",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "materialize": true,
+    "materializeTab": true,
+    "adminTab": {
+      "singleton": true,
+      "name": {
+        "en": "FollowTheSun",
+        "de": "Folge der Sonne",
+        "ru": "Следуй за Солнцем",
+        "pt": "Siga o sol",
+        "nl": "Volg de zon",
+        "fr": "Suis le soleil",
+        "it": "Segui il sole",
+        "es": "Sigue el sol",
+        "pl": "Podążaj za słońcem",
+        "zh-cn": "跟随太阳"
+      },
+      "link": "",
+      "fa-icon": "info"
+    },
+    "supportCustoms": true,
+    "dependencies": [
+      {
+        "js-controller": ">=1.4.2"
+      }
+    ],
+    "installedFrom": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f"
+  },
+  "native": {
+    "option1": "2",
+    "option2": "37"
+  },
+  "objects": [],
+  "instanceObjects": []
 }
