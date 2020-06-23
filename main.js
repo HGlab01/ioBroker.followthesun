@@ -125,7 +125,7 @@ class Followthesun extends utils.Adapter {
         });
         let executioninterval = this.config.option1;
         let insecond = this.config.option2;
-        this.log.info('Polling time is every ' + executioninterval + ' minute(s) in second ' + insecond)
+        this.log.info('Execution interval is every ' + executioninterval + ' minute(s) in second ' + insecond)
         const calcPos = schedule.scheduleJob('calcPosTimer', `${insecond} */${executioninterval} * * * *`, async () => {
             this.calcPosition();
         });
@@ -144,7 +144,7 @@ class Followthesun extends utils.Adapter {
             if (altitude != altitude_old || azimuth != azimuth_old) {
                 await this.setStateAsync('azimuth', { val: azimuth, ack: true });
                 await this.setStateAsync('altitude', { val: altitude, ack: true });
-                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') or azimuth (' + azimuth_old + '|' + azimuth +') changed');
+                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and/or azimuth (' + azimuth_old + '|' + azimuth +') changed');
             } else {
                 this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and azimuth (' + azimuth_old + '|' + azimuth +') did not change');
             }
