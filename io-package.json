@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "news": {
       "0.0.1": {
         "en": "initial release",
@@ -90,9 +90,36 @@
     ]
   },
   "native": {
-    "option1": "2",
-    "option2": "37"
+    "executioninterval": "2",
+    "insecond": "37"
   },
   "objects": [],
-  "instanceObjects": []
+  "instanceObjects": [
+    {
+      "_id": "altitude",
+      "type": "state",
+      "common": {
+        "name": "Current altitude of the sun",
+        "type": "number",
+        "role": "indicator",
+        "unit": "°",
+        "read": true,
+        "write": false
+    },
+    "native": {}
+    },
+    {
+      "_id": "azimuth",
+      "type": "state",
+      "common": {
+        "name": "Current altitude of the sun",
+        "type": "number",
+        "role": "indicator",
+        "unit": "°",
+        "read": true,
+        "write": false
+    },
+    "native": {}
+    }
+  ]
 }

@@ -14,7 +14,7 @@ systemDictionary = {
         'pl': 'Ustawienia adaptera dla followthesun',
         'zh-cn': 'followthesun的适配器设置'
     },
-    'option1': {
+    'executioninterval': {
         'en': 'option1',
         'de': 'Option 1',
         'ru': 'Опция 1',
@@ -26,7 +26,7 @@ systemDictionary = {
         'pl': 'opcja 1',
         'zh-cn': '选项1'
     },
-    'option2': {
+    'insecond': {
         'en': 'option2',
         'de': 'Option 2',
         'ru': 'option2',
