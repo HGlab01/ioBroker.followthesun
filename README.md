@@ -19,7 +19,7 @@ It is using the geo-position defined in the configuration. Calculation interval 
 
 ## Changelog
 
-### 0.0.1
+### 0.0.3
 * (HGlab01) initial release
 
 ## License
