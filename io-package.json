@@ -42,7 +42,7 @@
       "zh-cn": "跟随太阳"
     },
     "authors": [
-      "HGlab01 <no@e.mail.at>"
+      "HGlab01 <iobroker.followthesun@gmail.com>"
     ],
     "keywords": [
       "ioBroker",
@@ -87,8 +87,7 @@
       {
         "js-controller": ">=1.4.2"
       }
-    ],
-    "installedFrom": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f"
+    ]
   },
   "native": {
     "option1": "2",
