@@ -14,7 +14,7 @@
 
 ## followthesun adapter for ioBroker
 
-This adapter calculates the current altitude and azimuth of the sun.
+This adapter calculates the current altitude and azimuth of the sun based on the geoposition .
 It is using the geo-position defined in the configuration. Calculation interval can be defined in instance preferences.
 
 ## Changelog
