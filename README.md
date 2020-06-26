@@ -20,7 +20,7 @@ It is using the geo-position defined in the configuration. Calculation interval 
 ## Changelog
 
 ### 0.0.3 (Jun. 26, 2020)
-* (HGlab01) CI Travis integrated
+* (HGlab01) CI Travis integrated 
 
 ### 0.0.2 (Jun. 25, 2020)
 * (HGlab01) Improvments to be added to latest repository
