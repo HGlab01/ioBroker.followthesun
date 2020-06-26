@@ -26,9 +26,7 @@ It is using the geo-position defined in the configuration. Calculation interval 
 * (HGlab01) Improvments to be added to latest repository
 
 ### 0.0.1 (Jun. 24, 2020)
-* (HGlab01) Initial version
-* (HGlab01) Initial version
-
+* (HGlab01) First version
 
 ## License
 MIT License
