@@ -12,6 +12,8 @@ const utils = require('@iobroker/adapter-core');
 const suncalc = require("suncalc2");
 const schedule = require('node-schedule');
 let lat, long, azimuth, altitude;
+let polling = null;
+let interval;
 
 
 class Followthesun extends utils.Adapter {
@@ -37,32 +39,6 @@ class Followthesun extends utils.Adapter {
     async onReady() {
         // Initialize your adapter here
 
-      /*  await this.setObjectNotExistsAsync ('altitude', {
-            type: 'state',
-            common: {
-                name: 'Current altitude of the sun',
-                type: 'number',
-                role: 'indicator',
-                unit: '°',
-                read: true,
-                write: false,
-            },
-            native: {},
-        });
-
-        await this.setObjectNotExistsAsync('azimuth', {
-            type: 'state',
-            common: {
-                name: 'Current azimuth of the sun',
-                type: 'number',
-                role: 'indicator',
-                unit: '°',
-                read: true,
-                write: false,
-            },
-            native: {},
-        }); */
-
         //subscribe relevant states changes
         this.subscribeStates('altitude');
         this.subscribeStates('azimuth');
@@ -70,7 +46,7 @@ class Followthesun extends utils.Adapter {
         //get Geodata from Configuration
         this.getForeignObject('system.config', (err, obj) => {
             if (err || !obj) {
-                this.log.info('Adapter could not read latitude/longitude from system config!');
+                this.log.error('Adapter could not read latitude/longitude from system config!');
             } else {
                 lat = obj.common.latitude;
                 long = obj.common.longitude;
@@ -82,13 +58,14 @@ class Followthesun extends utils.Adapter {
 
         //get adapter configuration
         let executioninterval = parseInt(this.config.executioninterval);
+        interval = parseInt(this.config.executioninterval);
         let insecond = parseInt(this.config.insecond);
-        this.log.info('Execution interval is every ' + executioninterval + ' minute(s) in second ' + insecond);
-
+        //this.log.info('Execution interval is every ' + executioninterval + ' minute(s) in second ' + insecond);
+        this.log.info('Calculation will be done every ' + interval + ' seconds');
         //define chron-job
-        const calcPos = schedule.scheduleJob('calcPosTimer', `${insecond} */${executioninterval} * * * *`, async () => {
-        this.calcPosition();
-        });
+        //const calcPos = schedule.scheduleJob('calcPosTimer', `${insecond} */${executioninterval} * * * *`, async () => {
+        //this.calcPosition();
+        //});
     }
 
     async calcPosition() {
@@ -108,6 +85,12 @@ class Followthesun extends utils.Adapter {
             } else {
                 this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and azimuth (' + azimuth_old + '|' + azimuth +') did not change');
             }
+            (function () {if (polling) {clearTimeout(polling); polling = null;}})();
+			// timer
+			polling = setTimeout( () => {
+                this.log.debug('New calculation triggered by polling (every ' + interval + ' seconds)');
+                this.calcPosition();
+			}, interval * 1000);
 
         } catch (error) {
             this.log.error(error);
@@ -120,8 +103,12 @@ class Followthesun extends utils.Adapter {
      */
     onUnload(callback) {
         try {
-            this.log.info('cleaned everything up...');
             schedule.cancelJob('calcPosTimer');
+            if (polling) {
+                clearTimeout(polling);
+                polling = null;
+            }
+            this.log.info('cleaned everything up...');
             callback();
         } catch (e) {
             callback();
