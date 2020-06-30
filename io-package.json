@@ -83,8 +83,7 @@
     "installedFrom": "https://www.npmjs.com/package/iobroker.followthesun"
   },
   "native": {
-    "executioninterval": "120",
-    "insecond": "37"
+    "executioninterval": "120"
   },
   "objects": [],
   "instanceObjects": [
