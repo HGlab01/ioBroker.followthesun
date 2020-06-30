@@ -10,7 +10,7 @@ const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
 const suncalc = require("suncalc2");
-const schedule = require('node-schedule');
+//const schedule = require('node-schedule');
 let lat, long, azimuth, altitude;
 let polling = null;
 let executioninterval;
@@ -39,6 +39,10 @@ class Followthesun extends utils.Adapter {
     async onReady() {
         // Initialize adapter
 
+        //get adapter configuration
+        executioninterval = parseInt(this.config.executioninterval);
+        this.log.info('Calculation will be done every ' + executioninterval + ' seconds');
+
         //subscribe relevant states changes
         this.subscribeStates('altitude');
         this.subscribeStates('azimuth');
@@ -56,10 +60,6 @@ class Followthesun extends utils.Adapter {
                 this.calcPosition();
             }
         });
-
-        //get adapter configuration
-        executioninterval = parseInt(this.config.executioninterval);
-        this.log.info('Calculation will be done every ' + executioninterval + ' seconds');
     }
 
     async calcPosition() {
@@ -100,7 +100,6 @@ class Followthesun extends utils.Adapter {
      */
     onUnload(callback) {
         try {
-            schedule.cancelJob('calcPosTimer');
             if (polling) {
                 clearTimeout(polling);
                 polling = null;
