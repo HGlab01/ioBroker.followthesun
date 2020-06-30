@@ -1,11 +1,10 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "news": {
-      "0.0.3": {
-        "en": "CI Travis integrated",
-        "de": "CI Travis eingebunden"
+      "0.0.4": {
+        "en": "switch from CronJob to PollingTimer"
       }
     },
     "title": "FollowTheSun",

@@ -19,6 +19,9 @@ It is using the geo-position defined in the configuration. Calculation interval 
 
 ## Changelog
 
+### 0.0.4 (Jun. 26, 2020)
+* (HGlab01) switch from CronJob to PollingTimer
+
 ### 0.0.3 (Jun. 26, 2020)
 * (HGlab01) CI Travis integrated 
 
