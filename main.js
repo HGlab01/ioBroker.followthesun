@@ -13,7 +13,7 @@ const suncalc = require("suncalc2");
 const schedule = require('node-schedule');
 let lat, long, azimuth, altitude;
 let polling = null;
-let interval;
+let executioninterval;
 
 
 class Followthesun extends utils.Adapter {
@@ -29,7 +29,7 @@ class Followthesun extends utils.Adapter {
         this.on('ready', this.onReady.bind(this));
         //this.on('objectChange', this.onObjectChange.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
-        // this.on('message', this.onMessage.bind(this));
+        //this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
 
@@ -37,7 +37,7 @@ class Followthesun extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
-        // Initialize your adapter here
+        // Initialize adapter
 
         //subscribe relevant states changes
         this.subscribeStates('altitude');
@@ -52,32 +52,28 @@ class Followthesun extends utils.Adapter {
                 long = obj.common.longitude;
                 this.log.debug('LATITUDE from config: ' + lat);
                 this.log.debug('LONGITUDE from config: ' + long);
+                //start calculation
                 this.calcPosition();
             }
         });
 
         //get adapter configuration
-        let executioninterval = parseInt(this.config.executioninterval);
-        interval = parseInt(this.config.executioninterval);
-        let insecond = parseInt(this.config.insecond);
-        //this.log.info('Execution interval is every ' + executioninterval + ' minute(s) in second ' + insecond);
-        this.log.info('Calculation will be done every ' + interval + ' seconds');
-        //define chron-job
-        //const calcPos = schedule.scheduleJob('calcPosTimer', `${insecond} */${executioninterval} * * * *`, async () => {
-        //this.calcPosition();
-        //});
+        executioninterval = parseInt(this.config.executioninterval);
+        this.log.info('Calculation will be done every ' + executioninterval + ' seconds');
     }
 
     async calcPosition() {
         try {
             let now = new Date(); 
             let sunpos = suncalc.getPosition(now, lat, long);
+            //store old values to compare in next calculation cycle
             let altitude_old = altitude;
             let azimuth_old = azimuth;
+            //calculate
             altitude = Math.round(sunpos.altitude * 180 / Math.PI);
             azimuth = Math.round(sunpos.azimuth * 180 / Math.PI + 180);
-            //this.log.debug('Altitude: ' + altitude + ' Azimuth: ' + azimuth);
-
+            this.log.silly('Altitude: ' + altitude + ' Azimuth: ' + azimuth);
+            //compare, if there is any change
             if (altitude != altitude_old || azimuth != azimuth_old) {
                 await this.setStateAsync('azimuth', { val: azimuth, ack: true });
                 await this.setStateAsync('altitude', { val: altitude, ack: true });
@@ -85,12 +81,13 @@ class Followthesun extends utils.Adapter {
             } else {
                 this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and azimuth (' + azimuth_old + '|' + azimuth +') did not change');
             }
+            
+            //Timmer
             (function () {if (polling) {clearTimeout(polling); polling = null;}})();
-			// timer
 			polling = setTimeout( () => {
-                this.log.debug('New calculation triggered by polling (every ' + interval + ' seconds)');
+                this.log.debug('New calculation triggered by polling (every ' + executioninterval + ' seconds)');
                 this.calcPosition();
-			}, interval * 1000);
+			}, executioninterval * 1000);
 
         } catch (error) {
             this.log.error(error);
