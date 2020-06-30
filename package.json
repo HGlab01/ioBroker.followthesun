@@ -1,37 +1,31 @@
 {
-  "_from": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f",
-  "_id": "iobroker.followthesun@0.0.3",
-  "_inBundle": false,
-  "_integrity": "sha512-w0T78Wb6s/cMKzcvHDNGmD2MbeEcHtbp6UC3TBxzSO2LD/DjL894wmJ/2vU3wKVjm3xwcKfbVAmsVBtBMuLvBg==",
-  "_location": "/iobroker.followthesun",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "remote",
-    "raw": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f",
-    "rawSpec": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f",
-    "saveSpec": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f",
-    "fetchSpec": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f",
-  "_shasum": "f69ce513ccb28343b7c50ba0906d2d934c9274fc",
-  "_spec": "https://github.com/HGlab01/iobroker.followthesun/tarball/d347d6c582adc3d9220952722e827137ba5ac45f",
-  "_where": "C:\\iobroker",
+  "name": "iobroker.followthesun",
+  "version": "0.0.3",
   "author": {
     "name": "HGlab01",
-    "email": "no@e.mail.at"
+    "email": "iobroker.followthesun@gmail.com"
+  },
+  "license": "MIT",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HGlab01/ioBroker.followthesun.git"
   },
   "bugs": {
     "url": "https://github.com/HGlab01/ioBroker.followthesun/issues"
   },
+  "homepage": "https://github.com/HGlab01/ioBroker.followthesun",
+  "keywords": [
+    "ioBroker",
+    "template",
+    "Smart Home",
+    "home automation"
+  ],
   "bundleDependencies": false,
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
-    "suncalc2": "^1.8.1",
-    "node-schedule": "^1.0.0"
+    "node-schedule": "^1.3.2",
+    "suncalc2": "^1.8.1"
   },
   "deprecated": false,
   "description": "followthesun",
@@ -55,20 +49,6 @@
     "sinon": "^9.0.2",
     "sinon-chai": "^3.5.0"
   },
-  "homepage": "https://github.com/HGlab01/ioBroker.followthesun",
-  "keywords": [
-    "ioBroker",
-    "template",
-    "Smart Home",
-    "home automation"
-  ],
-  "license": "MIT",
-  "main": "main.js",
-  "name": "iobroker.followthesun",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HGlab01/ioBroker.followthesun.git"
-  },
   "scripts": {
     "lint": "eslint",
     "test": "npm run test:js && npm run test:package",
@@ -76,6 +56,5 @@
     "test:js": "mocha --opts test/mocha.custom.opts",
     "test:package": "mocha test/package --exit",
     "test:unit": "mocha test/unit --exit"
-  },
-  "version": "0.0.3"
+  }
 }
