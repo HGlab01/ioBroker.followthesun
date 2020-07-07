@@ -18,6 +18,14 @@ This adapter calculates the current altitude and azimuth of the sun based on the
 It is using the geo-position defined in the configuration. Calculation interval can be defined in instance preferences.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ## __WORK IN PROGRESS__
+-->
+
+### __WORK IN PROGRESS__
+* Did some changes
+* Did some more changes
 
 ### 0.0.4 (Jun. 26, 2020)
 * (HGlab01) switch from CronJob to PollingTimer

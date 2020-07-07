@@ -29,6 +29,7 @@
   "deprecated": false,
   "description": "followthesun",
   "devDependencies": {
+    "@alcalzone/release-script": "^1.6.0",
     "@iobroker/testing": "^2.2.0",
     "@types/chai": "^4.2.11",
     "@types/chai-as-promised": "^7.1.2",
@@ -54,6 +55,7 @@
     "test:integration": "mocha test/integration --exit",
     "test:js": "mocha --opts test/mocha.custom.opts",
     "test:package": "mocha test/package --exit",
-    "test:unit": "mocha test/unit --exit"
+    "test:unit": "mocha test/unit --exit",
+    "release": "release-script"
   }
 }
