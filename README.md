@@ -23,7 +23,7 @@ It is using the geo-position defined in the configuration. Calculation interval 
     ## __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
+### 0.0.5-0 (2020-07-07)
 * Did some changes
 * Did some more changes
 

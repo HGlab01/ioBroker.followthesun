@@ -1,116 +1,128 @@
 {
-  "common": {
-    "name": "followthesun",
-    "version": "0.0.4",
-    "news": {
-      "0.0.4": {
-        "en": "switch from CronJob to PollingTimer"
-      }
+    "common": {
+        "name": "followthesun",
+        "version": "0.0.5-0",
+        "news": {
+            "0.0.5-0": {
+                "en": "Did some changes\nDid some more changes",
+                "de": "Einige Änderungen vorgenommen\nHabe noch ein paar Änderungen vorgenommen",
+                "ru": "Сделал некоторые изменения\nСделал еще несколько изменений",
+                "pt": "Fez algumas mudanças\nFez mais algumas mudanças",
+                "nl": "Heb wat veranderingen aangebracht\nHeeft nog wat veranderingen aangebracht",
+                "fr": "A fait quelques changements\nA fait quelques changements supplémentaires",
+                "it": "Ha apportato alcune modifiche\nHa apportato ulteriori modifiche",
+                "es": "Hizo algunos cambios\nHizo algunos cambios más",
+                "pl": "Zrobiłem kilka zmian\nWprowadziłem kilka zmian",
+                "zh-cn": "做了一些改变\n还有更多变化"
+            },
+            "0.0.4": {
+                "en": "switch from CronJob to PollingTimer"
+            }
+        },
+        "title": "FollowTheSun",
+        "titleLang": {
+            "en": "FollowTheSun",
+            "de": "Folge der Sonne",
+            "ru": "Следуй за Солнцем",
+            "pt": "Siga o sol",
+            "nl": "Volg de zon",
+            "fr": "Suis le soleil",
+            "it": "Segui il sole",
+            "es": "Sigue el sol",
+            "pl": "Podążaj za słońcem",
+            "zh-cn": "跟随太阳"
+        },
+        "desc": {
+            "en": "followthesun",
+            "de": "Folge der Sonne",
+            "ru": "Следуй за Солнцем",
+            "pt": "Siga o sol",
+            "nl": "Volg de zon",
+            "fr": "suis le soleil",
+            "it": "Segui il sole",
+            "es": "sigue el sol",
+            "pl": "Podążaj za słońcem",
+            "zh-cn": "跟随太阳"
+        },
+        "authors": [
+            "HGlab01 <iobroker.followthesun@gmail.com>"
+        ],
+        "keywords": [
+            "ioBroker",
+            "template",
+            "Smart Home",
+            "home automation"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "followthesun.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/HGlab01/ioBroker.followthesun/master/admin/followthesun.png",
+        "readme": "https://github.com/HGlab01/ioBroker.followthesun/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "general",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "poll",
+        "materialize": true,
+        "materializeTab": true,
+        "adminTab": {
+            "singleton": true,
+            "name": {
+                "en": "FollowTheSun",
+                "de": "Folge der Sonne",
+                "ru": "Следуй за Солнцем",
+                "pt": "Siga o sol",
+                "nl": "Volg de zon",
+                "fr": "Suis le soleil",
+                "it": "Segui il sole",
+                "es": "Sigue el sol",
+                "pl": "Podążaj za słońcem",
+                "zh-cn": "跟随太阳"
+            },
+            "link": "",
+            "fa-icon": "info"
+        },
+        "supportCustoms": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ],
+        "installedFrom": "https://www.npmjs.com/package/iobroker.followthesun"
     },
-    "title": "FollowTheSun",
-    "titleLang": {
-      "en": "FollowTheSun",
-      "de": "Folge der Sonne",
-      "ru": "Следуй за Солнцем",
-      "pt": "Siga o sol",
-      "nl": "Volg de zon",
-      "fr": "Suis le soleil",
-      "it": "Segui il sole",
-      "es": "Sigue el sol",
-      "pl": "Podążaj za słońcem",
-      "zh-cn": "跟随太阳"
+    "native": {
+        "executioninterval": "120"
     },
-    "desc": {
-      "en": "followthesun",
-      "de": "Folge der Sonne",
-      "ru": "Следуй за Солнцем",
-      "pt": "Siga o sol",
-      "nl": "Volg de zon",
-      "fr": "suis le soleil",
-      "it": "Segui il sole",
-      "es": "sigue el sol",
-      "pl": "Podążaj za słońcem",
-      "zh-cn": "跟随太阳"
-    },
-    "authors": [
-      "HGlab01 <iobroker.followthesun@gmail.com>"
-    ],
-    "keywords": [
-      "ioBroker",
-      "template",
-      "Smart Home",
-      "home automation"
-    ],
-    "license": "MIT",
-    "platform": "Javascript/Node.js",
-    "main": "main.js",
-    "icon": "followthesun.png",
-    "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/HGlab01/ioBroker.followthesun/master/admin/followthesun.png",
-    "readme": "https://github.com/HGlab01/ioBroker.followthesun/blob/master/README.md",
-    "loglevel": "info",
-    "mode": "daemon",
-    "type": "general",
-    "compact": true,
-    "connectionType": "local",
-    "dataSource": "poll",
-    "materialize": true,
-    "materializeTab": true,
-    "adminTab": {
-      "singleton": true,
-      "name": {
-        "en": "FollowTheSun",
-        "de": "Folge der Sonne",
-        "ru": "Следуй за Солнцем",
-        "pt": "Siga o sol",
-        "nl": "Volg de zon",
-        "fr": "Suis le soleil",
-        "it": "Segui il sole",
-        "es": "Sigue el sol",
-        "pl": "Podążaj za słońcem",
-        "zh-cn": "跟随太阳"
-      },
-      "link": "",
-      "fa-icon": "info"
-    },
-    "supportCustoms": true,
-    "dependencies": [
-      {
-        "js-controller": ">=1.4.2"
-      }
-    ],
-    "installedFrom": "https://www.npmjs.com/package/iobroker.followthesun"
-  },
-  "native": {
-    "executioninterval": "120"
-  },
-  "objects": [],
-  "instanceObjects": [
-    {
-      "_id": "altitude",
-      "type": "state",
-      "common": {
-        "name": "Current altitude of the sun",
-        "type": "number",
-        "role": "indicator",
-        "unit": "°",
-        "read": true,
-        "write": false
-      },
-      "native": {}
-    },
-    {
-      "_id": "azimuth",
-      "type": "state",
-      "common": {
-        "name": "Current altitude of the sun",
-        "type": "number",
-        "role": "indicator",
-        "unit": "°",
-        "read": true,
-        "write": false
-      },
-      "native": {}
-    }
-  ]
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "altitude",
+            "type": "state",
+            "common": {
+                "name": "Current altitude of the sun",
+                "type": "number",
+                "role": "indicator",
+                "unit": "°",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "azimuth",
+            "type": "state",
+            "common": {
+                "name": "Current altitude of the sun",
+                "type": "number",
+                "role": "indicator",
+                "unit": "°",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
 }
