@@ -24,8 +24,7 @@ It is using the geo-position defined in the configuration. Calculation interval 
 -->
 
 ### 0.0.5-0 (2020-07-07)
-* Did some changes
-* Did some more changes
+* (HGlab01) add @alcalzone/release-script
 
 ### 0.0.4 (Jun. 26, 2020)
 * (HGlab01) switch from CronJob to PollingTimer

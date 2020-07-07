@@ -4,16 +4,7 @@
         "version": "0.0.5-0",
         "news": {
             "0.0.5-0": {
-                "en": "Did some changes\nDid some more changes",
-                "de": "Einige Änderungen vorgenommen\nHabe noch ein paar Änderungen vorgenommen",
-                "ru": "Сделал некоторые изменения\nСделал еще несколько изменений",
-                "pt": "Fez algumas mudanças\nFez mais algumas mudanças",
-                "nl": "Heb wat veranderingen aangebracht\nHeeft nog wat veranderingen aangebracht",
-                "fr": "A fait quelques changements\nA fait quelques changements supplémentaires",
-                "it": "Ha apportato alcune modifiche\nHa apportato ulteriori modifiche",
-                "es": "Hizo algunos cambios\nHizo algunos cambios más",
-                "pl": "Zrobiłem kilka zmian\nWprowadziłem kilka zmian",
-                "zh-cn": "做了一些改变\n还有更多变化"
+                "en": "(HGlab01) add @alcalzone/release-script"
             },
             "0.0.4": {
                 "en": "switch from CronJob to PollingTimer"
