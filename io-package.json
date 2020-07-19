@@ -81,8 +81,7 @@
             {
                 "js-controller": ">=1.4.2"
             }
-        ],
-        "installedFrom": "https://www.npmjs.com/package/iobroker.followthesun"
+        ]
     },
     "native": {
         "executioninterval": "120"
