@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.0.6-0",
+        "version": "0.0.7-0",
         "news": {
+            "0.0.7-0": {
+                "en": "nothing",
+                "de": "nichts",
+                "ru": "ничего",
+                "pt": "nada",
+                "nl": "niets",
+                "fr": "rien",
+                "it": "Niente",
+                "es": "nada",
+                "pl": "nic",
+                "zh-cn": "没有"
+            },
             "0.0.6-0": {
                 "en": "dependency update\nadd @alcalzone/release-script",
                 "de": "Abhängigkeitsaktualisierung\nfüge @ alcalzone / release-script hinzu",
