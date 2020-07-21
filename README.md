@@ -23,7 +23,7 @@ It is using the geo-position defined in the configuration. Calculation interval 
     ## __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
+### 0.0.6-0 (2020-07-21)
 * (HGlab01) dependency update
 * (HGlab01) add @alcalzone/release-script
 
