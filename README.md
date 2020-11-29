@@ -23,24 +23,8 @@ It is using the geo-position defined in the configuration. Calculation interval 
     ## __WORK IN PROGRESS__
 -->
 
-### 0.0.7-0 (2020-07-21)
-* (HGlab01) nothing
-
-### 0.0.6-0 (2020-07-21)
-* (HGlab01) dependency update
-* (HGlab01) add @alcalzone/release-script
-
-### 0.0.4 (Jun. 26, 2020)
-* (HGlab01) switch from CronJob to PollingTimer
-
-### 0.0.3 (Jun. 26, 2020)
-* (HGlab01) CI Travis integrated 
-
-### 0.0.2 (Jun. 25, 2020)
-* (HGlab01) Improvments to be added to latest repository
-
-### 0.0.1 (Jun. 24, 2020)
-* (HGlab01) First version
+### __WORK IN PROGRESS__
+* (HGlab01) prepare first beta release
 
 ## License
 MIT License

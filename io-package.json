@@ -2,41 +2,11 @@
     "common": {
         "name": "followthesun",
         "version": "0.0.7-0",
-        "news": {
-            "0.0.7-0": {
-                "en": "nothing",
-                "de": "nichts",
-                "ru": "ничего",
-                "pt": "nada",
-                "nl": "niets",
-                "fr": "rien",
-                "it": "Niente",
-                "es": "nada",
-                "pl": "nic",
-                "zh-cn": "没有"
-            },
-            "0.0.6-0": {
-                "en": "dependency update\nadd @alcalzone/release-script",
-                "de": "Abhängigkeitsaktualisierung\nfüge @ alcalzone / release-script hinzu",
-                "ru": "обновление зависимостей\nadd @ alcalzone / release-script",
-                "pt": "atualização de dependência\nadd @ alcalzone / release-script",
-                "nl": "afhankelijkheidsupdate\nvoeg @ alcalzone / release-script toe",
-                "fr": "mise à jour des dépendances\najouter @ alcalzone / release-script",
-                "it": "aggiornamento delle dipendenze\naggiungi @ alcalzone / release-script",
-                "es": "actualización de dependencia\nagregar @ alcalzone / release-script",
-                "pl": "aktualizacja zależności\nadd @ alcalzone / release-script",
-                "zh-cn": "依赖更新\n添加@ alcalzone / release-script"
-            },
-            "0.0.5-0": {
-                "en": "(HGlab01) add @alcalzone/release-script"
-            },
-            "0.0.4": {
-                "en": "switch from CronJob to PollingTimer"
-            }
+        "news": {}
         },
         "title": "FollowTheSun",
         "titleLang": {
-            "en": "FollowTheSun",
+            "en": "Follow the sun",
             "de": "Folge der Sonne",
             "ru": "Следуй за Солнцем",
             "pt": "Siga o sol",
@@ -48,7 +18,7 @@
             "zh-cn": "跟随太阳"
         },
         "desc": {
-            "en": "followthesun",
+            "en": "Follow the sun",
             "de": "Folge der Sonne",
             "ru": "Следуй за Солнцем",
             "pt": "Siga o sol",
@@ -64,9 +34,9 @@
         ],
         "keywords": [
             "ioBroker",
-            "template",
             "Smart Home",
-            "home automation"
+            "home automation",
+            "sun position"
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
