@@ -14,18 +14,6 @@
                 "es": "preparar la primera versión beta",
                 "pl": "przygotować pierwszą wersję beta",
                 "zh-cn": "准备第一个Beta版本"
-            },
-            "0.0.7-0": {
-                "en": "nothing",
-                "de": "nichts",
-                "ru": "ничего",
-                "pt": "nada",
-                "nl": "niets",
-                "fr": "rien",
-                "it": "Niente",
-                "es": "nada",
-                "pl": "nic",
-                "zh-cn": "没有"
             }
         },
         "title": "FollowTheSun",
