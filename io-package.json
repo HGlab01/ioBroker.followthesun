@@ -2,11 +2,23 @@
     "common": {
         "name": "followthesun",
         "version": "0.0.7-0",
-        "news": {}
+        "news": {
+            "0.0.7-0": {
+                "en": "nothing",
+                "de": "nichts",
+                "ru": "ничего",
+                "pt": "nada",
+                "nl": "niets",
+                "fr": "rien",
+                "it": "Niente",
+                "es": "nada",
+                "pl": "nic",
+                "zh-cn": "没有"
+            }
         },
         "title": "FollowTheSun",
         "titleLang": {
-            "en": "Follow the sun",
+            "en": "Follow The Sun",
             "de": "Folge der Sonne",
             "ru": "Следуй за Солнцем",
             "pt": "Siga o sol",
@@ -34,9 +46,9 @@
         ],
         "keywords": [
             "ioBroker",
+            "sun position",
             "Smart Home",
-            "home automation",
-            "sun position"
+            "home automation"
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
