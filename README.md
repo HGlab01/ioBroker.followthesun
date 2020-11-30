@@ -23,7 +23,7 @@ It is using the geo-position defined in the configuration. Calculation interval 
     ### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
+### 0.1.0 (2020-11-30)
 * (HGlab01) first beta release
 
 ### 0.0.7-0 (2020-07-21)

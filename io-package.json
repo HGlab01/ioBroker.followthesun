@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.1.0-5",
+        "version": "0.1.0",
         "news": {
+            "0.1.0": {
+                "en": "first beta release",
+                "de": "erste Beta-Version",
+                "ru": "первая бета-версия",
+                "pt": "primeiro lançamento beta",
+                "nl": "eerste bètaversie",
+                "fr": "première version bêta",
+                "it": "prima versione beta",
+                "es": "primera versión beta",
+                "pl": "pierwsze wydanie beta",
+                "zh-cn": "第一个测试版"
+            },
             "0.1.0-5": {
                 "en": "Prepare first beta release",
                 "de": "Vorbereitung für erste Beta-Version",
