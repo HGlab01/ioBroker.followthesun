@@ -10,10 +10,13 @@ const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
 const suncalc = require("suncalc2");
-//const schedule = require('node-schedule');
-let lat, long, azimuth, altitude;
+
+//global variables
+let latitude, longitude;
+let azimuth = 0;
+let altitude = 0;
 let polling = null;
-let executioninterval;
+let executioninterval=0;
 
 
 class Followthesun extends utils.Adapter {
@@ -52,10 +55,10 @@ class Followthesun extends utils.Adapter {
             if (err || !obj) {
                 this.log.error('Adapter could not read latitude/longitude from system config!');
             } else {
-                lat = obj.common.latitude;
-                long = obj.common.longitude;
-                this.log.debug('LATITUDE from config: ' + lat);
-                this.log.debug('LONGITUDE from config: ' + long);
+                latitude = obj.common.latitude;
+                longitude = obj.common.longitude;
+                this.log.debug('LATITUDE from config: ' + latitude);
+                this.log.debug('LONGITUDE from config: ' + longitude);
                 //start calculation
                 this.calcPosition();
             }
@@ -65,7 +68,7 @@ class Followthesun extends utils.Adapter {
     async calcPosition() {
         try {
             let now = new Date(); 
-            let sunpos = suncalc.getPosition(now, lat, long);
+            let sunpos = suncalc.getPosition(now, latitude, longitude);
             //store old values to compare in next calculation cycle
             let altitude_old = altitude;
             let azimuth_old = azimuth;
@@ -85,7 +88,7 @@ class Followthesun extends utils.Adapter {
             //Timmer
             (function () {if (polling) {clearTimeout(polling); polling = null;}})();
 			polling = setTimeout( () => {
-                this.log.debug('New calculation triggered by polling (every ' + executioninterval + ' seconds)');
+                this.log.debug(`New calculation triggered by polling (every ${executioninterval} seconds)`);
                 this.calcPosition();
 			}, executioninterval * 1000);
 
