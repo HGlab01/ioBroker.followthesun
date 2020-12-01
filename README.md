@@ -10,7 +10,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.followthesun.png?downloads=true)](https://nodei.co/npm/iobroker.followthesun/)
 
-**Tests:** ![Test and Release](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
+![Test and Release](https://github.com/HGlab01/ioBroker.followthesun/workflows/Test%20and%20Release/badge.svg)
 
 ## followthesun adapter for ioBroker
 
