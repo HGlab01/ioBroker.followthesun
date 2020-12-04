@@ -79,25 +79,6 @@
         "connectionType": "local",
         "dataSource": "poll",
         "materialize": true,
-        "materializeTab": true,
-        "adminTab": {
-            "singleton": true,
-            "name": {
-                "en": "FollowTheSun",
-                "de": "Folge der Sonne",
-                "ru": "Следуй за Солнцем",
-                "pt": "Siga o sol",
-                "nl": "Volg de zon",
-                "fr": "Suis le soleil",
-                "it": "Segui il sole",
-                "es": "Sigue el sol",
-                "pl": "Podążaj za słońcem",
-                "zh-cn": "跟随太阳"
-            },
-            "link": "",
-            "fa-icon": "info"
-        },
-        "supportCustoms": true,
         "dependencies": [
             {
                 "js-controller": ">=1.4.2"
@@ -110,12 +91,12 @@
     "objects": [],
     "instanceObjects": [
         {
-            "_id": "altitude",
+            "_id": "current.altitude",
             "type": "state",
             "common": {
                 "name": "Current altitude of the sun",
                 "type": "number",
-                "role": "indicator",
+                "role": "value",
                 "unit": "°",
                 "read": true,
                 "write": false
@@ -123,13 +104,52 @@
             "native": {}
         },
         {
-            "_id": "azimuth",
+            "_id": "current.azimuth",
             "type": "state",
             "common": {
                 "name": "Current azimuth of the sun",
                 "type": "number",
-                "role": "indicator",
+                "role": "value",
                 "unit": "°",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "current.compass_direction",
+            "type": "state",
+            "common": {
+                "name": "Current compass direction of the sun",
+                "type": "number",
+                "role": "value",
+                "unit": "",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "current.movement",
+            "type": "state",
+            "common": {
+                "name": "Movement of the sun",
+                "type": "string",
+                "role": "value",
+                "unit": "",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "lastupdate",
+            "type": "state",
+            "common": {
+                "name": "Last update",
+                "type": "number",
+                "role": "value.time",
+                "unit": "",
                 "read": true,
                 "write": false
             },
