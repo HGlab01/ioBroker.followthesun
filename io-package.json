@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.0-0",
+        "version": "0.2.0-1",
         "news": {
+            "0.2.0-1": {
+                "en": "update dependecies\nsolar-noon information",
+                "de": "Abhängigkeiten aktualisieren\nInformationen zum Sonnenmittag",
+                "ru": "обновить зависимости\nинформация о солнечном полдень",
+                "pt": "atualizar dependências\ninformações do meio-dia solar",
+                "nl": "update afhankelijkheden\nzonne-middag informatie",
+                "fr": "mettre à jour les dépendances\ninformations sur le midi solaire",
+                "it": "aggiorna dipendenze\ninformazioni di mezzogiorno solare",
+                "es": "actualizar dependencias\ninformación del mediodía solar",
+                "pl": "Zaktualizuj zależności\ninformacje o południu słonecznym",
+                "zh-cn": "更新依赖\n日中信息"
+            },
             "0.2.0-0": {
                 "en": "update dependecies\nsolar-noon information",
                 "de": "Abhängigkeiten aktualisieren\nInformationen zum Sonnenmittag",
