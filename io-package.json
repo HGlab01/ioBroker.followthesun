@@ -3,18 +3,6 @@
         "name": "followthesun",
         "version": "0.2.0",
         "news": {
-            "0.2.0": {
-                "en": "update dependecies\nadd solar-noon information\nadd compass information",
-                "de": "Abhängigkeiten aktualisieren\nFügen Sie Informationen zum Sonnenmittag hinzu\nKompassinformationen hinzufügen",
-                "ru": "обновить зависимости\nдобавить информацию о солнечном полдень\nдобавить информацию о компасе",
-                "pt": "atualizar dependências\nadicionar informações do meio-dia solar\nadicionar informações da bússola",
-                "nl": "update afhankelijkheden\ninformatie over zonne-middag toevoegen\nkompasinformatie toevoegen",
-                "fr": "mettre à jour les dépendances\najouter des informations sur le midi solaire\najouter des informations sur la boussole",
-                "it": "aggiorna dipendenze\naggiungere informazioni sul mezzogiorno solare\naggiungere le informazioni sulla bussola",
-                "es": "actualizar dependencias\nagregar información del mediodía solar\nagregar información de la brújula",
-                "pl": "Zaktualizuj zależności\ndodaj informacje o południu słonecznym\ndodaj informacje o kompasie",
-                "zh-cn": "更新依赖\n添加星期日信息\n添加指南针信息"
-            },
             "0.1.0": {
                 "en": "first beta release",
                 "de": "erste Beta-Version",
