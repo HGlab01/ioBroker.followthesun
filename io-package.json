@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.1.0",
+        "version": "0.2.0",
         "news": {
+            "0.2.0": {
+                "en": "update dependecies\nadd solar-noon information\nadd compass information",
+                "de": "Abhängigkeiten aktualisieren\nFügen Sie Informationen zum Sonnenmittag hinzu\nKompassinformationen hinzufügen",
+                "ru": "обновить зависимости\nдобавить информацию о солнечном полдень\nдобавить информацию о компасе",
+                "pt": "atualizar dependências\nadicionar informações do meio-dia solar\nadicionar informações da bússola",
+                "nl": "update afhankelijkheden\ninformatie over zonne-middag toevoegen\nkompasinformatie toevoegen",
+                "fr": "mettre à jour les dépendances\najouter des informations sur le midi solaire\najouter des informations sur la boussole",
+                "it": "aggiorna dipendenze\naggiungere informazioni sul mezzogiorno solare\naggiungere le informazioni sulla bussola",
+                "es": "actualizar dependencias\nagregar información del mediodía solar\nagregar información de la brújula",
+                "pl": "Zaktualizuj zależności\ndodaj informacje o południu słonecznym\ndodaj informacje o kompasie",
+                "zh-cn": "更新依赖\n添加星期日信息\n添加指南针信息"
+            },
             "0.1.0": {
                 "en": "first beta release",
                 "de": "erste Beta-Version",
@@ -14,21 +26,6 @@
                 "es": "primera versión beta",
                 "pl": "pierwsze wydanie beta",
                 "zh-cn": "第一个测试版"
-            },
-            "0.1.0-5": {
-                "en": "Prepare first beta release",
-                "de": "Vorbereitung für erste Beta-Version",
-                "ru": "подготовить первую бета-версию",
-                "pt": "preparar o primeiro lançamento beta",
-                "nl": "bereid de eerste bètaversie voor",
-                "fr": "préparer la première version bêta",
-                "it": "preparare la prima versione beta",
-                "es": "preparar la primera versión beta",
-                "pl": "przygotować pierwszą wersję beta",
-                "zh-cn": "准备第一个Beta版本"
-            },
-            "0.0.7-0": {
-                "en": "Alpha version"
             }
         },
         "title": "FollowTheSun",
@@ -79,25 +76,6 @@
         "connectionType": "local",
         "dataSource": "poll",
         "materialize": true,
-        "materializeTab": true,
-        "adminTab": {
-            "singleton": true,
-            "name": {
-                "en": "FollowTheSun",
-                "de": "Folge der Sonne",
-                "ru": "Следуй за Солнцем",
-                "pt": "Siga o sol",
-                "nl": "Volg de zon",
-                "fr": "Suis le soleil",
-                "it": "Segui il sole",
-                "es": "Sigue el sol",
-                "pl": "Podążaj za słońcem",
-                "zh-cn": "跟随太阳"
-            },
-            "link": "",
-            "fa-icon": "info"
-        },
-        "supportCustoms": true,
         "dependencies": [
             {
                 "js-controller": ">=1.4.2"
@@ -110,12 +88,12 @@
     "objects": [],
     "instanceObjects": [
         {
-            "_id": "altitude",
+            "_id": "current.altitude",
             "type": "state",
             "common": {
                 "name": "Current altitude of the sun",
                 "type": "number",
-                "role": "indicator",
+                "role": "value",
                 "unit": "°",
                 "read": true,
                 "write": false
@@ -123,13 +101,52 @@
             "native": {}
         },
         {
-            "_id": "azimuth",
+            "_id": "current.azimuth",
             "type": "state",
             "common": {
                 "name": "Current azimuth of the sun",
                 "type": "number",
-                "role": "indicator",
+                "role": "value",
                 "unit": "°",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "current.compass_direction",
+            "type": "state",
+            "common": {
+                "name": "Current compass direction of the sun",
+                "type": "number",
+                "role": "value",
+                "unit": "",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "current.movement",
+            "type": "state",
+            "common": {
+                "name": "Movement of the sun",
+                "type": "string",
+                "role": "value",
+                "unit": "",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "current.lastupdate",
+            "type": "state",
+            "common": {
+                "name": "Last update",
+                "type": "number",
+                "role": "value.time",
+                "unit": "",
                 "read": true,
                 "write": false
             },

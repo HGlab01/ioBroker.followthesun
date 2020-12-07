@@ -23,6 +23,11 @@ It is using the geo-position defined in the configuration. Calculation interval 
     ### __WORK IN PROGRESS__
 -->
 
+### 0.2.0 (2020-12-07)
+* (HGlab01) update dependecies
+* (HGlab01) add solar-noon information
+* (HGlab01) add compass information
+
 ### 0.1.0 (2020-11-30)
 * (HGlab01) first beta release
 
