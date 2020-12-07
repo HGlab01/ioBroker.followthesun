@@ -32,7 +32,7 @@ class Followthesun extends utils.Adapter {
         });
         this.on('ready', this.onReady.bind(this));
         //this.on('objectChange', this.onObjectChange.bind(this));
-        //this.on('stateChange', this.onStateChange.bind(this));
+        this.on('stateChange', this.onStateChange.bind(this));
         //this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this)); 
     }
@@ -221,7 +221,7 @@ class Followthesun extends utils.Adapter {
         } else {
             this.setStateAsync('current.movement', { val: 'sunset', ack: true });
         }
-        this.setStateAsync('lastupdate', { val: now, ack: true });
+        this.setStateAsync('current.lastupdate', { val: now, ack: true });
     }
 
     /**

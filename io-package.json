@@ -167,7 +167,7 @@
             "native": {}
         },
         {
-            "_id": "lastupdate",
+            "_id": "current.lastupdate",
             "type": "state",
             "common": {
                 "name": "Last update",
