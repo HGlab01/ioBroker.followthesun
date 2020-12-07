@@ -75,7 +75,7 @@ class Followthesun extends utils.Adapter {
 
     async CalcSunData() {
         try {
-            this.log.info('Run CalcSunData');
+            this.log.debug('Run CalcSunData');
             let now = new Date();
             let thisyear = now.getFullYear();
             let nextyear = thisyear + 1;
@@ -172,7 +172,7 @@ class Followthesun extends utils.Adapter {
 
     async calcPosition() {
         try {
-            this.log.info('Run calcPosition');
+            this.log.debug('Run calcPosition');
             let now = new Date();
             let sunpos = await suncalc.getPosition(now, latitude, longitude);
             //store old values to compare in next calculation cycle
