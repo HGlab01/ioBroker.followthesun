@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.1",
+        "version": "0.2.2",
         "news": {
+            "0.2.2": {
+                "en": "Decrease log-level",
+                "de": "Log-Level verringern",
+                "ru": "Уменьшить уровень журнала",
+                "pt": "Diminuir o nível de registro",
+                "nl": "Verlaag het log-niveau",
+                "fr": "Diminuer le niveau de journalisation",
+                "it": "Diminuisci il livello di registro",
+                "es": "Disminuir el nivel de registro",
+                "pl": "Zmniejsz poziom dziennika",
+                "zh-cn": "降低日志级别"
+            },
             "0.2.1": {
                 "en": "update dependecies\nadd solar-noon information\nadd compass information",
                 "de": "Abhängigkeiten aktualisieren\nFügen Sie Informationen zum Sonnenmittag hinzu\nKompassinformationen hinzufügen",

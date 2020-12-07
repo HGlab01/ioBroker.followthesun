@@ -23,7 +23,7 @@ It is using the geo-position defined in the configuration. Calculation interval 
     ### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
+### 0.2.2 (2020-12-07)
 * (HGlab01) Decrease log-level
 
 ### 0.2.1 (2020-12-07)
