@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.3",
+        "version": "0.2.4",
         "news": {
+            "0.2.4": {
+                "en": "Prepare for stable repository",
+                "de": "Bereiten Sie sich auf ein stabiles Repository vor",
+                "ru": "Подготовить стабильный репозиторий",
+                "pt": "Prepare-se para um repositório estável",
+                "nl": "Bereid je voor op een stabiele opslagplaats",
+                "fr": "Préparez-vous à un référentiel stable",
+                "it": "Preparati per un repository stabile",
+                "es": "Prepárese para un repositorio estable",
+                "pl": "Przygotuj się na stabilne repozytorium",
+                "zh-cn": "准备稳定的存储库"
+            },
             "0.2.3": {
                 "en": "Update dependencies\nChange type to \"general\"",
                 "de": "Abhängigkeiten aktualisieren\nÄndern Sie den Typ in \"Allgemein\".",
