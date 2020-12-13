@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.2",
+        "version": "0.2.3",
         "news": {
+            "0.2.3": {
+                "en": "Update dependencies\nChange type to \"general\"",
+                "de": "Abhängigkeiten aktualisieren\nÄndern Sie den Typ in \"Allgemein\".",
+                "ru": "Обновить зависимости\nИзмените тип на \"общий\"",
+                "pt": "Atualizar dependências\nAlterar o tipo para \"geral\"",
+                "nl": "Update afhankelijkheden\nWijzig het type in \"algemeen\"",
+                "fr": "Mettre à jour les dépendances\nChanger le type en \"général\"",
+                "it": "Aggiorna le dipendenze\nCambia il tipo in \"generale\"",
+                "es": "Actualizar dependencias\nCambiar el tipo a \"general\"",
+                "pl": "Zaktualizuj zależności\nZmień typ na „ogólny”",
+                "zh-cn": "更新依赖\n将类型更改为“常规”"
+            },
             "0.2.2": {
                 "en": "Decrease log-level",
                 "de": "Log-Level verringern",
