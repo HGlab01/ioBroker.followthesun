@@ -83,7 +83,7 @@
         "readme": "https://github.com/HGlab01/ioBroker.followthesun/blob/master/README.md",
         "loglevel": "info",
         "mode": "daemon",
-        "type": "general",
+        "type": "geoposition",
         "compact": true,
         "connectionType": "local",
         "dataSource": "poll",
