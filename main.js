@@ -147,11 +147,11 @@ class Followthesun extends utils.Adapter {
                 });
                 // @ts-ignore
                 await this.setObjectNotExistsAsync([i] + '.solarnoon_altitude', {
-                    "type": "state", common: {name: 'solarnoon altitude', "role": "value"}, native: {},
+                    "type": "state", common: {name: 'solarnoon altitude', "role": "value", "unit": "°"}, native: {},
                 });
                 // @ts-ignore
                 await this.setObjectNotExistsAsync([i] + '.solarnoon_azimuth', {
-                    "type": "state", common: {name: 'solarnoon azimuth', "role": "value"}, native: {},
+                    "type": "state", common: {name: 'solarnoon azimuth', "role": "value", "unit": "°"}, native: {},
 				});
             }
             todaySolorNoonTime = sunData['short term.today'].solarNoon;
