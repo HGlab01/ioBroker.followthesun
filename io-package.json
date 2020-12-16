@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.4",
+        "version": "0.2.5",
         "news": {
+            "0.2.5": {
+                "en": "add unit to solarnoon-values (issue #30)",
+                "de": "Einheit zu Solarnoon-Werten hinzufügen (Ausgabe Nr. 30)",
+                "ru": "добавить единицу к солнечным полуденным значениям (проблема # 30)",
+                "pt": "adicionar unidade aos valores solarnoon (edição # 30)",
+                "nl": "eenheid toevoegen aan solarnoon-waarden (probleem # 30)",
+                "fr": "ajouter une unité aux valeurs solarnoon (issue # 30)",
+                "it": "aggiungi unità ai valori del pomeriggio solare (numero 30)",
+                "es": "agregar unidad a los valores de la tarde solar (número 30)",
+                "pl": "dodaj jednostkę do wartości słonecznych (numer 30)",
+                "zh-cn": "将单位添加到日升值（issue＃30）"
+            },
             "0.2.4": {
                 "en": "Prepare for stable repository",
                 "de": "Bereiten Sie sich auf ein stabiles Repository vor",
