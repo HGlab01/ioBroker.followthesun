@@ -3,8 +3,8 @@ name: Enhancement Request
 about: Request new functionality
 title: ''
 labels: 'enhancement'
-assignees: 'HGlab01'
---
+assignees: 'DutchmanNL'
+---
 
 **!!! Before you start !!!!**  
 Verify if there is not already an issue requesting the same Enhancement
