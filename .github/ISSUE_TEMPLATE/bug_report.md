@@ -2,8 +2,8 @@
 name: Bug report
 about: Something is not working as it should
 title: ''
-labels: ''
-assignees: ''
+labels: 'bug'
+assignees: 'HGlab01'
 ---
 
 **Describe the bug**  
