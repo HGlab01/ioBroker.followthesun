@@ -2,8 +2,9 @@
 name: Enhancement Request
 about: Request new functionality
 title: ''
-labels: 'enhancement'
-assignees: 'HGlab01'
+labels: enhancement
+assignees: HGlab01
+
 ---
 
 **!!! Before you start !!!!**  
