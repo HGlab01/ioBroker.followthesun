@@ -23,6 +23,9 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.2.6-0 (2020-12-25)
+* (HGlab01)
+
 ### 0.2.5 (2020-12-16)
 * (HGlab01) add unit to solarnoon-values (issue #30)
 
