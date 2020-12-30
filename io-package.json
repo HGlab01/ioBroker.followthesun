@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.5",
+        "version": "0.2.6",
         "news": {
+            "0.2.6": {
+                "en": "implement license check provided by app.fossa.com",
+                "de": "Implementieren Sie die Lizenzprüfung von app.fossa.com",
+                "ru": "реализовать проверку лицензии, предоставленную app.fossa.com",
+                "pt": "implementar verificação de licença fornecida por app.fossa.com",
+                "nl": "de licentiecontrole van app.fossa.com implementeren",
+                "fr": "implémenter la vérification de licence fournie par app.fossa.com",
+                "it": "implementare il controllo della licenza fornito da app.fossa.com",
+                "es": "implementar la verificación de licencia proporcionada por app.fossa.com",
+                "pl": "wdrożyć kontrolę licencji dostarczoną przez app.fossa.com",
+                "zh-cn": "实施app.fossa.com提供的许可证检查"
+            },
             "0.2.5": {
                 "en": "add unit to solarnoon-values (issue #30)",
                 "de": "Einheit zu Solarnoon-Werten hinzufügen (Ausgabe Nr. 30)",
