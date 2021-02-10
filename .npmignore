@@ -33,3 +33,6 @@ admin/i18n
 
 # maintenance scripts
 maintenance/**
+
+# npm package files
+iobroker*.tgz

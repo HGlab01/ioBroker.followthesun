@@ -216,10 +216,16 @@ class Followthesun extends utils.Adapter {
         this.setStateAsync('current.compass_direction', { val: sunPositon, ack: true });
         this.log.debug(`Sunposition is ${sunPositon}`);
 
+        this.log.debug(`NOW: ${now}`);
+        this.log.debug(`TODAYSOLARNOON: ${todaySolorNoonTime}`);
+
+
         if (now < todaySolorNoonTime) {
             this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+            this.log.debug(`Sunrise set`);
         } else {
             this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+            this.log.debug(`Sunset set`);
         }
         this.setStateAsync('current.lastupdate', { val: now, ack: true });
     }
