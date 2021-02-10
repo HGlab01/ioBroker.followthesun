@@ -24,7 +24,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     ### __WORK IN PROGRESS__
 -->
 
-### 0.2.6-1 (2021-02-10)
+### 0.2.6-2 (2021-02-10)
 * (HGlab01)
 
 ### 0.2.5 (2020-12-16)

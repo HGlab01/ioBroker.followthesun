@@ -16,7 +16,8 @@ const schedule = require('node-schedule');
 //global variables
 let latitude, longitude;
 let azimuth, altitude;
-let todaySolorNoonTime;
+let todaySolarNoonTime;
+let todayNadirTime;
 let polling = null;
 let executioninterval=0;
 
@@ -154,7 +155,8 @@ class Followthesun extends utils.Adapter {
                     "type": "state", common: {name: 'solarnoon azimuth', "role": "value", "unit": "°"}, native: {},
 				});
             }
-            todaySolorNoonTime = sunData['short term.today'].solarNoon;
+            todaySolarNoonTime = sunData['short term.today'].solarNoon;
+            todayNadirTime = sunData['short term.today'].nadir;
             
             for (let i in sunData) {
                 altitudes[i] = {};
@@ -216,17 +218,35 @@ class Followthesun extends utils.Adapter {
         this.setStateAsync('current.compass_direction', { val: sunPositon, ack: true });
         this.log.debug(`Sunposition is ${sunPositon}`);
 
-        this.log.debug(`NOW: ${now}`);
-        this.log.debug(`TODAYSOLARNOON: ${todaySolorNoonTime}`);
+        let NowInMinutes = now.getHours() * 60 + now.getMinutes() + now.getSeconds() / 60;
+        let SolarNoonInMinutes = todaySolarNoonTime.getHours() * 60 + todaySolarNoonTime.getMinutes() + todaySolarNoonTime.getSeconds() / 60;
+        let NadirInMinutes = todayNadirTime.getHours() * 60 + todayNadirTime.getMinutes() + todayNadirTime.getSeconds() / 60;
 
+        this.log.debug(`NowInMinutes: ${NowInMinutes}`);
+        this.log.debug(`SolarNoonInMinutes: ${SolarNoonInMinutes}`);
+        this.log.debug(`NadirInMinutes: ${NadirInMinutes}`);
 
-        if (now < todaySolorNoonTime) {
-            this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
-            this.log.debug(`Sunrise set`);
-        } else {
-            this.setStateAsync('current.movement', { val: 'sunset', ack: true });
-            this.log.debug(`Sunset set`);
+        if (NadirInMinutes < 180) { //Sun is in the lowest position after midnight
+            this.log.debug(`Sun is in the lowest position after midnight`);
+            if (NowInMinutes > NadirInMinutes && NowInMinutes < SolarNoonInMinutes) {
+                this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+                this.log.debug(`Sunrise set`);
+            } else {
+                this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+                this.log.debug(`Sunset set`);
+            }
         }
+        else { //Sun is in the lowest position before midnight
+            this.log.debug(`Sun is in the lowest position before midnight`);
+            if ((NowInMinutes > NadirInMinutes || NowInMinutes > 0) && (NowInMinutes < SolarNoonInMinutes)) {
+                this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+                this.log.debug(`Sunrise set`);
+            } else {
+                this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+                this.log.debug(`Sunset set`);
+            }
+        }
+
         this.setStateAsync('current.lastupdate', { val: now, ack: true });
     }
 
