@@ -17,9 +17,11 @@
   "homepage": "https://github.com/HGlab01/ioBroker.followthesun",
   "keywords": [
     "ioBroker",
-    "template",
-    "Smart Home",
-    "home automation"
+    "solar",
+    "altitude",
+    "azimuth",
+    "sun",
+    "sun position"
   ],
   "bundleDependencies": false,
   "dependencies": {
