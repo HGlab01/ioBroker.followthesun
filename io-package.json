@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.7-0",
+        "version": "0.2.7",
         "news": {
+            "0.2.7": {
+                "en": "Fix sun-movement bug (#61)\nOptimize keywords\nBump node-schedule from 1.3.2 to 2.0.x",
+                "de": "Behebung des Sonnenbewegungsfehlers (# 61)\nSchlüsselwörter optimieren\nBump Node-Schedule von 1.3.2 bis 2.0.x.",
+                "ru": "Исправить ошибку движения солнца (# 61)\nОптимизировать ключевые слова\nУвеличить расписание узлов с 1.3.2 до 2.0.x",
+                "pt": "Corrigir bug do movimento do sol (# 61)\nOtimize palavras-chave\nBump node-schedule de 1.3.2 a 2.0.x",
+                "nl": "Bug in beweging van de zon repareren (# 61)\nOptimaliseer zoekwoorden\nBump node-schema van 1.3.2 naar 2.0.x",
+                "fr": "Correction d'un bug de mouvement du soleil (# 61)\nOptimiser les mots clés\nBump node-schedule de 1.3.2 à 2.0.x",
+                "it": "Risolto bug del movimento solare (# 61)\nOttimizza le parole chiave\nBump della pianificazione del nodo da 1.3.2 a 2.0.x",
+                "es": "Corregir error de movimiento solar (# 61)\nOptimizar palabras clave\nBump node-schedule de 1.3.2 a 2.0.x",
+                "pl": "Napraw błąd ruchu słońca (# 61)\nOptymalizuj słowa kluczowe\nZmień harmonogram węzłów z 1.3.2 na 2.0.x",
+                "zh-cn": "修复日晒错误（＃61）\n优化关键字\n将节点计划从1.3.2过渡到2.0.x"
+            },
             "0.2.7-0": {
                 "en": "Fix sun-movement bug (#61)",
                 "de": "Behebung des Sonnenbewegungsfehlers (# 61)",
