@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.6",
+        "version": "0.2.7-0",
         "news": {
+            "0.2.7-0": {
+                "en": "Fix sun-movement bug (#61)",
+                "de": "Behebung des Sonnenbewegungsfehlers (# 61)",
+                "ru": "Исправить ошибку движения солнца (# 61)",
+                "pt": "Corrigir bug do movimento do sol (# 61)",
+                "nl": "Bug in beweging van de zon repareren (# 61)",
+                "fr": "Correction d'un bug de mouvement du soleil (# 61)",
+                "it": "Risolto bug del movimento solare (# 61)",
+                "es": "Corregir error de movimiento solar (# 61)",
+                "pl": "Napraw błąd ruchu słońca (# 61)",
+                "zh-cn": "修复日晒错误（＃61）"
+            },
             "0.2.6": {
                 "en": "implement license check provided by app.fossa.com",
                 "de": "Implementieren Sie die Lizenzprüfung von app.fossa.com",
