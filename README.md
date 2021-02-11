@@ -23,6 +23,9 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (HGlab01) Fix sun-movement bug (#61)
+
 ### 0.2.6 (2020-12-30)
 * (HGlab01) implement license check provided by app.fossa.com
 

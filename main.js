@@ -16,9 +16,11 @@ const schedule = require('node-schedule');
 //global variables
 let latitude, longitude;
 let azimuth, altitude;
-let todaySolorNoonTime;
+let todaySolarNoonTime;
+let todayNadirTime;
 let polling = null;
 let executioninterval=0;
+const dayToMs = 24*60*60*1000;
 
 class Followthesun extends utils.Adapter {
 
@@ -84,7 +86,6 @@ class Followthesun extends utils.Adapter {
             startDate.setHours(7); startDate.setMinutes(39); startDate.setSeconds(22);
             let startDateInMs = startDate.getTime();
 
-            const dayToMs = 24*60*60*1000;
             let spring = ((thisyear - 2000) * 365.24 + 1/24) * dayToMs + startDateInMs;
             let summer = ((thisyear - 2000) * 365.24 + 92.76 + 2/24 + Math.floor((thisyear-2000)/12)*0.01) * dayToMs + startDateInMs;
             let autumn = ((thisyear - 2000) * 365.24 + 186.41 + 2/24 + Math.floor((thisyear-2000)/12)*0.02) * dayToMs + startDateInMs;
@@ -154,7 +155,8 @@ class Followthesun extends utils.Adapter {
                     "type": "state", common: {name: 'solarnoon azimuth', "role": "value", "unit": "°"}, native: {},
 				});
             }
-            todaySolorNoonTime = sunData['short term.today'].solarNoon;
+            todaySolarNoonTime = sunData['short term.today'].solarNoon;
+            todayNadirTime = sunData['short term.today'].nadir;
             
             for (let i in sunData) {
                 altitudes[i] = {};
@@ -214,13 +216,37 @@ class Followthesun extends utils.Adapter {
         this.setStateAsync('current.azimuth', { val: azimuth, ack: true });
         this.setStateAsync('current.altitude', { val: altitude, ack: true });
         this.setStateAsync('current.compass_direction', { val: sunPositon, ack: true });
-        this.log.debug(`Sunposition is ${sunPositon}`);
+        this.log.debug(`Sunposition is '${sunPositon}'`);
 
-        if (now < todaySolorNoonTime) {
-            this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
-        } else {
-            this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+        let NowInMinutes = now.getHours() * 60 + now.getMinutes() + now.getSeconds() / 60;
+        let SolarNoonInMinutes = todaySolarNoonTime.getHours() * 60 + todaySolarNoonTime.getMinutes() + todaySolarNoonTime.getSeconds() / 60;
+        let NadirInMinutes = todayNadirTime.getHours() * 60 + todayNadirTime.getMinutes() + todayNadirTime.getSeconds() / 60;
+
+        this.log.silly(`NowInMinutes: ${NowInMinutes}`);
+        this.log.silly(`SolarNoonInMinutes: ${SolarNoonInMinutes}`);
+        this.log.silly(`NadirInMinutes: ${NadirInMinutes}`);
+
+        if (NadirInMinutes < 720) { //Sun is in the lowest position after midnight
+            this.log.silly(`Sun is in the lowest position after midnight`);
+            if (NowInMinutes > NadirInMinutes && NowInMinutes < SolarNoonInMinutes) {
+                this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+                this.log.debug(`Movement is 'Sunrise'`);
+            } else {
+                this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+                this.log.debug(`Movement is 'Sunset'`);
+            }
         }
+        else { //Sun is in the lowest position before midnight
+            this.log.silly(`Sun is in the lowest position before midnight`);
+            if ((NowInMinutes > NadirInMinutes || NowInMinutes > 0) && (NowInMinutes < SolarNoonInMinutes)) {
+                this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+                this.log.debug(`Movement is 'Sunrise'`);
+            } else {
+                this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+                this.log.debug(`Movement is 'Sunset'`);
+            }
+        }
+
         this.setStateAsync('current.lastupdate', { val: now, ack: true });
     }
 
