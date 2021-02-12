@@ -46,8 +46,8 @@ class Followthesun extends utils.Adapter {
         // Initialize adapter
         //get adapter configuration
         executioninterval = parseInt(this.config.executioninterval);
-        if (isNaN(executioninterval)) { executioninterval = 120}
-        this.log.info('Calculation will be done every ' + executioninterval + ' seconds');
+        if (isNaN(executioninterval) || executioninterval < 10) { executioninterval = 120 };
+        this.log.info(`Sun position calculation will be done every ${executioninterval} seconds`);
 
         //subscribe relevant states changes
         this.subscribeStates('altitude');
@@ -68,9 +68,12 @@ class Followthesun extends utils.Adapter {
             }
         });
 
-        //starts every day at 00:00:44
-        const calcPos = schedule.scheduleJob('SunData', `44 0 0 * * *`, async () => {
-            this.log.info(`Cronjob 'SunData' startet`);
+        //Daily schedule somewhen from 00:00:20 to 00:00:40
+        let scheduleSeconds = Math.round(Math.random() * 20 + 20);
+        this.log.info(`Daily sun parameter calculation scheduled for 00:00:${scheduleSeconds}`);
+
+        const calcPos = schedule.scheduleJob('SunData', `${scheduleSeconds} 0 0 * * *`, async () => {
+            this.log.info(`Cronjob 'Sun parameter calculation' starts`);
             this.CalcSunData();
         });
     }
@@ -140,7 +143,7 @@ class Followthesun extends utils.Adapter {
                     days[i]['date'] = new Date();
                     days[i]['date'].setDate(days[i]['date'].getDate() + days[i]['numberdays']);
                 }
-                //this.log.info(days[i]['date']);
+                this.log.debug(days[i]['date']);
                 sunData[i] = await suncalc.getTimes(days[i]['date'], latitude, longitude);
                 // @ts-ignore
                 await this.setObjectNotExistsAsync([i] + '.solarnoon_time', {
@@ -154,6 +157,54 @@ class Followthesun extends utils.Adapter {
                 await this.setObjectNotExistsAsync([i] + '.solarnoon_azimuth', {
                     "type": "state", common: {name: 'solarnoon azimuth', "role": "value", "unit": "°"}, native: {},
 				});
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.sunset_time', {
+                    "type": "state", common: {name: 'sunset time', "role": "value.time"}, native: {},
+                });
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.sunset_azimuth', {
+                    "type": "state", common: {name: 'sunset azimuth', "role": "value", "unit": "°"}, native: {},
+				});
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.sunset_altitude', {
+                    "type": "state", common: {name: 'sunset altitude', "role": "value", "unit": "°"}, native: {},
+				});
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.sunrise_time', {
+                    "type": "state", common: {name: 'sunrise time', "role": "value.time"}, native: {},
+                });
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.sunrise_azimuth', {
+                    "type": "state", common: {name: 'sunrise azimuth', "role": "value", "unit": "°"}, native: {},
+				});
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.sunrise_altitude', {
+                    "type": "state", common: {name: 'sunrise altitude', "role": "value", "unit": "°"}, native: {},
+				});
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.dawn_time', {
+                    "type": "state", common: {name: 'dawn time', "role": "value.time"}, native: {},
+                });
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.dawn_azimuth', {
+                    "type": "state", common: {name: 'dawn azimuth', "role": "value", "unit": "°"}, native: {},
+				});
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.dawn_altitude', {
+                    "type": "state", common: {name: 'dawn altitude', "role": "value", "unit": "°"}, native: {},
+				});
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.dusk_time', {
+                    "type": "state", common: {name: 'dusk time', "role": "value.time"}, native: {},
+                });
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.dusk_azimuth', {
+                    "type": "state", common: {name: 'dusk azimuth', "role": "value", "unit": "°"}, native: {},
+				});
+                // @ts-ignore
+                await this.setObjectNotExistsAsync([i] + '.dusk_altitude', {
+                    "type": "state", common: {name: 'dusk altitude', "role": "value", "unit": "°"}, native: {},
+				});
             }
             todaySolarNoonTime = sunData['short term.today'].solarNoon;
             todayNadirTime = sunData['short term.today'].nadir;
@@ -161,11 +212,31 @@ class Followthesun extends utils.Adapter {
             for (let i in sunData) {
                 altitudes[i] = {};
                 altitudes[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).altitude * 180 / Math.PI)*10)/10;
+                altitudes[i].sunset = Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).altitude * 180 / Math.PI)*10)/10;
+                altitudes[i].sunrise = Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).altitude * 180 / Math.PI)*10)/10;
+                altitudes[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).altitude * 180 / Math.PI)*10)/10;
+                altitudes[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).altitude * 180 / Math.PI)*10)/10;
                 azimuths[i] = {};
                 azimuths[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).azimuth * 180 / Math.PI +180)*10)/10;
+                azimuths[i].sunset = Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).azimuth * 180 / Math.PI +180)*10)/10;
+                azimuths[i].sunrise = Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).azimuth * 180 / Math.PI +180)*10)/10;
+                azimuths[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth * 180 / Math.PI +180)*10)/10;
+                azimuths[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth * 180 / Math.PI +180)*10)/10;
                 this.setStateAsync(`${i}.solarnoon_time`, { val: sunData[i].solarNoon, ack: true });
                 this.setStateAsync(`${i}.solarnoon_altitude`, { val: altitudes[i].solarnoon, ack: true });
                 this.setStateAsync(`${i}.solarnoon_azimuth`, { val: azimuths[i].solarnoon, ack: true });
+                this.setStateAsync(`${i}.sunset_time`, { val: sunData[i].sunset, ack: true });
+                this.setStateAsync(`${i}.sunset_altitude`, { val: altitudes[i].sunset, ack: true });
+                this.setStateAsync(`${i}.sunset_azimuth`, { val: azimuths[i].sunset, ack: true });
+                this.setStateAsync(`${i}.sunrise_time`, { val: sunData[i].sunrise, ack: true });
+                this.setStateAsync(`${i}.sunrise_altitude`, { val: altitudes[i].sunrise, ack: true });
+                this.setStateAsync(`${i}.sunrise_azimuth`, { val: azimuths[i].sunrise, ack: true });
+                this.setStateAsync(`${i}.dawn_time`, { val: sunData[i].dawn, ack: true });
+                this.setStateAsync(`${i}.dawn_altitude`, { val: altitudes[i].dawn, ack: true });
+                this.setStateAsync(`${i}.dawn_azimuth`, { val: azimuths[i].dawn, ack: true });
+                this.setStateAsync(`${i}.dusk_time`, { val: sunData[i].dusk, ack: true });
+                this.setStateAsync(`${i}.dusk_altitude`, { val: altitudes[i].dusk, ack: true });
+                this.setStateAsync(`${i}.dusk_azimuth`, { val: azimuths[i].dusk, ack: true });
             }         
         } catch (error) {
             this.log.error(error);
