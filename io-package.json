@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.7",
+        "version": "0.3.0-0",
         "news": {
+            "0.3.0-0": {
+                "en": "add sunrise, sunset, dusk and dawn\nsmaller improvments",
+                "de": "Fügen Sie Sonnenaufgang, Sonnenuntergang, Dämmerung und Morgengrauen hinzu\nkleinere Verbesserungen",
+                "ru": "добавить восход, закат, сумерки и рассвет\nнебольшие улучшения",
+                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer\nimprovments menores",
+                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe\nkleinere verbeteringen",
+                "fr": "ajouter le lever du soleil, le coucher du soleil, le crépuscule et l'aube\npetites améliorations",
+                "it": "aggiungi alba, tramonto, tramonto e alba\npiccoli miglioramenti",
+                "es": "agregue amanecer, atardecer, anochecer y amanecer\npequeñas mejoras",
+                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt\nmniejsze poprawki",
+                "zh-cn": "添加日出，日落，黄昏和黎明\n较小的即兴创作"
+            },
             "0.2.7": {
                 "en": "Fix sun-movement bug (#61)\nOptimize keywords\nBump node-schedule from 1.3.2 to 2.0.x",
                 "de": "Behebung des Sonnenbewegungsfehlers (# 61)\nSchlüsselwörter optimieren\nBump Node-Schedule von 1.3.2 bis 2.0.x.",

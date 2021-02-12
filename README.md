@@ -23,6 +23,10 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.0-0 (2021-02-12)
+* (HGlab01) add sunrise, sunset, dusk and dawn
+* (HGlab01) smaller improvments
+
 ### 0.2.7 (2021-02-11)
 * (HGlab01) Fix sun-movement bug (#61)
 * (HGlab01) Optimize keywords
