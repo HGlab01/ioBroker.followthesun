@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.3.0-0",
+        "version": "0.3.0-1",
         "news": {
+            "0.3.0-1": {
+                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nset all states to read only",
+                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nStellen Sie alle Zustände auf schreibgeschützt ein",
+                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nустановить все состояния только для чтения",
+                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\ndefinir todos os estados para somente leitura",
+                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\nstel alle staten in op alleen-lezen",
+                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\ndéfinir tous les états en lecture seule",
+                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nimposta tutti gli stati in sola lettura",
+                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nconfigurar todos los estados para que sean de solo lectura",
+                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nustaw wszystkie stany jako tylko do odczytu",
+                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n将所有状态设置为只读"
+            },
             "0.3.0-0": {
                 "en": "add sunrise, sunset, dusk and dawn\nsmaller improvments",
                 "de": "Fügen Sie Sonnenaufgang, Sonnenuntergang, Dämmerung und Morgengrauen hinzu\nkleinere Verbesserungen",
