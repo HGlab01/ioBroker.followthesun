@@ -12,6 +12,8 @@ const utils = require('@iobroker/adapter-core');
 const suncalc = require('suncalc2');
 const windrose = require('windrose');
 const schedule = require('node-schedule');
+const JsonExplorer = require('iobroker-jsonexplorer');
+const stateAttr = require(__dirname + '/lib/stateAttr.js'); // Load attribute library  
 
 //global variables
 let latitude, longitude;
@@ -37,6 +39,7 @@ class Followthesun extends utils.Adapter {
         this.on('stateChange', this.onStateChange.bind(this));
         //this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
+        JsonExplorer.init(this, stateAttr);
     }
 
     /**
@@ -145,66 +148,6 @@ class Followthesun extends utils.Adapter {
                 }
                 this.log.debug(days[i]['date']);
                 sunData[i] = await suncalc.getTimes(days[i]['date'], latitude, longitude);
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.solarnoon_time', {
-                    "type": "state", common: { name: 'solarnoon time', "role": "value.time", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.solarnoon_altitude', {
-                    "type": "state", common: { name: 'solarnoon altitude', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.solarnoon_azimuth', {
-                    "type": "state", common: { name: 'solarnoon azimuth', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.sunset_time', {
-                    "type": "state", common: { name: 'sunset time', "role": "value.time", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.sunset_azimuth', {
-                    "type": "state", common: { name: 'sunset azimuth', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.sunset_altitude', {
-                    "type": "state", common: { name: 'sunset altitude', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.sunrise_time', {
-                    "type": "state", common: { name: 'sunrise time', "role": "value.time", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.sunrise_azimuth', {
-                    "type": "state", common: { name: 'sunrise azimuth', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.sunrise_altitude', {
-                    "type": "state", common: { name: 'sunrise altitude', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.dawn_time', {
-                    "type": "state", common: { name: 'dawn time', "role": "value.time", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.dawn_azimuth', {
-                    "type": "state", common: { name: 'dawn azimuth', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.dawn_altitude', {
-                    "type": "state", common: { name: 'dawn altitude', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.dusk_time', {
-                    "type": "state", common: { name: 'dusk time', "role": "value.time", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.dusk_azimuth', {
-                    "type": "state", common: { name: 'dusk azimuth', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.dusk_altitude', {
-                    "type": "state", common: { name: 'dusk altitude', "role": "value", "unit": "°", "read": true, "write": false }, native: {},
-                });
             }
             todaySolarNoonTime = sunData['short term.today'].solarNoon;
             todayNadirTime = sunData['short term.today'].nadir;
@@ -216,27 +159,33 @@ class Followthesun extends utils.Adapter {
                 altitudes[i].sunrise = Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
                 altitudes[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
                 altitudes[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
+                
                 azimuths[i] = {};
                 azimuths[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
                 azimuths[i].sunset = Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
                 azimuths[i].sunrise = Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
                 azimuths[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
                 azimuths[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
-                this.setStateAsync(`${i}.solarnoon_time`, { val: sunData[i].solarNoon, ack: true });
-                this.setStateAsync(`${i}.solarnoon_altitude`, { val: altitudes[i].solarnoon, ack: true });
-                this.setStateAsync(`${i}.solarnoon_azimuth`, { val: azimuths[i].solarnoon, ack: true });
-                this.setStateAsync(`${i}.sunset_time`, { val: sunData[i].sunset, ack: true });
-                this.setStateAsync(`${i}.sunset_altitude`, { val: altitudes[i].sunset, ack: true });
-                this.setStateAsync(`${i}.sunset_azimuth`, { val: azimuths[i].sunset, ack: true });
-                this.setStateAsync(`${i}.sunrise_time`, { val: sunData[i].sunrise, ack: true });
-                this.setStateAsync(`${i}.sunrise_altitude`, { val: altitudes[i].sunrise, ack: true });
-                this.setStateAsync(`${i}.sunrise_azimuth`, { val: azimuths[i].sunrise, ack: true });
-                this.setStateAsync(`${i}.dawn_time`, { val: sunData[i].dawn, ack: true });
-                this.setStateAsync(`${i}.dawn_altitude`, { val: altitudes[i].dawn, ack: true });
-                this.setStateAsync(`${i}.dawn_azimuth`, { val: azimuths[i].dawn, ack: true });
-                this.setStateAsync(`${i}.dusk_time`, { val: sunData[i].dusk, ack: true });
-                this.setStateAsync(`${i}.dusk_altitude`, { val: altitudes[i].dusk, ack: true });
-                this.setStateAsync(`${i}.dusk_azimuth`, { val: azimuths[i].dusk, ack: true });
+                
+                JsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon);
+                JsonExplorer.stateSetCreate(`${i}.solarnoon_altitude`, `solarnoon altitude`, altitudes[i].solarnoon);
+                JsonExplorer.stateSetCreate(`${i}.solarnoon_azimuth`, `solarnoon azimuth`, azimuths[i].solarnoon);
+
+                JsonExplorer.stateSetCreate(`${i}.sunset_time`, `sunset time`, sunData[i].sunset);
+                JsonExplorer.stateSetCreate(`${i}.sunset_altitude`, `sunset altitude`, altitudes[i].sunset);
+                JsonExplorer.stateSetCreate(`${i}.sunset_azimuth`, `sunset azimuth`, azimuths[i].sunset);
+
+                JsonExplorer.stateSetCreate(`${i}.sunrise_time`, `sunrise time`, sunData[i].sunrise);
+                JsonExplorer.stateSetCreate(`${i}.sunrise_altitude`, `sunrise altitude`, altitudes[i].sunrise);
+                JsonExplorer.stateSetCreate(`${i}.sunrise_azimuth`, `sunrise azimuth`, azimuths[i].sunrise);
+
+                JsonExplorer.stateSetCreate(`${i}.dawn_time`, `dawn time`, sunData[i].dawn);
+                JsonExplorer.stateSetCreate(`${i}.dawn_altitude`, `dawn altitude`, altitudes[i].dawn);
+                JsonExplorer.stateSetCreate(`${i}.dawn_azimuth`, `dawn azimuth`, azimuths[i].dawn);
+
+                JsonExplorer.stateSetCreate(`${i}.dusk_time`, `dusk time`, sunData[i].dusk);
+                JsonExplorer.stateSetCreate(`${i}.dusk_azimuth`, `dusk azimuth`, azimuths[i].dusk);
+                JsonExplorer.stateSetCreate(`${i}.dusk_altitude`, `dusk altitude`, altitudes[i].dusk);
             }
         } catch (error) {
             this.log.error(error);
@@ -284,9 +233,9 @@ class Followthesun extends utils.Adapter {
     async calcAdditionalInfo(altitude, azimuth, altitude_old, azimuth_old) {
         let now = new Date();
         let sunPositon = await windrose.getPoint(azimuth, { depth: 2 }).symbol;
-        this.setStateAsync('current.azimuth', { val: azimuth, ack: true });
-        this.setStateAsync('current.altitude', { val: altitude, ack: true });
-        this.setStateAsync('current.compass_direction', { val: sunPositon, ack: true });
+        JsonExplorer.stateSetCreate(`current.azimuth`, `current azimuth`, azimuth);
+        JsonExplorer.stateSetCreate(`current.altitude`, `current altitude`, altitude);
+        JsonExplorer.stateSetCreate(`current.compass_direction`, `compass direction`, sunPositon);
         this.log.debug(`Sunposition is '${sunPositon}'`);
 
         let NowInMinutes = now.getHours() * 60 + now.getMinutes() + now.getSeconds() / 60;
@@ -300,25 +249,25 @@ class Followthesun extends utils.Adapter {
         if (NadirInMinutes < 720) { //Sun is in the lowest position after midnight
             this.log.silly(`Sun is in the lowest position after midnight`);
             if (NowInMinutes > NadirInMinutes && NowInMinutes < SolarNoonInMinutes) {
-                this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
                 this.log.debug(`Movement is 'Sunrise'`);
             } else {
-                this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
                 this.log.debug(`Movement is 'Sunset'`);
             }
         }
         else { //Sun is in the lowest position before midnight
             this.log.silly(`Sun is in the lowest position before midnight`);
             if ((NowInMinutes > NadirInMinutes || NowInMinutes > 0) && (NowInMinutes < SolarNoonInMinutes)) {
-                this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
                 this.log.debug(`Movement is 'Sunrise'`);
             } else {
-                this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
                 this.log.debug(`Movement is 'Sunset'`);
             }
         }
 
-        this.setStateAsync('current.lastupdate', { val: now, ack: true });
+        JsonExplorer.stateSetCreate(`current.lastupdate`, `last update`, now);
     }
 
     /**

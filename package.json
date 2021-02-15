@@ -26,9 +26,10 @@
   "bundleDependencies": false,
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
+    "iobroker-jsonexplorer": "0.0.0-8",
+    "node-schedule": "^2.0.0",
     "suncalc2": "^1.8.1",
-    "windrose": "^2.1.0",
-    "node-schedule": "^2.0.0"
+    "windrose": "^2.1.0"
   },
   "deprecated": false,
   "description": "followthesun",
