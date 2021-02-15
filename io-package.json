@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.3.0-1",
+        "version": "0.3.0-2",
         "news": {
+            "0.3.0-2": {
+                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nuse iobroker-jsonexplorer for state-management",
+                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nVerwenden Sie iobroker-jsonexplorer für die Statusverwaltung",
+                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nиспользовать iobroker-jsonexplorer для управления состоянием",
+                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\nuse iobroker-jsonexplorer para gerenciamento de estado",
+                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\ngebruik iobroker-jsonexplorer voor statusbeheer",
+                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\nutiliser iobroker-jsonexplorer pour la gestion des états",
+                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nusa iobroker-jsonexplorer per la gestione dello stato",
+                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nuse iobroker-jsonexplorer para la gestión del estado",
+                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nużyj iobroker-jsonexplorer do zarządzania stanem",
+                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n使用iobroker-jsonexplorer进行状态管理"
+            },
             "0.3.0-1": {
                 "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nset all states to read only",
                 "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nStellen Sie alle Zustände auf schreibgeschützt ein",
