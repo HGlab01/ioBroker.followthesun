@@ -12,6 +12,8 @@ const utils = require('@iobroker/adapter-core');
 const suncalc = require('suncalc2');
 const windrose = require('windrose');
 const schedule = require('node-schedule');
+const JsonExplorer = require('iobroker-jsonexplorer');
+const stateAttr = require(__dirname + '/lib/stateAttr.js'); // Load attribute library  
 
 //global variables
 let latitude, longitude;
@@ -19,8 +21,8 @@ let azimuth, altitude;
 let todaySolarNoonTime;
 let todayNadirTime;
 let polling = null;
-let executioninterval=0;
-const dayToMs = 24*60*60*1000;
+let executioninterval = 0;
+const dayToMs = 24 * 60 * 60 * 1000;
 
 class Followthesun extends utils.Adapter {
 
@@ -36,7 +38,8 @@ class Followthesun extends utils.Adapter {
         //this.on('objectChange', this.onObjectChange.bind(this));
         this.on('stateChange', this.onStateChange.bind(this));
         //this.on('message', this.onMessage.bind(this));
-        this.on('unload', this.onUnload.bind(this)); 
+        this.on('unload', this.onUnload.bind(this));
+        JsonExplorer.init(this, stateAttr);
     }
 
     /**
@@ -46,8 +49,8 @@ class Followthesun extends utils.Adapter {
         // Initialize adapter
         //get adapter configuration
         executioninterval = parseInt(this.config.executioninterval);
-        if (isNaN(executioninterval)) { executioninterval = 120}
-        this.log.info('Calculation will be done every ' + executioninterval + ' seconds');
+        if (isNaN(executioninterval) || executioninterval < 10) { executioninterval = 120 };
+        this.log.info(`Sun position calculation will be done every ${executioninterval} seconds`);
 
         //subscribe relevant states changes
         this.subscribeStates('altitude');
@@ -68,9 +71,12 @@ class Followthesun extends utils.Adapter {
             }
         });
 
-        //starts every day at 00:00:44
-        const calcPos = schedule.scheduleJob('SunData', `44 0 0 * * *`, async () => {
-            this.log.info(`Cronjob 'SunData' startet`);
+        //Daily schedule somewhen from 00:00:20 to 00:00:40
+        let scheduleSeconds = Math.round(Math.random() * 20 + 20);
+        this.log.info(`Daily sun parameter calculation scheduled for 00:00:${scheduleSeconds}`);
+
+        const calcPos = schedule.scheduleJob('SunData', `${scheduleSeconds} 0 0 * * *`, async () => {
+            this.log.info(`Cronjob 'Sun parameter calculation' starts`);
             this.CalcSunData();
         });
     }
@@ -81,23 +87,23 @@ class Followthesun extends utils.Adapter {
             let now = new Date();
             let thisyear = now.getFullYear();
             let nextyear = thisyear + 1;
-            
-            let startDate = new Date ('2000-03-20');
+
+            let startDate = new Date('2000-03-20');
             startDate.setHours(7); startDate.setMinutes(39); startDate.setSeconds(22);
             let startDateInMs = startDate.getTime();
 
-            let spring = ((thisyear - 2000) * 365.24 + 1/24) * dayToMs + startDateInMs;
-            let summer = ((thisyear - 2000) * 365.24 + 92.76 + 2/24 + Math.floor((thisyear-2000)/12)*0.01) * dayToMs + startDateInMs;
-            let autumn = ((thisyear - 2000) * 365.24 + 186.41 + 2/24 + Math.floor((thisyear-2000)/12)*0.02) * dayToMs + startDateInMs;
-            let winter = ((thisyear - 2000) * 365.24 + 276.26 + 1/24 + Math.floor((thisyear-2000)/12)*0.02) * dayToMs + startDateInMs;
+            let spring = ((thisyear - 2000) * 365.24 + 1 / 24) * dayToMs + startDateInMs;
+            let summer = ((thisyear - 2000) * 365.24 + 92.76 + 2 / 24 + Math.floor((thisyear - 2000) / 12) * 0.01) * dayToMs + startDateInMs;
+            let autumn = ((thisyear - 2000) * 365.24 + 186.41 + 2 / 24 + Math.floor((thisyear - 2000) / 12) * 0.02) * dayToMs + startDateInMs;
+            let winter = ((thisyear - 2000) * 365.24 + 276.26 + 1 / 24 + Math.floor((thisyear - 2000) / 12) * 0.02) * dayToMs + startDateInMs;
             let springdate_ty = new Date(spring);
             let summerdate_ty = new Date(summer);
             let autumndate_ty = new Date(autumn);
             let winterdate_ty = new Date(winter);
-            spring = ((nextyear - 2000) * 365.24 + 1/24) * dayToMs + startDateInMs;
-            summer = ((nextyear - 2000) * 365.24 + 92.76 + 2/24 + Math.floor((nextyear-2000)/12)*0.01) * dayToMs + startDateInMs;
-            autumn = ((nextyear - 2000) * 365.24 + 186.41 + 2/24 + Math.floor((nextyear-2000)/12)*0.02) * dayToMs + startDateInMs;
-            winter = ((nextyear - 2000) * 365.24 + 276.26 + 1/24 + Math.floor((nextyear-2000)/12)*0.02) * dayToMs + startDateInMs;
+            spring = ((nextyear - 2000) * 365.24 + 1 / 24) * dayToMs + startDateInMs;
+            summer = ((nextyear - 2000) * 365.24 + 92.76 + 2 / 24 + Math.floor((nextyear - 2000) / 12) * 0.01) * dayToMs + startDateInMs;
+            autumn = ((nextyear - 2000) * 365.24 + 186.41 + 2 / 24 + Math.floor((nextyear - 2000) / 12) * 0.02) * dayToMs + startDateInMs;
+            winter = ((nextyear - 2000) * 365.24 + 276.26 + 1 / 24 + Math.floor((nextyear - 2000) / 12) * 0.02) * dayToMs + startDateInMs;
             let springdate_ny = new Date(spring);
             let summerdate_ny = new Date(summer);
             let autumndate_ny = new Date(autumn);
@@ -107,9 +113,9 @@ class Followthesun extends utils.Adapter {
             let sunData = [];
             let altitudes = [];
             let azimuths = [];
-            
+
             days['short term.today'] = [];
-            days['short term.today']['numberdays'] = 0; 
+            days['short term.today']['numberdays'] = 0;
             days['short term.yesterday'] = [];
             days['short term.yesterday']['numberdays'] = -1;
             days['short term.tomorrow'] = [];
@@ -118,20 +124,20 @@ class Followthesun extends utils.Adapter {
             days['short term.in one week']['numberdays'] = +7;
 
             days['thisYear.start of spring'] = [];
-            days['thisYear.start of spring']['date'] = new Date (springdate_ty); 
+            days['thisYear.start of spring']['date'] = new Date(springdate_ty);
             days['thisYear.start of summer'] = [];
             days['thisYear.start of summer']['date'] = new Date(summerdate_ty);
             days['thisYear.start of autumn'] = [];
-            days['thisYear.start of autumn']['date'] = new Date (autumndate_ty); 
+            days['thisYear.start of autumn']['date'] = new Date(autumndate_ty);
             days['thisYear.start of winter'] = [];
             days['thisYear.start of winter']['date'] = new Date(winterdate_ty);
 
             days['nextYear.start of spring'] = [];
-            days['nextYear.start of spring']['date'] = new Date (springdate_ny); 
+            days['nextYear.start of spring']['date'] = new Date(springdate_ny);
             days['nextYear.start of summer'] = [];
             days['nextYear.start of summer']['date'] = new Date(summerdate_ny);
             days['nextYear.start of autumn'] = [];
-            days['nextYear.start of autumn']['date'] = new Date (autumndate_ny); 
+            days['nextYear.start of autumn']['date'] = new Date(autumndate_ny);
             days['nextYear.start of winter'] = [];
             days['nextYear.start of winter']['date'] = new Date(winterdate_ny);
 
@@ -140,33 +146,47 @@ class Followthesun extends utils.Adapter {
                     days[i]['date'] = new Date();
                     days[i]['date'].setDate(days[i]['date'].getDate() + days[i]['numberdays']);
                 }
-                //this.log.info(days[i]['date']);
+                this.log.debug(days[i]['date']);
                 sunData[i] = await suncalc.getTimes(days[i]['date'], latitude, longitude);
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.solarnoon_time', {
-                    "type": "state", common: {name: 'solarnoon time', "role": "value.time"}, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.solarnoon_altitude', {
-                    "type": "state", common: {name: 'solarnoon altitude', "role": "value", "unit": "°"}, native: {},
-                });
-                // @ts-ignore
-                await this.setObjectNotExistsAsync([i] + '.solarnoon_azimuth', {
-                    "type": "state", common: {name: 'solarnoon azimuth', "role": "value", "unit": "°"}, native: {},
-				});
             }
             todaySolarNoonTime = sunData['short term.today'].solarNoon;
             todayNadirTime = sunData['short term.today'].nadir;
-            
+
             for (let i in sunData) {
                 altitudes[i] = {};
-                altitudes[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).altitude * 180 / Math.PI)*10)/10;
+                altitudes[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
+                altitudes[i].sunset = Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
+                altitudes[i].sunrise = Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
+                altitudes[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
+                altitudes[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
+                
                 azimuths[i] = {};
-                azimuths[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).azimuth * 180 / Math.PI +180)*10)/10;
-                this.setStateAsync(`${i}.solarnoon_time`, { val: sunData[i].solarNoon, ack: true });
-                this.setStateAsync(`${i}.solarnoon_altitude`, { val: altitudes[i].solarnoon, ack: true });
-                this.setStateAsync(`${i}.solarnoon_azimuth`, { val: azimuths[i].solarnoon, ack: true });
-            }         
+                azimuths[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
+                azimuths[i].sunset = Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
+                azimuths[i].sunrise = Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
+                azimuths[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
+                azimuths[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
+                
+                JsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon);
+                JsonExplorer.stateSetCreate(`${i}.solarnoon_altitude`, `solarnoon altitude`, altitudes[i].solarnoon);
+                JsonExplorer.stateSetCreate(`${i}.solarnoon_azimuth`, `solarnoon azimuth`, azimuths[i].solarnoon);
+
+                JsonExplorer.stateSetCreate(`${i}.sunset_time`, `sunset time`, sunData[i].sunset);
+                JsonExplorer.stateSetCreate(`${i}.sunset_altitude`, `sunset altitude`, altitudes[i].sunset);
+                JsonExplorer.stateSetCreate(`${i}.sunset_azimuth`, `sunset azimuth`, azimuths[i].sunset);
+
+                JsonExplorer.stateSetCreate(`${i}.sunrise_time`, `sunrise time`, sunData[i].sunrise);
+                JsonExplorer.stateSetCreate(`${i}.sunrise_altitude`, `sunrise altitude`, altitudes[i].sunrise);
+                JsonExplorer.stateSetCreate(`${i}.sunrise_azimuth`, `sunrise azimuth`, azimuths[i].sunrise);
+
+                JsonExplorer.stateSetCreate(`${i}.dawn_time`, `dawn time`, sunData[i].dawn);
+                JsonExplorer.stateSetCreate(`${i}.dawn_altitude`, `dawn altitude`, altitudes[i].dawn);
+                JsonExplorer.stateSetCreate(`${i}.dawn_azimuth`, `dawn azimuth`, azimuths[i].dawn);
+
+                JsonExplorer.stateSetCreate(`${i}.dusk_time`, `dusk time`, sunData[i].dusk);
+                JsonExplorer.stateSetCreate(`${i}.dusk_azimuth`, `dusk azimuth`, azimuths[i].dusk);
+                JsonExplorer.stateSetCreate(`${i}.dusk_altitude`, `dusk altitude`, altitudes[i].dusk);
+            }
         } catch (error) {
             this.log.error(error);
         }
@@ -181,23 +201,23 @@ class Followthesun extends utils.Adapter {
             let altitude_old = altitude;
             let azimuth_old = azimuth;
             //calculate
-            altitude = Math.round((sunpos.altitude * 180 / Math.PI)*10)/10;
-            azimuth = Math.round((sunpos.azimuth * 180 / Math.PI + 180)*10)/10;
+            altitude = Math.round((sunpos.altitude * 180 / Math.PI) * 10) / 10;
+            azimuth = Math.round((sunpos.azimuth * 180 / Math.PI + 180) * 10) / 10;
             this.log.silly('Altitude: ' + altitude + ' Azimuth: ' + azimuth);
             //compare, if there is any change
             if (altitude != altitude_old || azimuth != azimuth_old) {
-                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and/or azimuth (' + azimuth_old + '|' + azimuth +') changed');
+                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and/or azimuth (' + azimuth_old + '|' + azimuth + ') changed');
                 this.calcAdditionalInfo(altitude, azimuth, altitude_old, azimuth_old)
             } else {
-                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and azimuth (' + azimuth_old + '|' + azimuth +') did not change');
+                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and azimuth (' + azimuth_old + '|' + azimuth + ') did not change');
             }
-            
+
             //Timmer
-            (function () {if (polling) {clearTimeout(polling); polling = null;}})();
-			polling = setTimeout( () => {
+            (function () { if (polling) { clearTimeout(polling); polling = null; } })();
+            polling = setTimeout(() => {
                 this.log.debug(`New calculation triggered by polling (every ${executioninterval} seconds)`);
                 this.calcPosition();
-			}, executioninterval * 1000);
+            }, executioninterval * 1000);
 
         } catch (error) {
             this.log.error(error);
@@ -212,10 +232,10 @@ class Followthesun extends utils.Adapter {
      */
     async calcAdditionalInfo(altitude, azimuth, altitude_old, azimuth_old) {
         let now = new Date();
-        let sunPositon = await windrose.getPoint(azimuth,{depth:2}).symbol;
-        this.setStateAsync('current.azimuth', { val: azimuth, ack: true });
-        this.setStateAsync('current.altitude', { val: altitude, ack: true });
-        this.setStateAsync('current.compass_direction', { val: sunPositon, ack: true });
+        let sunPositon = await windrose.getPoint(azimuth, { depth: 2 }).symbol;
+        JsonExplorer.stateSetCreate(`current.azimuth`, `current azimuth`, azimuth);
+        JsonExplorer.stateSetCreate(`current.altitude`, `current altitude`, altitude);
+        JsonExplorer.stateSetCreate(`current.compass_direction`, `compass direction`, sunPositon);
         this.log.debug(`Sunposition is '${sunPositon}'`);
 
         let NowInMinutes = now.getHours() * 60 + now.getMinutes() + now.getSeconds() / 60;
@@ -229,25 +249,25 @@ class Followthesun extends utils.Adapter {
         if (NadirInMinutes < 720) { //Sun is in the lowest position after midnight
             this.log.silly(`Sun is in the lowest position after midnight`);
             if (NowInMinutes > NadirInMinutes && NowInMinutes < SolarNoonInMinutes) {
-                this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
                 this.log.debug(`Movement is 'Sunrise'`);
             } else {
-                this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
                 this.log.debug(`Movement is 'Sunset'`);
             }
         }
         else { //Sun is in the lowest position before midnight
             this.log.silly(`Sun is in the lowest position before midnight`);
             if ((NowInMinutes > NadirInMinutes || NowInMinutes > 0) && (NowInMinutes < SolarNoonInMinutes)) {
-                this.setStateAsync('current.movement', { val: 'sunrise', ack: true });
+                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
                 this.log.debug(`Movement is 'Sunrise'`);
             } else {
-                this.setStateAsync('current.movement', { val: 'sunset', ack: true });
+                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
                 this.log.debug(`Movement is 'Sunset'`);
             }
         }
 
-        this.setStateAsync('current.lastupdate', { val: now, ack: true });
+        JsonExplorer.stateSetCreate(`current.lastupdate`, `last update`, now);
     }
 
     /**

@@ -1,8 +1,56 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.2.7",
+        "version": "0.3.0",
         "news": {
+            "0.3.0": {
+                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nuse iobroker-jsonexplorer for state-management",
+                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nVerwenden Sie iobroker-jsonexplorer für die Statusverwaltung",
+                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nиспользовать iobroker-jsonexplorer для управления состоянием",
+                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\nuse iobroker-jsonexplorer para gerenciamento de estado",
+                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\ngebruik iobroker-jsonexplorer voor statusbeheer",
+                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\nutiliser iobroker-jsonexplorer pour la gestion des états",
+                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nusa iobroker-jsonexplorer per la gestione dello stato",
+                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nuse iobroker-jsonexplorer para la gestión del estado",
+                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nużyj iobroker-jsonexplorer do zarządzania stanem",
+                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n使用iobroker-jsonexplorer进行状态管理"
+            },
+            "0.3.0-2": {
+                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nuse iobroker-jsonexplorer for state-management",
+                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nVerwenden Sie iobroker-jsonexplorer für die Statusverwaltung",
+                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nиспользовать iobroker-jsonexplorer для управления состоянием",
+                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\nuse iobroker-jsonexplorer para gerenciamento de estado",
+                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\ngebruik iobroker-jsonexplorer voor statusbeheer",
+                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\nutiliser iobroker-jsonexplorer pour la gestion des états",
+                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nusa iobroker-jsonexplorer per la gestione dello stato",
+                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nuse iobroker-jsonexplorer para la gestión del estado",
+                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nużyj iobroker-jsonexplorer do zarządzania stanem",
+                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n使用iobroker-jsonexplorer进行状态管理"
+            },
+            "0.3.0-1": {
+                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nset all states to read only",
+                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nStellen Sie alle Zustände auf schreibgeschützt ein",
+                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nустановить все состояния только для чтения",
+                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\ndefinir todos os estados para somente leitura",
+                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\nstel alle staten in op alleen-lezen",
+                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\ndéfinir tous les états en lecture seule",
+                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nimposta tutti gli stati in sola lettura",
+                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nconfigurar todos los estados para que sean de solo lectura",
+                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nustaw wszystkie stany jako tylko do odczytu",
+                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n将所有状态设置为只读"
+            },
+            "0.3.0-0": {
+                "en": "add sunrise, sunset, dusk and dawn\nsmaller improvments",
+                "de": "Fügen Sie Sonnenaufgang, Sonnenuntergang, Dämmerung und Morgengrauen hinzu\nkleinere Verbesserungen",
+                "ru": "добавить восход, закат, сумерки и рассвет\nнебольшие улучшения",
+                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer\nimprovments menores",
+                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe\nkleinere verbeteringen",
+                "fr": "ajouter le lever du soleil, le coucher du soleil, le crépuscule et l'aube\npetites améliorations",
+                "it": "aggiungi alba, tramonto, tramonto e alba\npiccoli miglioramenti",
+                "es": "agregue amanecer, atardecer, anochecer y amanecer\npequeñas mejoras",
+                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt\nmniejsze poprawki",
+                "zh-cn": "添加日出，日落，黄昏和黎明\n较小的即兴创作"
+            },
             "0.2.7": {
                 "en": "Fix sun-movement bug (#61)\nOptimize keywords\nBump node-schedule from 1.3.2 to 2.0.x",
                 "de": "Behebung des Sonnenbewegungsfehlers (# 61)\nSchlüsselwörter optimieren\nBump Node-Schedule von 1.3.2 bis 2.0.x.",
@@ -170,71 +218,5 @@
         "executioninterval": "120"
     },
     "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "current.altitude",
-            "type": "state",
-            "common": {
-                "name": "Current altitude of the sun",
-                "type": "number",
-                "role": "value",
-                "unit": "°",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "current.azimuth",
-            "type": "state",
-            "common": {
-                "name": "Current azimuth of the sun",
-                "type": "number",
-                "role": "value",
-                "unit": "°",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "current.compass_direction",
-            "type": "state",
-            "common": {
-                "name": "Current compass direction of the sun",
-                "type": "number",
-                "role": "value",
-                "unit": "",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "current.movement",
-            "type": "state",
-            "common": {
-                "name": "Movement of the sun",
-                "type": "string",
-                "role": "value",
-                "unit": "",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "current.lastupdate",
-            "type": "state",
-            "common": {
-                "name": "Last update",
-                "type": "number",
-                "role": "value.time",
-                "unit": "",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        }
-    ]
+    "instanceObjects": []
 }
