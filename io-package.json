@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.3.2-0",
+        "version": "0.3.2-1",
         "news": {
+            "0.3.2-1": {
+                "en": "add Sentry support",
+                "de": "Sentry-Unterstützung hinzufügen",
+                "ru": "добавить поддержку Sentry",
+                "pt": "adicionar suporte Sentry",
+                "nl": "Voeg Sentry-ondersteuning toe",
+                "fr": "ajouter le support Sentry",
+                "it": "aggiungere il supporto Sentry",
+                "es": "agregar soporte Sentry",
+                "pl": "dodaj obsługę Sentry",
+                "zh-cn": "添加哨兵支持"
+            },
             "0.3.2-0": {
                 "en": "add sentry support",
                 "de": "Wachpostenunterstützung hinzufügen",
