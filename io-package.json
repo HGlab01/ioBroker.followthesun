@@ -224,7 +224,12 @@
             {
                 "js-controller": ">=1.4.2"
             }
-        ]
+        ],
+        "plugins": {
+            "sentry": {
+                "dsn": "https://c4390cd47589492598b6bfcd16dad8f3@sentry.iobroker.net/115"
+            }
+        }
     },
     "native": {
         "executioninterval": "120"
