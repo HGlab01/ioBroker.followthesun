@@ -1,8 +1,32 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.3.1",
+        "version": "0.3.2-1",
         "news": {
+            "0.3.2-1": {
+                "en": "add Sentry support",
+                "de": "Sentry-Unterstützung hinzufügen",
+                "ru": "добавить поддержку Sentry",
+                "pt": "adicionar suporte Sentry",
+                "nl": "Voeg Sentry-ondersteuning toe",
+                "fr": "ajouter le support Sentry",
+                "it": "aggiungere il supporto Sentry",
+                "es": "agregar soporte Sentry",
+                "pl": "dodaj obsługę Sentry",
+                "zh-cn": "添加哨兵支持"
+            },
+            "0.3.2-0": {
+                "en": "add sentry support",
+                "de": "Wachpostenunterstützung hinzufügen",
+                "ru": "добавить караульную поддержку",
+                "pt": "adicionar suporte sentinela",
+                "nl": "voeg schildwachtondersteuning toe",
+                "fr": "ajouter un support de sentinelle",
+                "it": "aggiungere il supporto della sentinella",
+                "es": "agregar soporte de centinela",
+                "pl": "dodaj wsparcie dla wartowników",
+                "zh-cn": "添加哨兵支持"
+            },
             "0.3.1": {
                 "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nuse iobroker-jsonexplorer for state-management",
                 "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nVerwenden Sie iobroker-jsonexplorer für die Statusverwaltung",
@@ -224,7 +248,12 @@
             {
                 "js-controller": ">=1.4.2"
             }
-        ]
+        ],
+        "plugins": {
+            "sentry": {
+                "dsn": "https://c4390cd47589492598b6bfcd16dad8f3@sentry.iobroker.net/115"
+            }
+        }
     },
     "native": {
         "executioninterval": "120"
