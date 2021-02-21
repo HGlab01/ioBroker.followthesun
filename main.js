@@ -305,12 +305,17 @@ class Followthesun extends utils.Adapter {
             this.log.debug(`state ${id} deleted`);
         }
     }
+    
     sendSentry(error) {
-        if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
-            const sentryInstance = this.getPluginInstance('sentry');
-            if (sentryInstance) {
-                sentryInstance.getSentryObject().captureException(error);
+        try {
+            if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
+                const sentryInstance = this.getPluginInstance('sentry');
+                if (sentryInstance) {
+                    sentryInstance.getSentryObject().captureException(error);
+                }
             }
+        } catch (error) {
+            this.log.error(`Error in function sendSentry(): ${error}`);
         }
     }
 }
