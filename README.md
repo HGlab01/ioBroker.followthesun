@@ -26,7 +26,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.3-0 (2021-03-04)
+### 0.3.3 (2021-03-04)
 * (HGlab01) improve sentry handling
 * (HGlab01) verify config first
 

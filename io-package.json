@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.3.3-0",
+        "version": "0.3.3",
         "news": {
+            "0.3.3": {
+                "en": "improve sentry handling\nverify config first",
+                "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
+                "ru": "улучшить работу караула\nсначала проверьте конфигурацию",
+                "pt": "melhorar o manuseio do sentinela\nverifique a configuração primeiro",
+                "nl": "de afhandeling van de schildwacht verbeteren\nverifieer eerst de configuratie",
+                "fr": "améliorer la gestion des sentinelles\nvérifier d'abord la configuration",
+                "it": "migliorare la gestione della sentinella\nverifica prima la configurazione",
+                "es": "mejorar el manejo del centinela\nverificar la configuración primero",
+                "pl": "poprawić obsługę wartowników\nnajpierw sprawdź konfigurację",
+                "zh-cn": "改善哨兵处理\n首先验证配置"
+            },
             "0.3.3-0": {
                 "en": "improve sentry handling\nverify config first",
                 "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
