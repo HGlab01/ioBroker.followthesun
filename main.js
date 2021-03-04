@@ -61,13 +61,25 @@ class Followthesun extends utils.Adapter {
             if (err || !obj) {
                 this.log.error('Adapter could not read latitude/longitude from system config!');
             } else {
-                latitude = obj.common.latitude;
-                longitude = obj.common.longitude;
-                this.log.debug('LATITUDE from config: ' + latitude);
-                this.log.debug('LONGITUDE from config: ' + longitude);
+                latitude = parseFloat(obj.common.latitude);
+                longitude = parseFloat(obj.common.longitude);
+                console.log(`LATITUDE from config: ${latitude}`);
+                console.log(`LONGITUDE from config: ${longitude}`);
+                this.log.debug(`LATITUDE from config: ${latitude}`);
+                this.log.debug(`LONGITUDE from config: ${longitude}`);
+                if (!latitude || !longitude) {
+                    this.log.error(`Latitude or Longitude not set in main configuration!`);
+                    this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                    return;
+                }
                 //start calculation
-                await this.CalcSunData();
-                await this.calcPosition();
+                try {
+                    await this.CalcSunData();
+                    await this.calcPosition();
+                } catch (error) {
+                    this.log.error(error);
+                    this.sendSentry(error);
+                }
             }
         });
 
@@ -305,7 +317,7 @@ class Followthesun extends utils.Adapter {
             this.log.debug(`state ${id} deleted`);
         }
     }
-    
+
     sendSentry(error) {
         try {
             if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
