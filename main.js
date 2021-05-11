@@ -179,23 +179,23 @@ class Followthesun extends utils.Adapter {
                 azimuths[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
                 azimuths[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
 
-                JsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon);
+                JsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon.getTime());
                 JsonExplorer.stateSetCreate(`${i}.solarnoon_altitude`, `solarnoon altitude`, altitudes[i].solarnoon);
                 JsonExplorer.stateSetCreate(`${i}.solarnoon_azimuth`, `solarnoon azimuth`, azimuths[i].solarnoon);
 
-                JsonExplorer.stateSetCreate(`${i}.sunset_time`, `sunset time`, sunData[i].sunset);
+                JsonExplorer.stateSetCreate(`${i}.sunset_time`, `sunset time`, sunData[i].sunset.getTime());
                 JsonExplorer.stateSetCreate(`${i}.sunset_altitude`, `sunset altitude`, altitudes[i].sunset);
                 JsonExplorer.stateSetCreate(`${i}.sunset_azimuth`, `sunset azimuth`, azimuths[i].sunset);
 
-                JsonExplorer.stateSetCreate(`${i}.sunrise_time`, `sunrise time`, sunData[i].sunrise);
+                JsonExplorer.stateSetCreate(`${i}.sunrise_time`, `sunrise time`, sunData[i].sunrise.getTime());
                 JsonExplorer.stateSetCreate(`${i}.sunrise_altitude`, `sunrise altitude`, altitudes[i].sunrise);
                 JsonExplorer.stateSetCreate(`${i}.sunrise_azimuth`, `sunrise azimuth`, azimuths[i].sunrise);
 
-                JsonExplorer.stateSetCreate(`${i}.dawn_time`, `dawn time`, sunData[i].dawn);
+                JsonExplorer.stateSetCreate(`${i}.dawn_time`, `dawn time`, sunData[i].dawn.getTime());
                 JsonExplorer.stateSetCreate(`${i}.dawn_altitude`, `dawn altitude`, altitudes[i].dawn);
                 JsonExplorer.stateSetCreate(`${i}.dawn_azimuth`, `dawn azimuth`, azimuths[i].dawn);
 
-                JsonExplorer.stateSetCreate(`${i}.dusk_time`, `dusk time`, sunData[i].dusk);
+                JsonExplorer.stateSetCreate(`${i}.dusk_time`, `dusk time`, sunData[i].dusk.getTime());
                 JsonExplorer.stateSetCreate(`${i}.dusk_azimuth`, `dusk azimuth`, azimuths[i].dusk);
                 JsonExplorer.stateSetCreate(`${i}.dusk_altitude`, `dusk altitude`, altitudes[i].dusk);
             }
@@ -282,7 +282,7 @@ class Followthesun extends utils.Adapter {
             }
         }
 
-        JsonExplorer.stateSetCreate(`current.lastupdate`, `last update`, now);
+        JsonExplorer.stateSetCreate(`current.lastupdate`, `last update`, now.getTime());
     }
 
     /**
