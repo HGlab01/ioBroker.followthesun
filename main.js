@@ -48,6 +48,7 @@ class Followthesun extends utils.Adapter {
     async onReady() {
         // Initialize adapter
         //get adapter configuration
+        this.log.info('Started with JSON-Explorer version ' + JsonExplorer.version);
         executioninterval = parseInt(this.config.executioninterval);
         if (isNaN(executioninterval) || executioninterval < 10) { executioninterval = 120 };
         this.log.info(`Sun position calculation will be done every ${executioninterval} seconds`);
