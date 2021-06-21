@@ -34,7 +34,7 @@
   "deprecated": false,
   "description": "followthesun",
   "devDependencies": {
-    "@alcalzone/release-script": "^1.6.0",
+    "@alcalzone/release-script": "^2.0.0",
     "@iobroker/testing": "^2.2.0",
     "@types/chai": "^4.2.11",
     "@types/chai-as-promised": "^7.1.2",
