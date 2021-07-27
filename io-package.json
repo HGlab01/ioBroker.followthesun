@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.3.4",
+        "version": "0.3.5-0",
         "news": {
+            "0.3.5-0": {
+                "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
+                "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
+                "ru": "Улучшение управления состоянием и сторожем, подняв iobroker-jsonexplorer до версии 0.1.1.",
+                "pt": "Melhore o estado e o controle de sentinela por bump iobroker-jsonexplorer para v0.1.1",
+                "nl": "Verbeter de afhandeling van status en schildwacht door iobroker-jsonexplor naar v0.1.1 te stoten",
+                "fr": "Améliorer la gestion des états et des sentinelles en faisant passer iobroker-jsonexplorer à la v0.1.1",
+                "it": "Migliora la gestione dello stato e della sentinella passando iobroker-jsonexplorer alla v0.1.1",
+                "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
+                "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
+                "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
+            },
             "0.3.4": {
                 "en": "prepare for js-controller 3.3.x\nBump iobroker-jsonexplorer to v0.0.0-21\nadd json-explorer version info at startup",
                 "de": "bereite dich auf js-controller 3.3.x vor\nBump iobroker-jsonexplorer auf v0.0.0-21\nFügen Sie beim Start die Versionsinformationen für json-explorer hinzu",
@@ -230,18 +242,6 @@
                 "es": "actualizar dependencias\nagregar información del mediodía solar\nagregar información de la brújula",
                 "pl": "Zaktualizuj zależności\ndodaj informacje o południu słonecznym\ndodaj informacje o kompasie",
                 "zh-cn": "更新依赖\n添加星期日信息\n添加指南针信息"
-            },
-            "0.1.0": {
-                "en": "first beta release",
-                "de": "erste Beta-Version",
-                "ru": "первая бета-версия",
-                "pt": "primeiro lançamento beta",
-                "nl": "eerste bètaversie",
-                "fr": "première version bêta",
-                "it": "prima versione beta",
-                "es": "primera versión beta",
-                "pl": "pierwsze wydanie beta",
-                "zh-cn": "第一个测试版"
             }
         },
         "title": "FollowTheSun",
