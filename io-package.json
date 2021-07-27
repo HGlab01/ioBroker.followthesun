@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "followthesun",
-        "version": "0.3.5-0",
+        "version": "0.3.5",
         "news": {
+            "0.3.5": {
+                "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
+                "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
+                "ru": "Улучшение управления состоянием и сторожем, подняв iobroker-jsonexplorer до версии 0.1.1.",
+                "pt": "Melhore o estado e o controle de sentinela por bump iobroker-jsonexplorer para v0.1.1",
+                "nl": "Verbeter de afhandeling van status en schildwacht door iobroker-jsonexplor naar v0.1.1 te stoten",
+                "fr": "Améliorer la gestion des états et des sentinelles en faisant passer iobroker-jsonexplorer à la v0.1.1",
+                "it": "Migliora la gestione dello stato e della sentinella passando iobroker-jsonexplorer alla v0.1.1",
+                "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
+                "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
+                "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
+            },
             "0.3.5-0": {
                 "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
                 "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
@@ -230,18 +242,6 @@
                 "es": "Disminuir el nivel de registro",
                 "pl": "Zmniejsz poziom dziennika",
                 "zh-cn": "降低日志级别"
-            },
-            "0.2.1": {
-                "en": "update dependecies\nadd solar-noon information\nadd compass information",
-                "de": "Abhängigkeiten aktualisieren\nFügen Sie Informationen zum Sonnenmittag hinzu\nKompassinformationen hinzufügen",
-                "ru": "обновить зависимости\nдобавить информацию о солнечном полдень\nдобавить информацию о компасе",
-                "pt": "atualizar dependências\nadicionar informações do meio-dia solar\nadicionar informações da bússola",
-                "nl": "update afhankelijkheden\ninformatie over zonne-middag toevoegen\nkompasinformatie toevoegen",
-                "fr": "mettre à jour les dépendances\najouter des informations sur le midi solaire\najouter des informations sur la boussole",
-                "it": "aggiorna dipendenze\naggiungere informazioni sul mezzogiorno solare\naggiungere le informazioni sulla bussola",
-                "es": "actualizar dependencias\nagregar información del mediodía solar\nagregar información de la brújula",
-                "pl": "Zaktualizuj zależności\ndodaj informacje o południu słonecznym\ndodaj informacje o kompasie",
-                "zh-cn": "更新依赖\n添加星期日信息\n添加指南针信息"
             }
         },
         "title": "FollowTheSun",
