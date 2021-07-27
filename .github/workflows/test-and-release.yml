@@ -84,7 +84,7 @@ jobs:
   deploy:
     needs: [adapter-tests]
 
-    # Trigger this step only when a commit on master is tagged with a version number
+    # Trigger this step only when a commit on main is tagged with a version number
     if: |
       contains(github.event.head_commit.message, '[skip ci]') == false &&
       github.event_name == 'push' &&
