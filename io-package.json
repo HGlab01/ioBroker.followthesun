@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.3.7-alpha.4",
+    "version": "0.3.7-alpha.5",
     "news": {
+      "0.3.7-alpha.5": {
+        "en": "Test deploy sentry integration",
+        "de": "Testen Sie die Bereitstellung der Sentry-Integration",
+        "ru": "Интеграция с часовым развертыванием тестового развертывания",
+        "pt": "Teste implantar integração de sentinela",
+        "nl": "Integratie van schildwacht implementeren",
+        "fr": "Tester l'intégration de sentinelle de déploiement",
+        "it": "Prova l'integrazione della sentinella del deployment",
+        "es": "Prueba de implementación de integración centinela",
+        "pl": "Testuj integrację wartowników",
+        "zh-cn": "测试部署哨兵集成"
+      },
       "0.3.7-alpha.4": {
         "en": "Test deploy sentry integration",
         "de": "Testen Sie die Bereitstellung der Sentry-Integration",
@@ -74,18 +86,6 @@
         "es": "Bump @ alcalzone / release-script a 3.4.0\nMejorar el manejo de errores",
         "pl": "Podbij @alcalzone/release-script do 3.4.0\nPopraw obsługę błędów",
         "zh-cn": "将@alcalzone/release-script 提升到 3.4.0\n改进错误处理"
-      },
-      "0.3.5": {
-        "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
-        "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
-        "ru": "Улучшение управления состоянием и сторожем, подняв iobroker-jsonexplorer до версии 0.1.1.",
-        "pt": "Melhore o estado e o controle de sentinela por bump iobroker-jsonexplorer para v0.1.1",
-        "nl": "Verbeter de afhandeling van status en schildwacht door iobroker-jsonexplor naar v0.1.1 te stoten",
-        "fr": "Améliorer la gestion des états et des sentinelles en faisant passer iobroker-jsonexplorer à la v0.1.1",
-        "it": "Migliora la gestione dello stato e della sentinella passando iobroker-jsonexplorer alla v0.1.1",
-        "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
-        "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
-        "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
       }
     },
     "title": "FollowTheSun",
