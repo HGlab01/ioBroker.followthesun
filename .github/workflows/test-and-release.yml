@@ -64,7 +64,7 @@ jobs:
     steps:
     - name: Publish
       uses: ioBroker/testing-action-deploy@v1
-        with:
+      with:
           node-version: '14.x'
           # Uncomment the following line if your adapter cannot be installed using 'npm ci'
           # install-command: 'npm install'
@@ -82,7 +82,7 @@ jobs:
           # sentry-github-integration: true
 
     - name: Notify Sentry.io about the release
-        run: |
+      run: |
           npm i -g @sentry/cli
           export SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
           export SENTRY_URL=https://sentry.iobroker.net
