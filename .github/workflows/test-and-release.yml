@@ -62,6 +62,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Extract the version and commit body from the tag
+      id: extract_release
+      # The body may be multiline, therefore we need to escape some characters
+      run: |
+            VERSION="${{ github.ref }}"
+            VERSION=${VERSION##*/}
+            VERSION=${VERSION##*v}
+            echo "::set-output name=VERSION::$VERSION"
+            BODY=$(git show -s --format=%b)
+            BODY="${BODY//'%'/'%25'}"
+            BODY="${BODY//$'\n'/'%0A'}"
+            BODY="${BODY//$'\r'/'%0D'}"
+            echo "::set-output name=BODY::$BODY"
+    
     - name: Publish
       uses: ioBroker/testing-action-deploy@v1
       with:
