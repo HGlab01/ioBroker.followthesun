@@ -1,311 +1,155 @@
 {
-    "common": {
-        "name": "followthesun",
-        "version": "0.3.5",
-        "news": {
-            "0.3.5": {
-                "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
-                "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
-                "ru": "Улучшение управления состоянием и сторожем, подняв iobroker-jsonexplorer до версии 0.1.1.",
-                "pt": "Melhore o estado e o controle de sentinela por bump iobroker-jsonexplorer para v0.1.1",
-                "nl": "Verbeter de afhandeling van status en schildwacht door iobroker-jsonexplor naar v0.1.1 te stoten",
-                "fr": "Améliorer la gestion des états et des sentinelles en faisant passer iobroker-jsonexplorer à la v0.1.1",
-                "it": "Migliora la gestione dello stato e della sentinella passando iobroker-jsonexplorer alla v0.1.1",
-                "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
-                "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
-                "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
-            },
-            "0.3.5-0": {
-                "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
-                "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
-                "ru": "Улучшение управления состоянием и сторожем, подняв iobroker-jsonexplorer до версии 0.1.1.",
-                "pt": "Melhore o estado e o controle de sentinela por bump iobroker-jsonexplorer para v0.1.1",
-                "nl": "Verbeter de afhandeling van status en schildwacht door iobroker-jsonexplor naar v0.1.1 te stoten",
-                "fr": "Améliorer la gestion des états et des sentinelles en faisant passer iobroker-jsonexplorer à la v0.1.1",
-                "it": "Migliora la gestione dello stato e della sentinella passando iobroker-jsonexplorer alla v0.1.1",
-                "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
-                "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
-                "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
-            },
-            "0.3.4": {
-                "en": "prepare for js-controller 3.3.x\nBump iobroker-jsonexplorer to v0.0.0-21\nadd json-explorer version info at startup",
-                "de": "bereite dich auf js-controller 3.3.x vor\nBump iobroker-jsonexplorer auf v0.0.0-21\nFügen Sie beim Start die Versionsinformationen für json-explorer hinzu",
-                "ru": "подготовить js-controller 3.3.x\nУвеличьте iobroker-jsonexplorer до версии v0.0.0-21\nдобавить информацию о версии json-explorer при запуске",
-                "pt": "prepare-se para js-controller 3.3.x\nBump iobroker-jsonexplorer para v0.0.0-21\nadicionar informações da versão do json-explorer na inicialização",
-                "nl": "bereid je voor op js-controller 3.3.x\nBump iobroker-jsonexplorer naar v0.0.0-21\nvoeg json-explorer versiegegevens toe bij het opstarten",
-                "fr": "se préparer pour js-controller 3.3.x\nPassez iobroker-jsonexplorer à la v0.0.0-21\najouter les informations de version de json-explorer au démarrage",
-                "it": "prepararsi per js-controller 3.3.x\nBump iobroker-jsonexplorer alla v0.0.0-21\naggiungi le informazioni sulla versione di json-explorer all'avvio",
-                "es": "prepárate para js-controller 3.3.x\nPase iobroker-jsonexplorer a v0.0.0-21\nagregar información de la versión de json-explorer al inicio",
-                "pl": "przygotuj się na js-controller 3.3.x\nUruchom iobroker-jsonexplorer na v0.0.0-21\ndodaj informacje o wersji json-explorer podczas uruchamiania",
-                "zh-cn": "为js-controller 3.3.x做准备\n将iobroker-jsonexplorer碰撞到v0.0.0-21\n在启动时添加json-explorer版本信息"
-            },
-            "0.3.3": {
-                "en": "improve sentry handling\nverify config first",
-                "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
-                "ru": "улучшить работу караула\nсначала проверьте конфигурацию",
-                "pt": "melhorar o manuseio do sentinela\nverifique a configuração primeiro",
-                "nl": "de afhandeling van de schildwacht verbeteren\nverifieer eerst de configuratie",
-                "fr": "améliorer la gestion des sentinelles\nvérifier d'abord la configuration",
-                "it": "migliorare la gestione della sentinella\nverifica prima la configurazione",
-                "es": "mejorar el manejo del centinela\nverificar la configuración primero",
-                "pl": "poprawić obsługę wartowników\nnajpierw sprawdź konfigurację",
-                "zh-cn": "改善哨兵处理\n首先验证配置"
-            },
-            "0.3.3-0": {
-                "en": "improve sentry handling\nverify config first",
-                "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
-                "ru": "улучшить работу караула\nсначала проверьте конфигурацию",
-                "pt": "melhorar o manuseio do sentinela\nverifique a configuração primeiro",
-                "nl": "de afhandeling van de schildwacht verbeteren\nverifieer eerst de configuratie",
-                "fr": "améliorer la gestion des sentinelles\nvérifier d'abord la configuration",
-                "it": "migliorare la gestione della sentinella\nverifica prima la configurazione",
-                "es": "mejorar el manejo del centinela\nverificar la configuración primero",
-                "pl": "poprawić obsługę wartowników\nnajpierw sprawdź konfigurację",
-                "zh-cn": "改善哨兵处理\n首先验证配置"
-            },
-            "0.3.2": {
-                "en": "add Sentry support",
-                "de": "Sentry-Unterstützung hinzufügen",
-                "ru": "добавить поддержку Sentry",
-                "pt": "adicionar suporte Sentry",
-                "nl": "Voeg Sentry-ondersteuning toe",
-                "fr": "ajouter le support Sentry",
-                "it": "aggiungere il supporto Sentry",
-                "es": "agregar soporte Sentry",
-                "pl": "dodaj obsługę Sentry",
-                "zh-cn": "添加哨兵支持"
-            },
-            "0.3.2-1": {
-                "en": "add Sentry support",
-                "de": "Sentry-Unterstützung hinzufügen",
-                "ru": "добавить поддержку Sentry",
-                "pt": "adicionar suporte Sentry",
-                "nl": "Voeg Sentry-ondersteuning toe",
-                "fr": "ajouter le support Sentry",
-                "it": "aggiungere il supporto Sentry",
-                "es": "agregar soporte Sentry",
-                "pl": "dodaj obsługę Sentry",
-                "zh-cn": "添加哨兵支持"
-            },
-            "0.3.2-0": {
-                "en": "add sentry support",
-                "de": "Wachpostenunterstützung hinzufügen",
-                "ru": "добавить караульную поддержку",
-                "pt": "adicionar suporte sentinela",
-                "nl": "voeg schildwachtondersteuning toe",
-                "fr": "ajouter un support de sentinelle",
-                "it": "aggiungere il supporto della sentinella",
-                "es": "agregar soporte de centinela",
-                "pl": "dodaj wsparcie dla wartowników",
-                "zh-cn": "添加哨兵支持"
-            },
-            "0.3.1": {
-                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nuse iobroker-jsonexplorer for state-management",
-                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nVerwenden Sie iobroker-jsonexplorer für die Statusverwaltung",
-                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nиспользовать iobroker-jsonexplorer для управления состоянием",
-                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\nuse iobroker-jsonexplorer para gerenciamento de estado",
-                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\ngebruik iobroker-jsonexplorer voor statusbeheer",
-                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\nutiliser iobroker-jsonexplorer pour la gestion des états",
-                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nusa iobroker-jsonexplorer per la gestione dello stato",
-                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nuse iobroker-jsonexplorer para la gestión del estado",
-                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nużyj iobroker-jsonexplorer do zarządzania stanem",
-                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n使用iobroker-jsonexplorer进行状态管理"
-            },
-            "0.3.0": {
-                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nuse iobroker-jsonexplorer for state-management",
-                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nVerwenden Sie iobroker-jsonexplorer für die Statusverwaltung",
-                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nиспользовать iobroker-jsonexplorer для управления состоянием",
-                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\nuse iobroker-jsonexplorer para gerenciamento de estado",
-                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\ngebruik iobroker-jsonexplorer voor statusbeheer",
-                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\nutiliser iobroker-jsonexplorer pour la gestion des états",
-                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nusa iobroker-jsonexplorer per la gestione dello stato",
-                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nuse iobroker-jsonexplorer para la gestión del estado",
-                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nużyj iobroker-jsonexplorer do zarządzania stanem",
-                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n使用iobroker-jsonexplorer进行状态管理"
-            },
-            "0.3.0-2": {
-                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nuse iobroker-jsonexplorer for state-management",
-                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nVerwenden Sie iobroker-jsonexplorer für die Statusverwaltung",
-                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nиспользовать iobroker-jsonexplorer для управления состоянием",
-                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\nuse iobroker-jsonexplorer para gerenciamento de estado",
-                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\ngebruik iobroker-jsonexplorer voor statusbeheer",
-                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\nutiliser iobroker-jsonexplorer pour la gestion des états",
-                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nusa iobroker-jsonexplorer per la gestione dello stato",
-                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nuse iobroker-jsonexplorer para la gestión del estado",
-                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nużyj iobroker-jsonexplorer do zarządzania stanem",
-                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n使用iobroker-jsonexplorer进行状态管理"
-            },
-            "0.3.0-1": {
-                "en": "add sunrise, sunset, dusk and dawn (#67)\nsmaller improvments\nset all states to read only",
-                "de": "Sonnenaufgang, Sonnenuntergang, Abenddämmerung und Morgengrauen hinzufügen (# 67)\nkleinere Verbesserungen\nStellen Sie alle Zustände auf schreibgeschützt ein",
-                "ru": "добавить восход, закат, сумерки и рассвет (# 67)\nнебольшие улучшения\nустановить все состояния только для чтения",
-                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer (# 67)\nimprovments menores\ndefinir todos os estados para somente leitura",
-                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe (# 67)\nkleinere verbeteringen\nstel alle staten in op alleen-lezen",
-                "fr": "ajouter le lever, le coucher du soleil, le crépuscule et l'aube (# 67)\npetites améliorations\ndéfinir tous les états en lecture seule",
-                "it": "aggiungi alba, tramonto, tramonto e alba (# 67)\npiccoli miglioramenti\nimposta tutti gli stati in sola lettura",
-                "es": "agregue amanecer, atardecer, anochecer y amanecer (# 67)\npequeñas mejoras\nconfigurar todos los estados para que sean de solo lectura",
-                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt (# 67)\nmniejsze poprawki\nustaw wszystkie stany jako tylko do odczytu",
-                "zh-cn": "添加日出，日落，黄昏和黎明（＃67）\n较小的即兴创作\n将所有状态设置为只读"
-            },
-            "0.3.0-0": {
-                "en": "add sunrise, sunset, dusk and dawn\nsmaller improvments",
-                "de": "Fügen Sie Sonnenaufgang, Sonnenuntergang, Dämmerung und Morgengrauen hinzu\nkleinere Verbesserungen",
-                "ru": "добавить восход, закат, сумерки и рассвет\nнебольшие улучшения",
-                "pt": "adicione nascer do sol, pôr do sol, crepúsculo e amanhecer\nimprovments menores",
-                "nl": "voeg zonsopgang, zonsondergang, zonsondergang en zonsopgang toe\nkleinere verbeteringen",
-                "fr": "ajouter le lever du soleil, le coucher du soleil, le crépuscule et l'aube\npetites améliorations",
-                "it": "aggiungi alba, tramonto, tramonto e alba\npiccoli miglioramenti",
-                "es": "agregue amanecer, atardecer, anochecer y amanecer\npequeñas mejoras",
-                "pl": "dodaj wschód słońca, zachód słońca, zmierzch i świt\nmniejsze poprawki",
-                "zh-cn": "添加日出，日落，黄昏和黎明\n较小的即兴创作"
-            },
-            "0.2.7": {
-                "en": "Fix sun-movement bug (#61)\nOptimize keywords\nBump node-schedule from 1.3.2 to 2.0.x",
-                "de": "Behebung des Sonnenbewegungsfehlers (# 61)\nSchlüsselwörter optimieren\nBump Node-Schedule von 1.3.2 bis 2.0.x.",
-                "ru": "Исправить ошибку движения солнца (# 61)\nОптимизировать ключевые слова\nУвеличить расписание узлов с 1.3.2 до 2.0.x",
-                "pt": "Corrigir bug do movimento do sol (# 61)\nOtimize palavras-chave\nBump node-schedule de 1.3.2 a 2.0.x",
-                "nl": "Bug in beweging van de zon repareren (# 61)\nOptimaliseer zoekwoorden\nBump node-schema van 1.3.2 naar 2.0.x",
-                "fr": "Correction d'un bug de mouvement du soleil (# 61)\nOptimiser les mots clés\nBump node-schedule de 1.3.2 à 2.0.x",
-                "it": "Risolto bug del movimento solare (# 61)\nOttimizza le parole chiave\nBump della pianificazione del nodo da 1.3.2 a 2.0.x",
-                "es": "Corregir error de movimiento solar (# 61)\nOptimizar palabras clave\nBump node-schedule de 1.3.2 a 2.0.x",
-                "pl": "Napraw błąd ruchu słońca (# 61)\nOptymalizuj słowa kluczowe\nZmień harmonogram węzłów z 1.3.2 na 2.0.x",
-                "zh-cn": "修复日晒错误（＃61）\n优化关键字\n将节点计划从1.3.2过渡到2.0.x"
-            },
-            "0.2.7-0": {
-                "en": "Fix sun-movement bug (#61)",
-                "de": "Behebung des Sonnenbewegungsfehlers (# 61)",
-                "ru": "Исправить ошибку движения солнца (# 61)",
-                "pt": "Corrigir bug do movimento do sol (# 61)",
-                "nl": "Bug in beweging van de zon repareren (# 61)",
-                "fr": "Correction d'un bug de mouvement du soleil (# 61)",
-                "it": "Risolto bug del movimento solare (# 61)",
-                "es": "Corregir error de movimiento solar (# 61)",
-                "pl": "Napraw błąd ruchu słońca (# 61)",
-                "zh-cn": "修复日晒错误（＃61）"
-            },
-            "0.2.6": {
-                "en": "implement license check provided by app.fossa.com",
-                "de": "Implementieren Sie die Lizenzprüfung von app.fossa.com",
-                "ru": "реализовать проверку лицензии, предоставленную app.fossa.com",
-                "pt": "implementar verificação de licença fornecida por app.fossa.com",
-                "nl": "de licentiecontrole van app.fossa.com implementeren",
-                "fr": "implémenter la vérification de licence fournie par app.fossa.com",
-                "it": "implementare il controllo della licenza fornito da app.fossa.com",
-                "es": "implementar la verificación de licencia proporcionada por app.fossa.com",
-                "pl": "wdrożyć kontrolę licencji dostarczoną przez app.fossa.com",
-                "zh-cn": "实施app.fossa.com提供的许可证检查"
-            },
-            "0.2.5": {
-                "en": "add unit to solarnoon-values (issue #30)",
-                "de": "Einheit zu Solarnoon-Werten hinzufügen (Ausgabe Nr. 30)",
-                "ru": "добавить единицу к солнечным полуденным значениям (проблема # 30)",
-                "pt": "adicionar unidade aos valores solarnoon (edição # 30)",
-                "nl": "eenheid toevoegen aan solarnoon-waarden (probleem # 30)",
-                "fr": "ajouter une unité aux valeurs solarnoon (issue # 30)",
-                "it": "aggiungi unità ai valori del pomeriggio solare (numero 30)",
-                "es": "agregar unidad a los valores de la tarde solar (número 30)",
-                "pl": "dodaj jednostkę do wartości słonecznych (numer 30)",
-                "zh-cn": "将单位添加到日升值（issue＃30）"
-            },
-            "0.2.4": {
-                "en": "Prepare for stable repository",
-                "de": "Bereiten Sie sich auf ein stabiles Repository vor",
-                "ru": "Подготовить стабильный репозиторий",
-                "pt": "Prepare-se para um repositório estável",
-                "nl": "Bereid je voor op een stabiele opslagplaats",
-                "fr": "Préparez-vous à un référentiel stable",
-                "it": "Preparati per un repository stabile",
-                "es": "Prepárese para un repositorio estable",
-                "pl": "Przygotuj się na stabilne repozytorium",
-                "zh-cn": "准备稳定的存储库"
-            },
-            "0.2.3": {
-                "en": "Update dependencies\nChange type to \"general\"",
-                "de": "Abhängigkeiten aktualisieren\nÄndern Sie den Typ in \"Allgemein\".",
-                "ru": "Обновить зависимости\nИзмените тип на \"общий\"",
-                "pt": "Atualizar dependências\nAlterar o tipo para \"geral\"",
-                "nl": "Update afhankelijkheden\nWijzig het type in \"algemeen\"",
-                "fr": "Mettre à jour les dépendances\nChanger le type en \"général\"",
-                "it": "Aggiorna le dipendenze\nCambia il tipo in \"generale\"",
-                "es": "Actualizar dependencias\nCambiar el tipo a \"general\"",
-                "pl": "Zaktualizuj zależności\nZmień typ na „ogólny”",
-                "zh-cn": "更新依赖\n将类型更改为“常规”"
-            },
-            "0.2.2": {
-                "en": "Decrease log-level",
-                "de": "Log-Level verringern",
-                "ru": "Уменьшить уровень журнала",
-                "pt": "Diminuir o nível de registro",
-                "nl": "Verlaag het log-niveau",
-                "fr": "Diminuer le niveau de journalisation",
-                "it": "Diminuisci il livello di registro",
-                "es": "Disminuir el nivel de registro",
-                "pl": "Zmniejsz poziom dziennika",
-                "zh-cn": "降低日志级别"
-            }
-        },
-        "title": "FollowTheSun",
-        "titleLang": {
-            "en": "Follow The Sun",
-            "de": "Folge der Sonne",
-            "ru": "Следуй за Солнцем",
-            "pt": "Siga o sol",
-            "nl": "Volg de zon",
-            "fr": "Suis le soleil",
-            "it": "Segui il sole",
-            "es": "Sigue el sol",
-            "pl": "Podążaj za słońcem",
-            "zh-cn": "跟随太阳"
-        },
-        "desc": {
-            "en": "Follow the sun",
-            "de": "Folge der Sonne",
-            "ru": "Следуй за Солнцем",
-            "pt": "Siga o sol",
-            "nl": "Volg de zon",
-            "fr": "suis le soleil",
-            "it": "Segui il sole",
-            "es": "sigue el sol",
-            "pl": "Podążaj za słońcem",
-            "zh-cn": "跟随太阳"
-        },
-        "authors": [
-            "HGlab01 <iobroker.followthesun@gmail.com>"
-        ],
-        "keywords": [
-            "ioBroker",
-            "sun position",
-            "Smart Home",
-            "home automation"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "main.js",
-        "icon": "followthesun.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/HGlab01/ioBroker.followthesun/main/admin/followthesun.png",
-        "readme": "https://github.com/HGlab01/ioBroker.followthesun/blob/main/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "geoposition",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "materialize": true,
-        "dependencies": [
-            {
-                "js-controller": ">=1.4.2"
-            }
-        ],
-        "plugins": {
-            "sentry": {
-                "dsn": "https://c4390cd47589492598b6bfcd16dad8f3@sentry.iobroker.net/115"
-            }
-        }
+  "common": {
+    "name": "followthesun",
+    "version": "0.3.6",
+    "news": {
+      "0.3.6": {
+        "en": "Bump @alcalzone/release-script to 3.4.0\nImprove error handling",
+        "de": "Versetzen Sie @alcalzone/release-script auf 3.4.0\nFehlerbehandlung verbessern",
+        "ru": "Поднять @ alcalzone / release-script до версии 3.4.0\nУлучшить обработку ошибок",
+        "pt": "Bump @ alcalzone / release-script para 3.4.0\nMelhorar o tratamento de erros",
+        "nl": "Bump @alcalzone/release-script naar 3.4.0\nFoutafhandeling verbeteren",
+        "fr": "Transférez @alcalzone/release-script vers 3.4.0\nAméliorer la gestion des erreurs",
+        "it": "Passa @alcalzone/release-script a 3.4.0\nMigliora la gestione degli errori",
+        "es": "Bump @ alcalzone / release-script a 3.4.0\nMejorar el manejo de errores",
+        "pl": "Podbij @alcalzone/release-script do 3.4.0\nPopraw obsługę błędów",
+        "zh-cn": "将@alcalzone/release-script 提升到 3.4.0\n改进错误处理"
+      },
+      "0.3.5": {
+        "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
+        "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
+        "ru": "Улучшение управления состоянием и сторожем, подняв iobroker-jsonexplorer до версии 0.1.1.",
+        "pt": "Melhore o estado e o controle de sentinela por bump iobroker-jsonexplorer para v0.1.1",
+        "nl": "Verbeter de afhandeling van status en schildwacht door iobroker-jsonexplor naar v0.1.1 te stoten",
+        "fr": "Améliorer la gestion des états et des sentinelles en faisant passer iobroker-jsonexplorer à la v0.1.1",
+        "it": "Migliora la gestione dello stato e della sentinella passando iobroker-jsonexplorer alla v0.1.1",
+        "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
+        "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
+        "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
+      },
+      "0.3.5-0": {
+        "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
+        "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
+        "ru": "Улучшение управления состоянием и сторожем, подняв iobroker-jsonexplorer до версии 0.1.1.",
+        "pt": "Melhore o estado e o controle de sentinela por bump iobroker-jsonexplorer para v0.1.1",
+        "nl": "Verbeter de afhandeling van status en schildwacht door iobroker-jsonexplor naar v0.1.1 te stoten",
+        "fr": "Améliorer la gestion des états et des sentinelles en faisant passer iobroker-jsonexplorer à la v0.1.1",
+        "it": "Migliora la gestione dello stato e della sentinella passando iobroker-jsonexplorer alla v0.1.1",
+        "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
+        "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
+        "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
+      },
+      "0.3.4": {
+        "en": "prepare for js-controller 3.3.x\nBump iobroker-jsonexplorer to v0.0.0-21\nadd json-explorer version info at startup",
+        "de": "bereite dich auf js-controller 3.3.x vor\nBump iobroker-jsonexplorer auf v0.0.0-21\nFügen Sie beim Start die Versionsinformationen für json-explorer hinzu",
+        "ru": "подготовить js-controller 3.3.x\nУвеличьте iobroker-jsonexplorer до версии v0.0.0-21\nдобавить информацию о версии json-explorer при запуске",
+        "pt": "prepare-se para js-controller 3.3.x\nBump iobroker-jsonexplorer para v0.0.0-21\nadicionar informações da versão do json-explorer na inicialização",
+        "nl": "bereid je voor op js-controller 3.3.x\nBump iobroker-jsonexplorer naar v0.0.0-21\nvoeg json-explorer versiegegevens toe bij het opstarten",
+        "fr": "se préparer pour js-controller 3.3.x\nPassez iobroker-jsonexplorer à la v0.0.0-21\najouter les informations de version de json-explorer au démarrage",
+        "it": "prepararsi per js-controller 3.3.x\nBump iobroker-jsonexplorer alla v0.0.0-21\naggiungi le informazioni sulla versione di json-explorer all'avvio",
+        "es": "prepárate para js-controller 3.3.x\nPase iobroker-jsonexplorer a v0.0.0-21\nagregar información de la versión de json-explorer al inicio",
+        "pl": "przygotuj się na js-controller 3.3.x\nUruchom iobroker-jsonexplorer na v0.0.0-21\ndodaj informacje o wersji json-explorer podczas uruchamiania",
+        "zh-cn": "为js-controller 3.3.x做准备\n将iobroker-jsonexplorer碰撞到v0.0.0-21\n在启动时添加json-explorer版本信息"
+      },
+      "0.3.3": {
+        "en": "improve sentry handling\nverify config first",
+        "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
+        "ru": "улучшить работу караула\nсначала проверьте конфигурацию",
+        "pt": "melhorar o manuseio do sentinela\nverifique a configuração primeiro",
+        "nl": "de afhandeling van de schildwacht verbeteren\nverifieer eerst de configuratie",
+        "fr": "améliorer la gestion des sentinelles\nvérifier d'abord la configuration",
+        "it": "migliorare la gestione della sentinella\nverifica prima la configurazione",
+        "es": "mejorar el manejo del centinela\nverificar la configuración primero",
+        "pl": "poprawić obsługę wartowników\nnajpierw sprawdź konfigurację",
+        "zh-cn": "改善哨兵处理\n首先验证配置"
+      },
+      "0.3.3-0": {
+        "en": "improve sentry handling\nverify config first",
+        "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
+        "ru": "улучшить работу караула\nсначала проверьте конфигурацию",
+        "pt": "melhorar o manuseio do sentinela\nverifique a configuração primeiro",
+        "nl": "de afhandeling van de schildwacht verbeteren\nverifieer eerst de configuratie",
+        "fr": "améliorer la gestion des sentinelles\nvérifier d'abord la configuration",
+        "it": "migliorare la gestione della sentinella\nverifica prima la configurazione",
+        "es": "mejorar el manejo del centinela\nverificar la configuración primero",
+        "pl": "poprawić obsługę wartowników\nnajpierw sprawdź konfigurację",
+        "zh-cn": "改善哨兵处理\n首先验证配置"
+      },
+      "0.3.2": {
+        "en": "add Sentry support",
+        "de": "Sentry-Unterstützung hinzufügen",
+        "ru": "добавить поддержку Sentry",
+        "pt": "adicionar suporte Sentry",
+        "nl": "Voeg Sentry-ondersteuning toe",
+        "fr": "ajouter le support Sentry",
+        "it": "aggiungere il supporto Sentry",
+        "es": "agregar soporte Sentry",
+        "pl": "dodaj obsługę Sentry",
+        "zh-cn": "添加哨兵支持"
+      }
     },
-    "native": {
-        "executioninterval": "120"
+    "title": "FollowTheSun",
+    "titleLang": {
+      "en": "Follow The Sun",
+      "de": "Folge der Sonne",
+      "ru": "Следуй за Солнцем",
+      "pt": "Siga o sol",
+      "nl": "Volg de zon",
+      "fr": "Suis le soleil",
+      "it": "Segui il sole",
+      "es": "Sigue el sol",
+      "pl": "Podążaj za słońcem",
+      "zh-cn": "跟随太阳"
     },
-    "objects": [],
-    "instanceObjects": []
+    "desc": {
+      "en": "Follow the sun",
+      "de": "Folge der Sonne",
+      "ru": "Следуй за Солнцем",
+      "pt": "Siga o sol",
+      "nl": "Volg de zon",
+      "fr": "suis le soleil",
+      "it": "Segui il sole",
+      "es": "sigue el sol",
+      "pl": "Podążaj za słońcem",
+      "zh-cn": "跟随太阳"
+    },
+    "authors": [
+      "HGlab01 <iobroker.followthesun@gmail.com>"
+    ],
+    "keywords": [
+      "ioBroker",
+      "sun position",
+      "Smart Home",
+      "home automation"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "main.js",
+    "icon": "followthesun.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/HGlab01/ioBroker.followthesun/main/admin/followthesun.png",
+    "readme": "https://github.com/HGlab01/ioBroker.followthesun/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "geoposition",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "materialize": true,
+    "dependencies": [
+      {
+        "js-controller": ">=1.4.2"
+      }
+    ],
+    "plugins": {
+      "sentry": {
+        "dsn": "https://c4390cd47589492598b6bfcd16dad8f3@sentry.iobroker.net/115"
+      }
+    }
+  },
+  "native": {
+    "executioninterval": "120"
+  },
+  "objects": [],
+  "instanceObjects": []
 }
