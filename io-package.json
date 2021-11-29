@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.3.7-alpha.0",
+    "version": "0.3.7-alpha.1",
     "news": {
+      "0.3.7-alpha.1": {
+        "en": "Test deploy sentry integration",
+        "de": "Testen Sie die Bereitstellung der Sentry-Integration",
+        "ru": "Интеграция с часовым развертыванием тестового развертывания",
+        "pt": "Teste implantar integração de sentinela",
+        "nl": "Integratie van schildwacht implementeren",
+        "fr": "Tester l'intégration de sentinelle de déploiement",
+        "it": "Prova l'integrazione della sentinella del deployment",
+        "es": "Prueba de implementación de integración centinela",
+        "pl": "Testuj integrację wartowników",
+        "zh-cn": "测试部署哨兵集成"
+      },
       "0.3.7-alpha.0": {
         "en": "Test deploy sentry integration",
         "de": "Testen Sie die Bereitstellung der Sentry-Integration",
@@ -64,18 +76,6 @@
         "zh-cn": "为js-controller 3.3.x做准备\n将iobroker-jsonexplorer碰撞到v0.0.0-21\n在启动时添加json-explorer版本信息"
       },
       "0.3.3": {
-        "en": "improve sentry handling\nverify config first",
-        "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
-        "ru": "улучшить работу караула\nсначала проверьте конфигурацию",
-        "pt": "melhorar o manuseio do sentinela\nverifique a configuração primeiro",
-        "nl": "de afhandeling van de schildwacht verbeteren\nverifieer eerst de configuratie",
-        "fr": "améliorer la gestion des sentinelles\nvérifier d'abord la configuration",
-        "it": "migliorare la gestione della sentinella\nverifica prima la configurazione",
-        "es": "mejorar el manejo del centinela\nverificar la configuración primero",
-        "pl": "poprawić obsługę wartowników\nnajpierw sprawdź konfigurację",
-        "zh-cn": "改善哨兵处理\n首先验证配置"
-      },
-      "0.3.3-0": {
         "en": "improve sentry handling\nverify config first",
         "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
         "ru": "улучшить работу караула\nсначала проверьте конфигурацию",

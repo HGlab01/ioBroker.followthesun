@@ -62,6 +62,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Publish
       - uses: ioBroker/testing-action-deploy@v1
         with:
           node-version: '14.x'
@@ -74,8 +75,19 @@ jobs:
           # To enable create a API-Token in Sentry (User settings, API keys)
           # Enter this token as a GitHub secret (with name SENTRY_AUTH_TOKEN) in the repository options
           # Then uncomment and customize the following block:
-          sentry-token: ${{ secrets.SENTRY_AUTH_TOKEN }}
-          sentry-project: "iobroker-followthesun"
-          sentry-version-prefix: "iobroker.followthesun"
+          # sentry-token: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          # sentry-project: "iobroker-followthesun"
+          # sentry-version-prefix: "iobroker.followthesun"
           # If your sentry project is linked to a GitHub repository, you can enable the following option
           # sentry-github-integration: true
+
+    - name: Notify Sentry.io about the release
+        run: |
+          npm i -g @sentry/cli
+          export SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+          export SENTRY_URL=https://sentry.iobroker.net
+          export SENTRY_ORG=iobroker
+          export SENTRY_PROJECT=iobroker-followthesun
+          export SENTRY_VERSION=iobroker.followthesun@${{ steps.extract_release.outputs.VERSION }}
+          sentry-cli releases new $SENTRY_VERSION
+          sentry-cli releases finalize $SENTRY_VERSION
