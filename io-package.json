@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.3.7-alpha.5",
+    "version": "0.3.7-alpha.6",
     "news": {
+      "0.3.7-alpha.6": {
+        "en": "Test deploy sentry integration",
+        "de": "Testen Sie die Bereitstellung der Sentry-Integration",
+        "ru": "Интеграция с часовым развертыванием тестового развертывания",
+        "pt": "Teste implantar integração de sentinela",
+        "nl": "Integratie van schildwacht implementeren",
+        "fr": "Tester l'intégration de sentinelle de déploiement",
+        "it": "Prova l'integrazione della sentinella del deployment",
+        "es": "Prueba de implementación de integración centinela",
+        "pl": "Testuj integrację wartowników",
+        "zh-cn": "测试部署哨兵集成"
+      },
       "0.3.7-alpha.5": {
         "en": "Test deploy sentry integration",
         "de": "Testen Sie die Bereitstellung der Sentry-Integration",
@@ -74,18 +86,6 @@
         "es": "Prueba de implementación de integración centinela",
         "pl": "Testuj integrację wartowników",
         "zh-cn": "测试部署哨兵集成"
-      },
-      "0.3.6": {
-        "en": "Bump @alcalzone/release-script to 3.4.0\nImprove error handling",
-        "de": "Versetzen Sie @alcalzone/release-script auf 3.4.0\nFehlerbehandlung verbessern",
-        "ru": "Поднять @ alcalzone / release-script до версии 3.4.0\nУлучшить обработку ошибок",
-        "pt": "Bump @ alcalzone / release-script para 3.4.0\nMelhorar o tratamento de erros",
-        "nl": "Bump @alcalzone/release-script naar 3.4.0\nFoutafhandeling verbeteren",
-        "fr": "Transférez @alcalzone/release-script vers 3.4.0\nAméliorer la gestion des erreurs",
-        "it": "Passa @alcalzone/release-script a 3.4.0\nMigliora la gestione degli errori",
-        "es": "Bump @ alcalzone / release-script a 3.4.0\nMejorar el manejo de errores",
-        "pl": "Podbij @alcalzone/release-script do 3.4.0\nPopraw obsługę błędów",
-        "zh-cn": "将@alcalzone/release-script 提升到 3.4.0\n改进错误处理"
       }
     },
     "title": "FollowTheSun",
