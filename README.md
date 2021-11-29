@@ -26,7 +26,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.3.6 (2021-11-29)
+### 0.3.7 (2021-11-29)
 * (HGlab01) Bump @alcalzone/release-script to 3.4.0
 * (HGlab01) Improve error handling
 
