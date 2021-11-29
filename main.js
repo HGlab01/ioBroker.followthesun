@@ -78,7 +78,8 @@ class Followthesun extends utils.Adapter {
                     await this.CalcSunData();
                     await this.calcPosition();
                 } catch (error) {
-                    this.log.error(error);
+                    this.log.error('Error in onReady: ' + error);
+                    console.error('Error in onReady: ' + error);
                     this.sendSentry(error);
                 }
             }
@@ -201,8 +202,9 @@ class Followthesun extends utils.Adapter {
                 JsonExplorer.stateSetCreate(`${i}.dusk_altitude`, `dusk altitude`, altitudes[i].dusk);
             }
         } catch (error) {
-            error = 'Error in CalcSunData: ' + error;
-            this.log.error(error);
+            let eMsg = 'Error in CalcSunData: ' + error;
+            this.log.error(eMsg);
+            console.error(eMsg);
             this.sendSentry(error);
         }
     }
@@ -234,8 +236,9 @@ class Followthesun extends utils.Adapter {
             }, executioninterval * 1000);
 
         } catch (error) {
-            error = 'Error in calcPosition: ' + error;
-            this.log.error(error);
+            let eMsg = 'Error in calcPosition: ' + error;
+            this.log.error(eMsg);
+            console.error(eMsg);
             this.sendSentry(error);
         }
     }
@@ -319,12 +322,15 @@ class Followthesun extends utils.Adapter {
         }
     }
 
-    sendSentry(error) {
+    /**
+     * @param {any} errorObject
+     */
+    sendSentry(errorObject) {
         try {
             if (this.supportsFeature && this.supportsFeature('PLUGINS')) {
                 const sentryInstance = this.getPluginInstance('sentry');
                 if (sentryInstance) {
-                    sentryInstance.getSentryObject().captureException(error);
+                    sentryInstance.getSentryObject().captureException(errorObject);
                 }
             }
         } catch (error) {
