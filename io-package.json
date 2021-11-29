@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.3.6",
+    "version": "0.3.7-alpha.0",
     "news": {
+      "0.3.7-alpha.0": {
+        "en": "Test deploy sentry integration",
+        "de": "Testen Sie die Bereitstellung der Sentry-Integration",
+        "ru": "Интеграция с часовым развертыванием тестового развертывания",
+        "pt": "Teste implantar integração de sentinela",
+        "nl": "Integratie van schildwacht implementeren",
+        "fr": "Tester l'intégration de sentinelle de déploiement",
+        "it": "Prova l'integrazione della sentinella del deployment",
+        "es": "Prueba de implementación de integración centinela",
+        "pl": "Testuj integrację wartowników",
+        "zh-cn": "测试部署哨兵集成"
+      },
       "0.3.6": {
         "en": "Bump @alcalzone/release-script to 3.4.0\nImprove error handling",
         "de": "Versetzen Sie @alcalzone/release-script auf 3.4.0\nFehlerbehandlung verbessern",
@@ -74,18 +86,6 @@
         "es": "mejorar el manejo del centinela\nverificar la configuración primero",
         "pl": "poprawić obsługę wartowników\nnajpierw sprawdź konfigurację",
         "zh-cn": "改善哨兵处理\n首先验证配置"
-      },
-      "0.3.2": {
-        "en": "add Sentry support",
-        "de": "Sentry-Unterstützung hinzufügen",
-        "ru": "добавить поддержку Sentry",
-        "pt": "adicionar suporte Sentry",
-        "nl": "Voeg Sentry-ondersteuning toe",
-        "fr": "ajouter le support Sentry",
-        "it": "aggiungere il supporto Sentry",
-        "es": "agregar soporte Sentry",
-        "pl": "dodaj obsługę Sentry",
-        "zh-cn": "添加哨兵支持"
       }
     },
     "title": "FollowTheSun",
