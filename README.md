@@ -27,6 +27,11 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     ### __WORK IN PROGRESS__
 -->
 
+### __WORK IN PROGRESS__
+* (HGlab01) Bump @alcalzone/release-script to 3.4.0
+* (HGlab01) Improve error handling
+
+
 ### 0.3.5 (2021-07-27)
 * (HGlab01) Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1
 
