@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.3.8-alpha.1",
+    "version": "0.3.8-alpha.2",
     "news": {
+      "0.3.8-alpha.2": {
+        "en": "Test sentry",
+        "de": "Testwache",
+        "ru": "Испытательный караул",
+        "pt": "Sentinela de teste",
+        "nl": "Test schildwacht",
+        "fr": "Tester la sentinelle",
+        "it": "sentinella di prova",
+        "es": "Centinela de prueba",
+        "pl": "Wartownik testowy",
+        "zh-cn": "测试哨兵"
+      },
       "0.3.8-alpha.1": {
         "en": "Test sentry",
         "de": "Testwache",
@@ -74,18 +86,6 @@
         "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
         "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
         "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
-      },
-      "0.3.4": {
-        "en": "prepare for js-controller 3.3.x\nBump iobroker-jsonexplorer to v0.0.0-21\nadd json-explorer version info at startup",
-        "de": "bereite dich auf js-controller 3.3.x vor\nBump iobroker-jsonexplorer auf v0.0.0-21\nFügen Sie beim Start die Versionsinformationen für json-explorer hinzu",
-        "ru": "подготовить js-controller 3.3.x\nУвеличьте iobroker-jsonexplorer до версии v0.0.0-21\nдобавить информацию о версии json-explorer при запуске",
-        "pt": "prepare-se para js-controller 3.3.x\nBump iobroker-jsonexplorer para v0.0.0-21\nadicionar informações da versão do json-explorer na inicialização",
-        "nl": "bereid je voor op js-controller 3.3.x\nBump iobroker-jsonexplorer naar v0.0.0-21\nvoeg json-explorer versiegegevens toe bij het opstarten",
-        "fr": "se préparer pour js-controller 3.3.x\nPassez iobroker-jsonexplorer à la v0.0.0-21\najouter les informations de version de json-explorer au démarrage",
-        "it": "prepararsi per js-controller 3.3.x\nBump iobroker-jsonexplorer alla v0.0.0-21\naggiungi le informazioni sulla versione di json-explorer all'avvio",
-        "es": "prepárate para js-controller 3.3.x\nPase iobroker-jsonexplorer a v0.0.0-21\nagregar información de la versión de json-explorer al inicio",
-        "pl": "przygotuj się na js-controller 3.3.x\nUruchom iobroker-jsonexplorer na v0.0.0-21\ndodaj informacje o wersji json-explorer podczas uruchamiania",
-        "zh-cn": "为js-controller 3.3.x做准备\n将iobroker-jsonexplorer碰撞到v0.0.0-21\n在启动时添加json-explorer版本信息"
       }
     },
     "title": "FollowTheSun",
