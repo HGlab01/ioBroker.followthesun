@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.3.8",
+    "version": "0.3.9-alpha.0",
     "news": {
+      "0.3.9-alpha.0": {
+        "en": "Bump iobroker-jsonexplorer to v0.1.9\njs-controller 4.0 readiness",
+        "de": "Erweitern Sie iobroker-jsonexplorer auf v0.1.9\njs-controller 4.0-Bereitschaft",
+        "ru": "Поднимите iobroker-jsonexplorer до версии 0.1.9\nготовность js-контроллера 4.0",
+        "pt": "Suba iobroker-jsonexplorer para v0.1.9\nprontidão do controlador js 4.0",
+        "nl": "Bump iobroker-jsonexplorer naar v0.1.9\njs-controller 4.0 gereedheid",
+        "fr": "Passer iobroker-jsonexplorer à la v0.1.9\npréparation js-controller 4.0",
+        "it": "Porta iobroker-jsonexplorer alla v0.1.9\njs-controller 4.0 prontezza",
+        "es": "Bump iobroker-jsonexplorer a v0.1.9\njs-controller 4.0 preparación",
+        "pl": "Podnieś iobroker-jsonexplorer do wersji 0.1.9\nGotowość js-controller 4.0",
+        "zh-cn": "将 iobroker-jsonexplorer 升级到 v0.1.9\njs-controller 4.0 准备就绪"
+      },
       "0.3.8": {
         "en": "Notifiy Sentry about new release",
         "de": "Sentry über neue Version benachrichtigen",
@@ -74,18 +86,6 @@
         "es": "prepárate para js-controller 3.3.x\nPase iobroker-jsonexplorer a v0.0.0-21\nagregar información de la versión de json-explorer al inicio",
         "pl": "przygotuj się na js-controller 3.3.x\nUruchom iobroker-jsonexplorer na v0.0.0-21\ndodaj informacje o wersji json-explorer podczas uruchamiania",
         "zh-cn": "为js-controller 3.3.x做准备\n将iobroker-jsonexplorer碰撞到v0.0.0-21\n在启动时添加json-explorer版本信息"
-      },
-      "0.3.3": {
-        "en": "improve sentry handling\nverify config first",
-        "de": "Verbesserung der Wachabwicklung\nÜberprüfen Sie zuerst die Konfiguration",
-        "ru": "улучшить работу караула\nсначала проверьте конфигурацию",
-        "pt": "melhorar o manuseio do sentinela\nverifique a configuração primeiro",
-        "nl": "de afhandeling van de schildwacht verbeteren\nverifieer eerst de configuratie",
-        "fr": "améliorer la gestion des sentinelles\nvérifier d'abord la configuration",
-        "it": "migliorare la gestione della sentinella\nverifica prima la configurazione",
-        "es": "mejorar el manejo del centinela\nverificar la configuración primero",
-        "pl": "poprawić obsługę wartowników\nnajpierw sprawdź konfigurację",
-        "zh-cn": "改善哨兵处理\n首先验证配置"
       }
     },
     "title": "FollowTheSun",
