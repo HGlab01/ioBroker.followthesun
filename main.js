@@ -159,6 +159,9 @@ class Followthesun extends utils.Adapter {
                 if (days[i]['date'] == undefined) {
                     days[i]['date'] = new Date();
                     days[i]['date'].setDate(days[i]['date'].getDate() + days[i]['numberdays']);
+                    days[i]['date'].setHours(1);
+                    days[i]['date'].setMinutes(0);
+                    days[i]['date'].setSeconds(0);
                 }
                 this.log.debug(days[i]['date']);
                 sunData[i] = await suncalc.getTimes(days[i]['date'], latitude, longitude);
