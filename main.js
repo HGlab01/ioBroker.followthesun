@@ -154,14 +154,17 @@ class Followthesun extends utils.Adapter {
             days['nextYear.start of autumn']['date'] = new Date(autumndate_ny);
             days['nextYear.start of winter'] = [];
             days['nextYear.start of winter']['date'] = new Date(winterdate_ny);
-
             for (let i in days) {
                 if (days[i]['date'] == undefined) {
-                    days[i]['date'] = new Date();
-                    days[i]['date'].setDate(days[i]['date'].getDate() + days[i]['numberdays']);
-                    days[i]['date'].setHours(1);
-                    days[i]['date'].setMinutes(0);
-                    days[i]['date'].setSeconds(0);
+                    //let now = new Date();
+                    let year = now.getFullYear();
+                    let month = now.getMonth();
+                    let day = now.getDate() + days[i]['numberdays'];
+                    days[i]['date'] = new Date(year, month, day);
+                    //days[i]['date'].setDate(days[i]['date'].getDate() + days[i]['numberdays']);
+                    //days[i]['date'].setHours(1);
+                    //days[i]['date'].setMinutes(0);
+                    //days[i]['date'].setSeconds(0);
                 }
                 this.log.debug(days[i]['date']);
                 sunData[i] = await suncalc.getTimes(days[i]['date'], latitude, longitude);
