@@ -161,9 +161,9 @@ class Followthesun extends utils.Adapter {
             for (let i in days) {
                 if (days[i]['date'] == undefined) {
                     day =  day + days[i]['numberdays'];
-                    days[i]['date'] = new Date(year, month, day);
+                    days[i]['date'] = new Date(year, month, day, 12);
                     //days[i]['date'].setDate(days[i]['date'].getDate() + days[i]['numberdays']);
-                    //days[i]['date'].setHours(1);
+                    //days[i]['date'].setHours(12);
                     //days[i]['date'].setMinutes(0);
                     //days[i]['date'].setSeconds(0);
                 }
