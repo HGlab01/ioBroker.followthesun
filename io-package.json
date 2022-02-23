@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.3.9-alpha.2",
+    "version": "0.3.9-alpha.3",
     "news": {
+      "0.3.9-alpha.3": {
+        "en": "Bump iobroker-jsonexplorer to v0.1.9\njs-controller 4.0 readiness\nfix sometimes today is not today",
+        "de": "Erweitern Sie iobroker-jsonexplorer auf v0.1.9\njs-controller 4.0-Bereitschaft\nfix manchmal heute ist nicht heute",
+        "ru": "Поднимите iobroker-jsonexplorer до версии 0.1.9\nготовность js-контроллера 4.0\nисправить иногда сегодня не сегодня",
+        "pt": "Suba iobroker-jsonexplorer para v0.1.9\nprontidão do controlador js 4.0\nconsertar as vezes hoje não é hoje",
+        "nl": "Bump iobroker-jsonexplorer naar v0.1.9\njs-controller 4.0 gereedheid\nrepareren soms is vandaag niet vandaag",
+        "fr": "Passer iobroker-jsonexplorer à la v0.1.9\npréparation js-controller 4.0\nréparer parfois aujourd'hui n'est pas aujourd'hui",
+        "it": "Porta iobroker-jsonexplorer alla v0.1.9\njs-controller 4.0 prontezza\naggiustare a volte oggi non è oggi",
+        "es": "Bump iobroker-jsonexplorer a v0.1.9\njs-controller 4.0 preparación\narreglar a veces hoy no es hoy",
+        "pl": "Podnieś iobroker-jsonexplorer do wersji 0.1.9\nGotowość js-controller 4.0\nnaprawić czasami dzisiaj nie jest dzisiaj",
+        "zh-cn": "将 iobroker-jsonexplorer 升级到 v0.1.9\njs-controller 4.0 准备就绪\n修复有时今天不是今天"
+      },
       "0.3.9-alpha.2": {
         "en": "Bump iobroker-jsonexplorer to v0.1.9\njs-controller 4.0 readiness\nfix sometimes today is not today",
         "de": "Erweitern Sie iobroker-jsonexplorer auf v0.1.9\njs-controller 4.0-Bereitschaft\nfix manchmal heute ist nicht heute",
@@ -74,18 +86,6 @@
         "es": "Bump @ alcalzone / release-script a 3.4.0\nMejorar el manejo de errores",
         "pl": "Podbij @alcalzone/release-script do 3.4.0\nPopraw obsługę błędów",
         "zh-cn": "将@alcalzone/release-script 提升到 3.4.0\n改进错误处理"
-      },
-      "0.3.5": {
-        "en": "Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1",
-        "de": "Verbessern Sie die Handhabung von Zuständen und Wachen, indem Sie iobroker-jsonexplorer auf v0.1.1 erhöhen",
-        "ru": "Улучшение управления состоянием и сторожем, подняв iobroker-jsonexplorer до версии 0.1.1.",
-        "pt": "Melhore o estado e o controle de sentinela por bump iobroker-jsonexplorer para v0.1.1",
-        "nl": "Verbeter de afhandeling van status en schildwacht door iobroker-jsonexplor naar v0.1.1 te stoten",
-        "fr": "Améliorer la gestion des états et des sentinelles en faisant passer iobroker-jsonexplorer à la v0.1.1",
-        "it": "Migliora la gestione dello stato e della sentinella passando iobroker-jsonexplorer alla v0.1.1",
-        "es": "Mejore el manejo de estado y centinela mediante el salto iobroker-jsonexplorer a v0.1.1",
-        "pl": "Popraw obsługę stanu i wartowników przez podniesienie iobroker-jsonexplorer do wersji 0.1.1",
-        "zh-cn": "通过将 iobroker-jsonexplorer 提升到 v0.1.1 来改进状态和哨兵处理"
       }
     },
     "title": "FollowTheSun",
