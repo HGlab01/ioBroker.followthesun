@@ -1,0 +1,22 @@
+{
+  "type": "panel",
+  "i18n": true,
+  "items": {
+    "_basicSettings": {
+      "newLine": true,
+      "type": "header",
+      "text": "Please set the interval",
+      "sm": 12,
+      "size": 8
+    },
+    "executioninterval": {
+      "newLine": true,
+      "type": "number",
+      "label": "Interval of execution in seconds",
+      "sm": 2,
+      "min": 30,
+      "max": 3600,
+      "step": 5
+    }
+  }
+}
