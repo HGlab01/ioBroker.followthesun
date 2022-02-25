@@ -132,6 +132,7 @@
     "loglevel": "info",
     "mode": "daemon",
     "type": "geoposition",
+    "jsonConfig" : true,
     "compact": true,
     "connectionType": "local",
     "dataSource": "poll",
