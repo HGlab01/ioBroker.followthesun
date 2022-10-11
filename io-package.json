@@ -152,5 +152,182 @@
     "executioninterval": "120"
   },
   "objects": [],
-  "instanceObjects": []
+  "instanceObjects": [
+    {
+      "_id": "current",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Current",
+          "de": "Aktuell"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "short term",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Short term",
+          "de": "Kurzfristig"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "short term.in one week",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "In one week",
+          "de": "In einer Woche"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "short term.today",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Today",
+          "de": "Heute"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "short term.tomorrow",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Tomorrow",
+          "de": "Morgen"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "short term.yesterday",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Yesterday",
+          "de": "Gestern"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "thisYear",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "This year",
+          "de": "Dieses Jahr"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "thisYear.start of autumn",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Start of autumn",
+          "de": "Anfang des Herbstes"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "thisYear.start of spring",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Start of spring",
+          "de": "Anfang des Frühlings"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "thisYear.start of summer",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Start of summer",
+          "de": "Anfang des Sommers"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "thisYear.start of winter",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Start of winter",
+          "de": "Anfang des Winters"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "nextYear",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Next year",
+          "de": "Nächstes Jahr"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "nextYear.start of autumn",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Start of autumn",
+          "de": "Anfang des Herbstes"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "nextYear.start of spring",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Start of spring",
+          "de": "Anfang des Frühlings"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "nextYear.start of summer",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Start of summer",
+          "de": "Anfang des Sommers"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "nextYear.start of winter",
+      "type": "folder",
+      "common": {
+        "name": {
+          "en": "Start of winter",
+          "de": "Anfang des Winters"
+        }
+      },
+      "native": {}
+    }
+  ]
 }
