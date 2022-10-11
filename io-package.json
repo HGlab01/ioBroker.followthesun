@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.3.9",
+    "version": "0.4.0-alpha.0",
     "news": {
+      "0.4.0-alpha.0": {
+        "en": "Updated object definitions: use of roles, multilanguage names\nAdded missing objects for folders\n!Breaking change! NodeJS 14.16 or higher required\n!Breaking change! ioBroker js-controller 4.0 or higher required\nUpdate libs",
+        "de": "Aktualisierte Objektdefinitionen: Verwendung von Rollen, Mehrsprachennamen\nFehlende Objekte für Ordner hinzugefügt\n! Veränderung brechen! NodeJS 14.16 oder höher erforderlich\n! Veränderung brechen! ioBroker js-controller 4.0 oder höher erforderlich\nUpdate libs",
+        "ru": "Обновленные определения объекта: использование ролей, многоязычных имен\nДобавлены недостающие объекты для папок\n! Перерыв перемен! NodeJS 14.16 или выше требуется\n! Перерыв перемен! ioBroker js-controller 4.0 или выше требуется\nОбновление libs",
+        "pt": "Definições de objetos atualizados: uso de papéis, nomes multilíngues\nObjetos perdidos adicionados para pastas\n! Mudança de ruptura! NodeJS 14.16 ou superior exigido\n! Mudança de ruptura! ioBroker js-controller 4.0 ou superior exigido\nActualizar libs",
+        "nl": "Verouderde object definities: gebruik van rollen, multilanguage namen\nVermiste objecten voor vouwen\n! Verandering. NodeJS 14.16 of hoger vereiste\n! Verandering. Quality over Quantity (QoQ) Releases Vertaling:\nUpdate libs",
+        "fr": "Définitions des objets actualisées : utilisation des rôles, noms multilingues\nAjout d'objets manquants pour les dossiers\n! Changer ! NodeJS 14.16 ou plus requis\n! Changer ! ioBroker js-controller 4.0 ou supérieur requis\nMettre à jour les libs",
+        "it": "Definizioni di oggetti aggiornate: uso di ruoli, nomi multilingua\nOggetti mancanti aggiunti per cartelle\n! Cambiamento di rottura! NodeJS 14.16 o superiore richiesto\n! Cambiamento di rottura! ioBroker js-controller 4.0 o superiore richiesto\nAggiorna libs",
+        "es": "Definiciones de objetos actualizadas: uso de roles, nombres multilingües\nAñadido objetos perdidos para carpetas\n! ¡Cambio de ruptura! NodeJS 14.16 o superior requerido\n! ¡Cambio de ruptura! ioBroker js-controller 4.0 o superior requerido\nActualizar libs",
+        "pl": "Definicja obiektów: użycie ról, nazwy wielojęzyczne\nZamknięte obiekty dla folderów\n! Zmiana. NodeJS 14.16 (ang.)\n! Zmiana. ioBroker js-kontroler 4.0 lub wyższych wymagań\nAktualny lib",
+        "uk": "Оновлені визначення об'єкта: використання ролей, багатомовних імен\nДодано відсутні об'єкти для папок\n! Зміни у відставці! NodeJS 14.16 або вище\n! Зміни у відставці! ioBroker js-controller 4.0 або вище потрібно\nОновлення ліжок",
+        "zh-cn": "最新目标定义:使用功能、多语言名称\n增加供货商使用的缺失物品\n! 打破沉默! 第14.16号申诉\n! 打破沉默! io Broker js-控制ler 4.0或更高需要\n最新资料"
+      },
       "0.3.9": {
         "en": "Bump iobroker-jsonexplorer to v0.1.9\njs-controller 4.0 readiness\nfix sometimes today is not today",
         "de": "Erweitern Sie iobroker-jsonexplorer auf v0.1.9\njs-controller 4.0-Bereitschaft\nfix manchmal heute ist nicht heute",
@@ -74,18 +87,6 @@
         "es": "Notificar a Sentry sobre el nuevo lanzamiento",
         "pl": "Powiadom Sentry o nowej wersji",
         "zh-cn": "通知 Sentry 新版本"
-      },
-      "0.3.7": {
-        "en": "Bump @alcalzone/release-script to 3.4.0\nImprove error handling",
-        "de": "Versetzen Sie @alcalzone/release-script auf 3.4.0\nFehlerbehandlung verbessern",
-        "ru": "Поднять @ alcalzone / release-script до версии 3.4.0\nУлучшить обработку ошибок",
-        "pt": "Bump @ alcalzone / release-script para 3.4.0\nMelhorar o tratamento de erros",
-        "nl": "Bump @alcalzone/release-script naar 3.4.0\nFoutafhandeling verbeteren",
-        "fr": "Transférez @alcalzone/release-script vers 3.4.0\nAméliorer la gestion des erreurs",
-        "it": "Passa @alcalzone/release-script a 3.4.0\nMigliora la gestione degli errori",
-        "es": "Bump @ alcalzone / release-script a 3.4.0\nMejorar el manejo de errores",
-        "pl": "Podbij @alcalzone/release-script do 3.4.0\nPopraw obsługę błędów",
-        "zh-cn": "将@alcalzone/release-script 提升到 3.4.0\n改进错误处理"
       }
     },
     "title": "FollowTheSun",
