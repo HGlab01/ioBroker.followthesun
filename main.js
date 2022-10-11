@@ -9,7 +9,7 @@
 const utils = require('@iobroker/adapter-core');
 
 // Load your modules here, e.g.:
-const suncalc = require('suncalc2');
+const suncalc = require('suncalc');
 const windrose = require('windrose');
 const schedule = require('node-schedule');
 const JsonExplorer = require('iobroker-jsonexplorer');
