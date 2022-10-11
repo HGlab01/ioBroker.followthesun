@@ -6,6 +6,10 @@
     "email": "iobroker.followthesun@gmail.com"
   },
   "license": "MIT",
+  "engines": {
+    "node": ">=14.16.0",
+    "npm": ">=6.0.0"
+  },
   "main": "main.js",
   "repository": {
     "type": "git",
