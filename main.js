@@ -60,7 +60,7 @@ class Followthesun extends utils.Adapter {
         //get Geodata from configuration
         this.getForeignObject('system.config', async (err, obj) => {
             if (err || !obj) {
-                this.log.error('Adapter could not read latitude/longitude from system config!');
+                this.log.error('Adapter could not read latitude/longitude in global System Configuration!');
             } else {
                 latitude = parseFloat(obj.common.latitude);
                 longitude = parseFloat(obj.common.longitude);
@@ -69,7 +69,7 @@ class Followthesun extends utils.Adapter {
                 this.log.debug(`LATITUDE from config: ${latitude}`);
                 this.log.debug(`LONGITUDE from config: ${longitude}`);
                 if (!latitude || !longitude) {
-                    this.log.error(`Latitude or Longitude not set in main configuration!`);
+                    this.log.error(`Latitude or longitude not set in global System Configuration!`);
                     this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
                     return;
                 }
