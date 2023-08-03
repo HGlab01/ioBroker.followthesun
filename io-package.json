@@ -92,7 +92,6 @@
         "zh-cn": "将 iobroker-jsonexplorer 升级到 v0.1.9\njs-controller 4.0 准备就绪\n修复有时今天不是今天"
       }
     },
-    "title": "FollowTheSun",
     "titleLang": {
       "en": "Follow The Sun",
       "de": "Folge der Sonne",
@@ -121,7 +120,6 @@
       "HGlab01 <iobroker.followthesun@gmail.com>"
     ],
     "keywords": [
-      "ioBroker",
       "sun position",
       "Smart Home",
       "home automation"
