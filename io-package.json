@@ -123,8 +123,9 @@
     ],
     "keywords": [
       "sun position",
-      "Smart Home",
-      "home automation"
+      "altitude",
+      "azimuth",
+      "geoposition"
     ],
     "license": "MIT",
     "platform": "Javascript/Node.js",
