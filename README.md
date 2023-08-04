@@ -26,6 +26,10 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (HGlab01) Improve admin5 UI usage
+
 ### 0.4.1 (2023-02-05)
 * (HGlab01) Improve error log if coordinates are not set
 
