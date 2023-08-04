@@ -26,8 +26,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
+### 0.4.2-alpha.0 (2023-08-04)
 * (HGlab01) Improve admin5 UI usage
 
 ### 0.4.1 (2023-02-05)
@@ -47,10 +46,6 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 
 ### 0.3.8 (2021-12-07)
 * (HGlab01) Notifiy Sentry about new release
-
-### 0.3.7 (2021-11-29)
-* (HGlab01) Bump @alcalzone/release-script to 3.4.0
-* (HGlab01) Improve error handling
 
 ## License
 MIT License
