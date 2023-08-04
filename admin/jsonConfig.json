@@ -1,7 +1,6 @@
 {
   "i18n": false,
   "type": "panel",
-  "i18n": true,
   "items": {
     "_basicSettings": {
       "newLine": true,
