@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.4.2-alpha.0",
+    "version": "0.4.2",
     "news": {
+      "0.4.2": {
+        "en": "Improve admin5 UI usage",
+        "de": "Verbessern Sie die Nutzung von admin5 UI",
+        "ru": "Улучшение использования admin5 UI",
+        "pt": "Melhorar o uso de UI admin5",
+        "nl": "Improbeer admin 5 UI gebruik",
+        "fr": "Améliorez l'utilisation de l'interface utilisateur admin5",
+        "it": "Migliorare l'utilizzo di admin5 UI",
+        "es": "Mejorar el uso de UI admin5",
+        "pl": "Poprawa admin5",
+        "uk": "Поліпшити використання ад5 UI",
+        "zh-cn": "改进特明5 UI的使用"
+      },
       "0.4.2-alpha.0": {
         "en": "Improve admin5 UI usage",
         "de": "Verbessern Sie die Nutzung von admin5 UI",
@@ -69,18 +82,6 @@
         "zh-cn": "最新目标定义:使用功能、多语言名称\n增加供货商使用的缺失物品\n! 打破沉默! 第14.16号申诉\n! 打破沉默! io Broker js-控制ler 4.0或更高需要\n最新资料"
       },
       "0.3.9": {
-        "en": "Bump iobroker-jsonexplorer to v0.1.9\njs-controller 4.0 readiness\nfix sometimes today is not today",
-        "de": "Erweitern Sie iobroker-jsonexplorer auf v0.1.9\njs-controller 4.0-Bereitschaft\nfix manchmal heute ist nicht heute",
-        "ru": "Поднимите iobroker-jsonexplorer до версии 0.1.9\nготовность js-контроллера 4.0\nисправить иногда сегодня не сегодня",
-        "pt": "Suba iobroker-jsonexplorer para v0.1.9\nprontidão do controlador js 4.0\nconsertar as vezes hoje não é hoje",
-        "nl": "Bump iobroker-jsonexplorer naar v0.1.9\njs-controller 4.0 gereedheid\nrepareren soms is vandaag niet vandaag",
-        "fr": "Passer iobroker-jsonexplorer à la v0.1.9\npréparation js-controller 4.0\nréparer parfois aujourd'hui n'est pas aujourd'hui",
-        "it": "Porta iobroker-jsonexplorer alla v0.1.9\njs-controller 4.0 prontezza\naggiustare a volte oggi non è oggi",
-        "es": "Bump iobroker-jsonexplorer a v0.1.9\njs-controller 4.0 preparación\narreglar a veces hoy no es hoy",
-        "pl": "Podnieś iobroker-jsonexplorer do wersji 0.1.9\nGotowość js-controller 4.0\nnaprawić czasami dzisiaj nie jest dzisiaj",
-        "zh-cn": "将 iobroker-jsonexplorer 升级到 v0.1.9\njs-controller 4.0 准备就绪\n修复有时今天不是今天"
-      },
-      "0.3.9-alpha.3": {
         "en": "Bump iobroker-jsonexplorer to v0.1.9\njs-controller 4.0 readiness\nfix sometimes today is not today",
         "de": "Erweitern Sie iobroker-jsonexplorer auf v0.1.9\njs-controller 4.0-Bereitschaft\nfix manchmal heute ist nicht heute",
         "ru": "Поднимите iobroker-jsonexplorer до версии 0.1.9\nготовность js-контроллера 4.0\nисправить иногда сегодня не сегодня",

@@ -26,7 +26,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.2-alpha.0 (2023-08-04)
+### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 
 ### 0.4.1 (2023-02-05)
