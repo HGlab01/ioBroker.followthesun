@@ -27,6 +27,9 @@
     "sun",
     "sun position"
   ],
+  "engines": {
+    "node": ">= 16"
+  },
   "dependencies": {
     "@iobroker/adapter-core": "^3.0.3",
     "iobroker-jsonexplorer": "0.1.12",
