@@ -6,10 +6,6 @@
     "email": "iobroker.followthesun@gmail.com"
   },
   "license": "MIT",
-  "engines": {
-    "node": ">=14.16.0",
-    "npm": ">=6.0.0"
-  },
   "main": "main.js",
   "repository": {
     "type": "git",
@@ -28,7 +24,8 @@
     "sun position"
   ],
   "engines": {
-    "node": ">= 16"
+    "node": ">=16",
+    "npm": ">=7"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.0.3",
