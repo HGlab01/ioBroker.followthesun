@@ -69,7 +69,7 @@ class Followthesun extends utils.Adapter {
                 this.log.debug(`LATITUDE from config: ${latitude}`);
                 this.log.debug(`LONGITUDE from config: ${longitude}`);
                 if (!latitude || !longitude) {
-                    this.log.error(`Latitude or longitude not set in global System Configuration!`);
+                    this.log.error(`Latitude or longitude not set in System Settings!`);
                     this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
                     return;
                 }
