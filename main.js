@@ -49,7 +49,7 @@ class Followthesun extends utils.Adapter {
         // Initialize adapter
         //get adapter configuration
         this.log.info('Started with JSON-Explorer version ' + JsonExplorer.version);
-        executioninterval = parseInt(this.config.executioninterval);
+        executioninterval = this.config.executioninterval;
         if (isNaN(executioninterval) || executioninterval < 10) { executioninterval = 120 };
         this.log.info(`Sun position calculation will be done every ${executioninterval} seconds`);
 
@@ -59,29 +59,37 @@ class Followthesun extends utils.Adapter {
 
         //get Geodata from configuration
         this.getForeignObject('system.config', async (err, obj) => {
-            if (err || !obj) {
-                this.log.error('Adapter could not read latitude/longitude in global System Configuration!');
+            if (this.config.longOR && this.config.latOR) {
+                this.log.info('Coordinates available in adapter settings - use this settings');
+                latitude = this.config.latOR;
+                longitude = this.config.longOR;
+                this.log.info(`LATITUDE from adapter-config: ${latitude}`);
+                this.log.info(`LONGITUDE from adapter-config: ${longitude}`);
             } else {
-                latitude = parseFloat(obj.common.latitude);
-                longitude = parseFloat(obj.common.longitude);
-                console.log(`LATITUDE from config: ${latitude}`);
-                console.log(`LONGITUDE from config: ${longitude}`);
-                this.log.debug(`LATITUDE from config: ${latitude}`);
-                this.log.debug(`LONGITUDE from config: ${longitude}`);
-                if (!latitude || !longitude) {
-                    this.log.error(`Latitude or longitude not set in System Settings!`);
-                    this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
-                    return;
+                if (err || !obj) {
+                    this.log.error('Adapter could not read latitude/longitude in System Settings!');
+                } else {
+                    latitude = parseFloat(obj.common.latitude);
+                    longitude = parseFloat(obj.common.longitude);
+                    console.log(`LATITUDE from config: ${latitude}`);
+                    console.log(`LONGITUDE from config: ${longitude}`);
+                    this.log.debug(`LATITUDE from config: ${latitude}`);
+                    this.log.debug(`LONGITUDE from config: ${longitude}`);
+                    if (!latitude || !longitude) {
+                        this.log.error(`Latitude or longitude not set in System Settings!`);
+                        this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                        return;
+                    }
                 }
-                //start calculation
-                try {
-                    await this.CalcSunData();
-                    await this.calcPosition();
-                } catch (error) {
-                    this.log.error('Error in onReady: ' + error);
-                    console.error('Error in onReady: ' + error);
-                    this.sendSentry(error);
-                }
+            }
+            //start calculation
+            try {
+                await this.CalcSunData();
+                await this.calcPosition();
+            } catch (error) {
+                this.log.error('Error in onReady: ' + error);
+                console.error('Error in onReady: ' + error);
+                this.sendSentry(error);
             }
         });
 

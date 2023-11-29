@@ -6,8 +6,7 @@
       "newLine": true,
       "type": "header",
       "text": "Please set the interval",
-      "sm": 12,
-      "size": 8
+      "size": 3
     },
     "executioninterval": {
       "newLine": true,
@@ -17,6 +16,24 @@
       "min": 30,
       "max": 3600,
       "step": 5
+    },
+    "_basicSettings2": {
+      "newLine": true,
+      "type": "header",
+      "text": "Overwrite coordinates from system settings (optional!)",
+      "size": 3
+    },
+    "latOR": {
+      "newLine": true,
+      "type": "number",
+      "label": "Latitude",
+      "sm": 2
+    },
+    "longOR": {
+      "newLine": false,
+      "type": "number",
+      "label": "Longitude",
+      "sm": 2
     }
   }
 }

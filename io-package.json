@@ -160,7 +160,9 @@
     }
   },
   "native": {
-    "executioninterval": "120"
+    "executioninterval": 120,
+    "latOR": 0,
+    "longOR": 0
   },
   "objects": [],
   "instanceObjects": [
