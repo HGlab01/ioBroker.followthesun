@@ -22,8 +22,8 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* NodeJS 16 or higher
-* ioBroker host (js-controller) 4.0 or higher
+* NodeJS 18 or higher
+* ioBroker host (js-controller) 5.0 or higher
 
 ## Changelog
 <!--
@@ -32,8 +32,10 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 -->
 
 ### __WORK IN PROGRESS__
-* (HGlab01) !Breaking change! NodeJS 16 or higher required
-* (HGlab01) Bump iobroker-jsonexplorer to v0.1.14
+* (HGlab01) Breaking changes
+    - NodeJS 18 or higher required
+    - ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) Coordinates can be configured on instance level (optional)
 
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
