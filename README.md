@@ -30,8 +30,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
+### 0.5.0-alpha.0 (2023-11-29)
 * (HGlab01) Breaking changes
     - NodeJS 18 or higher required
     - ioBroker host (js-controller) 5.0 or higher
@@ -54,9 +53,6 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
 * (HGlab01) js-controller 4.0 readiness
 * (HGlab01) fix sometimes today is not today
-
-### 0.3.8 (2021-12-07)
-* (HGlab01) Notifiy Sentry about new release
 
 ## License
 MIT License
