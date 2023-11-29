@@ -35,6 +35,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     - NodeJS 18 or higher required
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Coordinates can be configured on instance level (optional)
+* Bump iobroker-jsonexplorer to v0.1.14
 
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
