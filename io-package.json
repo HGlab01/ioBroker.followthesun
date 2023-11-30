@@ -163,7 +163,8 @@
   "native": {
     "executioninterval": 120,
     "latOR": 0,
-    "longOR": 0
+    "longOR": 0,
+    "overwrite": false
   },
   "objects": [],
   "instanceObjects": [

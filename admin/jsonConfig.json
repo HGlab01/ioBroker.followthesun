@@ -2,7 +2,7 @@
   "i18n": false,
   "type": "panel",
   "items": {
-    "_basicSettings": {
+    "_intervall": {
       "newLine": true,
       "type": "header",
       "text": "Please set the interval",
@@ -17,23 +17,30 @@
       "max": 3600,
       "step": 5
     },
-    "_basicSettings2": {
+    "_overwrite": {
       "newLine": true,
       "type": "header",
-      "text": "Overwrite coordinates from system settings (optional!)",
+      "text": "Use adapter specific coordinates",
       "size": 3
+    },
+    "overwrite": {
+      "newLine": true,
+      "type": "checkbox",
+      "label": "Use adapter specific coordinates"
     },
     "latOR": {
       "newLine": true,
       "type": "number",
       "label": "Latitude",
-      "sm": 2
+      "sm": 2,
+      "hidden": "!data.overwrite"
     },
     "longOR": {
       "newLine": false,
       "type": "number",
       "label": "Longitude",
-      "sm": 2
+      "sm": 2,
+      "hidden": "!data.overwrite"
     }
   }
 }

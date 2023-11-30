@@ -59,7 +59,12 @@ class Followthesun extends utils.Adapter {
 
         //get Geodata from configuration
         this.getForeignObject('system.config', async (err, obj) => {
-            if (this.config.longOR && this.config.latOR) {
+            if (this.config.overwrite) {
+                if (!this.config.longOR || !this.config.latOR) {
+                    this.log.error(`Latitude or longitude not set in Adapter Settings!`);
+                    this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                    return;
+                }
                 this.log.info('Coordinates available in adapter settings - use this settings');
                 latitude = this.config.latOR;
                 longitude = this.config.longOR;
