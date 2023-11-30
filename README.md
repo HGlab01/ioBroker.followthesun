@@ -12,7 +12,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.followthesun.png?downloads=true)](https://nodei.co/npm/iobroker.followthesun/)
 
-## followthesun adapter for ioBroker
+## followthesun adapter for ioBroker 
 
 This adapter calculates the current altitude and azimuth of the sun based on the geoposition. Additionally compass direction and the movement (sunrise or sunset) of the sun is stored.
 It is using the geo-position defined in the configuration. Calculation interval can be defined in instance preferences.
