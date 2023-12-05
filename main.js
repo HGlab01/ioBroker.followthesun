@@ -12,8 +12,9 @@ const utils = require('@iobroker/adapter-core');
 const suncalc = require('suncalc');
 const windrose = require('windrose');
 const schedule = require('node-schedule');
-const JsonExplorer = require('iobroker-jsonexplorer');
-const stateAttr = require(__dirname + '/lib/stateAttr.js'); // Load attribute library  
+const jsonExplorer = require('iobroker-jsonexplorer');
+const stateAttr = require(__dirname + '/lib/stateAttr.js'); // Load attribute library
+const { version } = require('./package.json');
 
 //global variables
 let latitude, longitude;
@@ -39,7 +40,7 @@ class Followthesun extends utils.Adapter {
         this.on('stateChange', this.onStateChange.bind(this));
         //this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
-        JsonExplorer.init(this, stateAttr);
+        jsonExplorer.init(this, stateAttr);
     }
 
     /**
@@ -47,9 +48,10 @@ class Followthesun extends utils.Adapter {
      */
     async onReady() {
         // Initialize adapter
+        jsonExplorer.sendVersionInfo(version);
         //get adapter configuration
-        this.log.info('Started with JSON-Explorer version ' + JsonExplorer.version);
-        executioninterval = parseInt(this.config.executioninterval);
+        this.log.info('Started with JSON-Explorer version ' + jsonExplorer.version);
+        executioninterval = this.config.executioninterval;
         if (isNaN(executioninterval) || executioninterval < 10) { executioninterval = 120 };
         this.log.info(`Sun position calculation will be done every ${executioninterval} seconds`);
 
@@ -59,29 +61,42 @@ class Followthesun extends utils.Adapter {
 
         //get Geodata from configuration
         this.getForeignObject('system.config', async (err, obj) => {
-            if (err || !obj) {
-                this.log.error('Adapter could not read latitude/longitude in global System Configuration!');
-            } else {
-                latitude = parseFloat(obj.common.latitude);
-                longitude = parseFloat(obj.common.longitude);
-                console.log(`LATITUDE from config: ${latitude}`);
-                console.log(`LONGITUDE from config: ${longitude}`);
-                this.log.debug(`LATITUDE from config: ${latitude}`);
-                this.log.debug(`LONGITUDE from config: ${longitude}`);
-                if (!latitude || !longitude) {
-                    this.log.error(`Latitude or longitude not set in System Settings!`);
+            if (this.config.overwrite) {
+                if (!this.config.longOR || !this.config.latOR) {
+                    this.log.error(`Latitude or longitude not set in Adapter Settings!`);
                     this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
                     return;
                 }
-                //start calculation
-                try {
-                    await this.CalcSunData();
-                    await this.calcPosition();
-                } catch (error) {
-                    this.log.error('Error in onReady: ' + error);
-                    console.error('Error in onReady: ' + error);
-                    this.sendSentry(error);
+                this.log.info('Coordinates available in adapter settings - use this settings');
+                latitude = this.config.latOR;
+                longitude = this.config.longOR;
+                this.log.info(`LATITUDE from adapter-config: ${latitude}`);
+                this.log.info(`LONGITUDE from adapter-config: ${longitude}`);
+            } else {
+                if (err || !obj) {
+                    this.log.error('Adapter could not read latitude/longitude in System Settings!');
+                } else {
+                    latitude = parseFloat(obj.common.latitude);
+                    longitude = parseFloat(obj.common.longitude);
+                    console.log(`LATITUDE from config: ${latitude}`);
+                    console.log(`LONGITUDE from config: ${longitude}`);
+                    this.log.debug(`LATITUDE from config: ${latitude}`);
+                    this.log.debug(`LONGITUDE from config: ${longitude}`);
+                    if (!latitude || !longitude) {
+                        this.log.error(`Latitude or longitude not set in System Settings!`);
+                        this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                        return;
+                    }
                 }
+            }
+            //start calculation
+            try {
+                await this.CalcSunData();
+                await this.calcPosition();
+            } catch (error) {
+                this.log.error('Error in onReady: ' + error);
+                console.error('Error in onReady: ' + error);
+                this.sendSentry(error);
             }
         });
 
@@ -184,25 +199,25 @@ class Followthesun extends utils.Adapter {
                 azimuths[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
                 azimuths[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
 
-                JsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon.getTime());
-                JsonExplorer.stateSetCreate(`${i}.solarnoon_altitude`, `solarnoon altitude`, altitudes[i].solarnoon);
-                JsonExplorer.stateSetCreate(`${i}.solarnoon_azimuth`, `solarnoon azimuth`, azimuths[i].solarnoon);
+                jsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon.getTime());
+                jsonExplorer.stateSetCreate(`${i}.solarnoon_altitude`, `solarnoon altitude`, altitudes[i].solarnoon);
+                jsonExplorer.stateSetCreate(`${i}.solarnoon_azimuth`, `solarnoon azimuth`, azimuths[i].solarnoon);
 
-                JsonExplorer.stateSetCreate(`${i}.sunset_time`, `sunset time`, sunData[i].sunset.getTime());
-                JsonExplorer.stateSetCreate(`${i}.sunset_altitude`, `sunset altitude`, altitudes[i].sunset);
-                JsonExplorer.stateSetCreate(`${i}.sunset_azimuth`, `sunset azimuth`, azimuths[i].sunset);
+                jsonExplorer.stateSetCreate(`${i}.sunset_time`, `sunset time`, sunData[i].sunset.getTime());
+                jsonExplorer.stateSetCreate(`${i}.sunset_altitude`, `sunset altitude`, altitudes[i].sunset);
+                jsonExplorer.stateSetCreate(`${i}.sunset_azimuth`, `sunset azimuth`, azimuths[i].sunset);
 
-                JsonExplorer.stateSetCreate(`${i}.sunrise_time`, `sunrise time`, sunData[i].sunrise.getTime());
-                JsonExplorer.stateSetCreate(`${i}.sunrise_altitude`, `sunrise altitude`, altitudes[i].sunrise);
-                JsonExplorer.stateSetCreate(`${i}.sunrise_azimuth`, `sunrise azimuth`, azimuths[i].sunrise);
+                jsonExplorer.stateSetCreate(`${i}.sunrise_time`, `sunrise time`, sunData[i].sunrise.getTime());
+                jsonExplorer.stateSetCreate(`${i}.sunrise_altitude`, `sunrise altitude`, altitudes[i].sunrise);
+                jsonExplorer.stateSetCreate(`${i}.sunrise_azimuth`, `sunrise azimuth`, azimuths[i].sunrise);
 
-                JsonExplorer.stateSetCreate(`${i}.dawn_time`, `dawn time`, sunData[i].dawn.getTime());
-                JsonExplorer.stateSetCreate(`${i}.dawn_altitude`, `dawn altitude`, altitudes[i].dawn);
-                JsonExplorer.stateSetCreate(`${i}.dawn_azimuth`, `dawn azimuth`, azimuths[i].dawn);
+                jsonExplorer.stateSetCreate(`${i}.dawn_time`, `dawn time`, sunData[i].dawn.getTime());
+                jsonExplorer.stateSetCreate(`${i}.dawn_altitude`, `dawn altitude`, altitudes[i].dawn);
+                jsonExplorer.stateSetCreate(`${i}.dawn_azimuth`, `dawn azimuth`, azimuths[i].dawn);
 
-                JsonExplorer.stateSetCreate(`${i}.dusk_time`, `dusk time`, sunData[i].dusk.getTime());
-                JsonExplorer.stateSetCreate(`${i}.dusk_azimuth`, `dusk azimuth`, azimuths[i].dusk);
-                JsonExplorer.stateSetCreate(`${i}.dusk_altitude`, `dusk altitude`, altitudes[i].dusk);
+                jsonExplorer.stateSetCreate(`${i}.dusk_time`, `dusk time`, sunData[i].dusk.getTime());
+                jsonExplorer.stateSetCreate(`${i}.dusk_azimuth`, `dusk azimuth`, azimuths[i].dusk);
+                jsonExplorer.stateSetCreate(`${i}.dusk_altitude`, `dusk altitude`, altitudes[i].dusk);
             }
         } catch (error) {
             let eMsg = 'Error in CalcSunData: ' + error;
@@ -255,9 +270,9 @@ class Followthesun extends utils.Adapter {
     async calcAdditionalInfo(altitude, azimuth, altitude_old, azimuth_old) {
         let now = new Date();
         let sunPositon = await windrose.getPoint(azimuth, { depth: 2 }).symbol;
-        JsonExplorer.stateSetCreate(`current.azimuth`, `current azimuth`, azimuth);
-        JsonExplorer.stateSetCreate(`current.altitude`, `current altitude`, altitude);
-        JsonExplorer.stateSetCreate(`current.compass_direction`, `compass direction`, sunPositon);
+        jsonExplorer.stateSetCreate(`current.azimuth`, `current azimuth`, azimuth);
+        jsonExplorer.stateSetCreate(`current.altitude`, `current altitude`, altitude);
+        jsonExplorer.stateSetCreate(`current.compass_direction`, `compass direction`, sunPositon);
         this.log.debug(`Sunposition is '${sunPositon}'`);
 
         let NowInMinutes = now.getHours() * 60 + now.getMinutes() + now.getSeconds() / 60;
@@ -271,25 +286,25 @@ class Followthesun extends utils.Adapter {
         if (NadirInMinutes < 720) { //Sun is in the lowest position after midnight
             this.log.silly(`Sun is in the lowest position after midnight`);
             if (NowInMinutes > NadirInMinutes && NowInMinutes < SolarNoonInMinutes) {
-                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
+                jsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
                 this.log.debug(`Movement is 'Sunrise'`);
             } else {
-                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
+                jsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
                 this.log.debug(`Movement is 'Sunset'`);
             }
         }
         else { //Sun is in the lowest position before midnight
             this.log.silly(`Sun is in the lowest position before midnight`);
             if ((NowInMinutes > NadirInMinutes || NowInMinutes > 0) && (NowInMinutes < SolarNoonInMinutes)) {
-                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
+                jsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
                 this.log.debug(`Movement is 'Sunrise'`);
             } else {
-                JsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
+                jsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
                 this.log.debug(`Movement is 'Sunset'`);
             }
         }
 
-        JsonExplorer.stateSetCreate(`current.lastupdate`, `last update`, now.getTime());
+        jsonExplorer.stateSetCreate(`current.lastupdate`, `last update`, now.getTime());
     }
 
     /**
