@@ -1,9 +1,9 @@
 {
   "name": "iobroker.followthesun",
-  "version": "0.4.2",
+  "version": "0.5.0-alpha.1",
   "author": {
     "name": "HGlab01",
-    "email": "iobroker.followthesun@gmail.com"
+    "email": "myiobrokeradapters@gmail.com"
   },
   "license": "MIT",
   "main": "main.js",
@@ -24,8 +24,7 @@
     "sun position"
   ],
   "engines": {
-    "node": ">=16",
-    "npm": ">=7"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.0.4",
