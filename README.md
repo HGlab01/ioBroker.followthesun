@@ -30,7 +30,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.5.0-alpha.1 (2023-11-30)
+### 0.5.0 (2023-12-05)
 * (HGlab01) Breaking changes
     - Node.js 18 or higher required
     - ioBroker host (js-controller) 5.0 or higher
