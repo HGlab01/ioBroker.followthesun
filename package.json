@@ -64,5 +64,13 @@
     "test:package": "mocha test/package --exit",
     "test:unit": "mocha test/unit --exit",
     "release": "release-script"
-  }
+  },
+  "files": [
+    "admin/",
+    "lib/*.js",
+    "main.js",
+    "io-package.json",
+    "LICENSE",
+    "*.md"
+  ]
 }
