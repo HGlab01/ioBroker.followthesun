@@ -147,15 +147,12 @@
     "compact": true,
     "connectionType": "local",
     "dataSource": "poll",
-    "materialize": true,
     "adminUI": {
       "config": "json",
       "tab": "materialize"
     },
     "dependencies": [
-      {
-        "js-controller": ">=5"
-      }
+      {}
     ],
     "plugins": {
       "sentry": {
