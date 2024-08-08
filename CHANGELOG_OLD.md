@@ -1,4 +1,9 @@
 # Older changes
+## 0.3.9 (2022-02-24)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
+* (HGlab01) js-controller 4.0 readiness
+* (HGlab01) fix sometimes today is not today
+
 ## 0.3.8 (2021-12-07)
 * (HGlab01) Notifiy Sentry about new release
 
