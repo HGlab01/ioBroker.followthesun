@@ -52,7 +52,7 @@ class Followthesun extends utils.Adapter {
         //get adapter configuration
         this.log.info('Started with JSON-Explorer version ' + jsonExplorer.version);
         executioninterval = this.config.executioninterval;
-        if (isNaN(executioninterval) || executioninterval < 10) { executioninterval = 120 };
+        if (isNaN(executioninterval) || executioninterval < 10) { executioninterval = 120; }
         this.log.info(`Sun position calculation will be done every ${executioninterval} seconds`);
 
         //subscribe relevant states changes
@@ -104,7 +104,7 @@ class Followthesun extends utils.Adapter {
         let scheduleSeconds = Math.round(Math.random() * 20 + 20);
         this.log.info(`Daily sun parameter calculation scheduled for 00:00:${scheduleSeconds}`);
 
-        const calcPos = schedule.scheduleJob('SunData', `${scheduleSeconds} 0 0 * * *`, async () => {
+        schedule.scheduleJob('SunData', `${scheduleSeconds} 0 0 * * *`, async () => {
             this.log.info(`Cronjob 'Sun parameter calculation' starts`);
             this.CalcSunData();
         });
@@ -242,7 +242,7 @@ class Followthesun extends utils.Adapter {
             //compare, if there is any change
             if (altitude != altitude_old || azimuth != azimuth_old) {
                 this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and/or azimuth (' + azimuth_old + '|' + azimuth + ') changed');
-                this.calcAdditionalInfo(altitude, azimuth, altitude_old, azimuth_old)
+                this.calcAdditionalInfo(altitude, azimuth);
             } else {
                 this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and azimuth (' + azimuth_old + '|' + azimuth + ') did not change');
             }
@@ -264,10 +264,8 @@ class Followthesun extends utils.Adapter {
     /**
      * @param {number} altitude - after last change
      * @param {number} azimuth - after last change
-     * @param {number} altitude_old - before last change
-     * @param {number} azimuth_old - before last change
      */
-    async calcAdditionalInfo(altitude, azimuth, altitude_old, azimuth_old) {
+    async calcAdditionalInfo(altitude, azimuth) {
         let now = new Date();
         let sunPositon = await windrose.getPoint(azimuth, { depth: 2 }).symbol;
         jsonExplorer.stateSetCreate(`current.azimuth`, `current azimuth`, azimuth);
@@ -320,7 +318,7 @@ class Followthesun extends utils.Adapter {
             }
             this.log.info('cleaned everything up...');
             callback();
-        } catch (e) {
+        } catch {
             callback();
         }
     }
