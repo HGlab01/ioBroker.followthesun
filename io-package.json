@@ -152,7 +152,9 @@
       "tab": "materialize"
     },
     "dependencies": [
-      {}
+      {
+        "js-controller": ">=5.0.19"
+      }
     ],
     "plugins": {
       "sentry": {
