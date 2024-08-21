@@ -30,7 +30,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.5.1-alpha.0 (2024-08-08)
+### 0.5.1 (2024-08-21)
 * (HGlab01) Fixing repository checker issues
 
 ### 0.5.0 (2023-12-05)

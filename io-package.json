@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.5.1-alpha.0",
+    "version": "0.5.1",
     "news": {
+      "0.5.1": {
+        "en": "Fixing repository checker issues",
+        "de": "Probleme mit dem Repository Checker behoben",
+        "ru": "Fixing репозиторий",
+        "pt": "Corrigindo problemas do verificador do repositório",
+        "nl": "Problemen met repositorychecker repareren",
+        "fr": "Correction des problèmes de vérification du dépôt",
+        "it": "Risolvere i problemi del repository checker",
+        "es": "Arreglar los problemas de control de repositorios",
+        "pl": "Ustawienie problemów z sprawdzaniem repozytorium",
+        "uk": "Виправлення репозиторійних питань перевірки",
+        "zh-cn": "修复仓库检查器问题"
+      },
       "0.5.1-alpha.0": {
         "en": "Fixing repository checker issues",
         "de": "Probleme mit dem Repository Checker behoben",
@@ -80,19 +93,6 @@
         "pl": "Poprawa admin5",
         "uk": "Поліпшити використання ад5 UI",
         "zh-cn": "改进特明5 UI的使用"
-      },
-      "0.4.1": {
-        "en": "Improve error log if coordinates are not set",
-        "de": "Fehlerprotokoll verbessern, wenn Koordinaten nicht eingestellt werden",
-        "ru": "Улучшить лог ошибок, если координаты не установлены",
-        "pt": "Melhore o log de erro se as coordenadas não forem definidas",
-        "nl": "Improveerfout logboek als coördinaten niet klaar zijn",
-        "fr": "Améliorez le journal d'erreur si les coordonnées ne sont pas définies",
-        "it": "Migliorare il registro degli errori se le coordinate non sono impostate",
-        "es": "Mejorar el registro de errores si las coordenadas no están establecidas",
-        "pl": "Poprawić błąd, jeśli współrzędne nie są ustalone",
-        "uk": "Поліпшити журнал помилок, якщо координати не встановлюються",
-        "zh-cn": "如果无法确定坐标,则改进错误逻辑"
       }
     },
     "titleLang": {
