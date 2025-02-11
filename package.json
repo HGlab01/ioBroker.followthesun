@@ -35,7 +35,6 @@
     "suncalc": "^1.9.0",
     "windrose": "^2.1.0"
   },
-  "deprecated": false,
   "description": "followthesun",
   "devDependencies": {
     "@alcalzone/release-script": "^3.8.0",
