@@ -1,4 +1,11 @@
 # Older changes
+## 0.4.0 (2022-11-19)
+* (Jey-Cee) Updated object definitions: use of roles, multilanguage names
+* (Jey-Cee) Added missing objects for folders
+* (HGlab01) !Breaking change! NodeJS 14.16 or higher required
+* (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
+* (HGlab01) Update libs
+
 ## 0.3.9 (2022-02-24)
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
 * (HGlab01) js-controller 4.0 readiness

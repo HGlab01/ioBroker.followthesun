@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "news": {
+      "0.5.2": {
+        "en": "Bump axios to 1.8.3",
+        "de": "Bump axios zu 1.8.3",
+        "ru": "Аксиос удара до 1,8.3",
+        "pt": "Bump axios para 1.8.3",
+        "nl": "Bump axio's tot 1.8.3",
+        "fr": "Axios bouffés à 1.8.3",
+        "it": "Assio di bump a 1.8.3",
+        "es": "Axios de bomba a 1.8.3",
+        "pl": "Axios bump do 1.8.3",
+        "uk": "Бампер аксіос до 1.8.3",
+        "zh-cn": "横轴改为1.8.3"
+      },
       "0.5.1": {
         "en": "Fixing repository checker issues",
         "de": "Probleme mit dem Repository Checker behoben",
@@ -69,19 +82,6 @@
         "zh-cn": "断 变\n第18条或以上要求\nio Broker收容(控制员)5.0或更高。\n可以调整协调水平(方案)"
       },
       "0.4.2": {
-        "en": "Improve admin5 UI usage",
-        "de": "Verbessern Sie die Nutzung von admin5 UI",
-        "ru": "Улучшение использования admin5 UI",
-        "pt": "Melhorar o uso de UI admin5",
-        "nl": "Improbeer admin 5 UI gebruik",
-        "fr": "Améliorez l'utilisation de l'interface utilisateur admin5",
-        "it": "Migliorare l'utilizzo di admin5 UI",
-        "es": "Mejorar el uso de UI admin5",
-        "pl": "Poprawa admin5",
-        "uk": "Поліпшити використання ад5 UI",
-        "zh-cn": "改进特明5 UI的使用"
-      },
-      "0.4.2-alpha.0": {
         "en": "Improve admin5 UI usage",
         "de": "Verbessern Sie die Nutzung von admin5 UI",
         "ru": "Улучшение использования admin5 UI",
