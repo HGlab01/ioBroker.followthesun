@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.2.3",
-    "@typescript-eslint/eslint-plugin": "^8.30.1",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
     "@typescript-eslint/parser": "^8.31.0",
     "axios": "^1.8.4",
     "iobroker-jsonexplorer": "^0.1.16",
