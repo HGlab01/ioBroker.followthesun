@@ -13,7 +13,7 @@ const suncalc = require('suncalc');
 const windrose = require('windrose');
 const schedule = require('node-schedule');
 const jsonExplorer = require('iobroker-jsonexplorer');
-const stateAttr = require(__dirname + '/lib/stateAttr.js'); // Load attribute library
+const stateAttr = require(`${__dirname}/lib/stateAttr.js`); // Load attribute library
 const { version } = require('./package.json');
 
 //global variables
@@ -26,9 +26,8 @@ let executioninterval = 0;
 const dayToMs = 24 * 60 * 60 * 1000;
 
 class Followthesun extends utils.Adapter {
-
     /**
-     * @param {Partial<utils.AdapterOptions>} [options={}]
+     * @param {Partial<utils.AdapterOptions>} [options]
      */
     constructor(options) {
         super({
@@ -50,9 +49,11 @@ class Followthesun extends utils.Adapter {
         // Initialize adapter
         jsonExplorer.sendVersionInfo(version);
         //get adapter configuration
-        this.log.info('Started with JSON-Explorer version ' + jsonExplorer.version);
+        this.log.info(`Started with JSON-Explorer version ${jsonExplorer.version}`);
         executioninterval = this.config.executioninterval;
-        if (isNaN(executioninterval) || executioninterval < 10) { executioninterval = 120; }
+        if (isNaN(executioninterval) || executioninterval < 10) {
+            executioninterval = 120;
+        }
         this.log.info(`Sun position calculation will be done every ${executioninterval} seconds`);
 
         //subscribe relevant states changes
@@ -76,8 +77,8 @@ class Followthesun extends utils.Adapter {
                 if (err || !obj) {
                     this.log.error('Adapter could not read latitude/longitude in System Settings!');
                 } else {
-                    latitude = parseFloat(obj.common.latitude);
-                    longitude = parseFloat(obj.common.longitude);
+                    if (obj?.common?.latitude) latitude = obj.common.latitude;
+                    if (obj?.common?.longitude) longitude = obj.common.longitude;
                     console.log(`LATITUDE from config: ${latitude}`);
                     console.log(`LONGITUDE from config: ${longitude}`);
                     this.log.debug(`LATITUDE from config: ${latitude}`);
@@ -94,8 +95,8 @@ class Followthesun extends utils.Adapter {
                 await this.CalcSunData();
                 await this.calcPosition();
             } catch (error) {
-                this.log.error('Error in onReady: ' + error);
-                console.error('Error in onReady: ' + error);
+                this.log.error(`Error in onReady: ${error}`);
+                console.error(`Error in onReady: ${error}`);
                 this.sendSentry(error);
             }
         });
@@ -118,21 +119,35 @@ class Followthesun extends utils.Adapter {
             let nextyear = thisyear + 1;
 
             let startDate = new Date('2000-03-20');
-            startDate.setHours(7); startDate.setMinutes(39); startDate.setSeconds(22);
+            startDate.setHours(7);
+            startDate.setMinutes(39);
+            startDate.setSeconds(22);
             let startDateInMs = startDate.getTime();
 
             let spring = ((thisyear - 2000) * 365.24 + 1 / 24) * dayToMs + startDateInMs;
-            let summer = ((thisyear - 2000) * 365.24 + 92.76 + 2 / 24 + Math.floor((thisyear - 2000) / 12) * 0.01) * dayToMs + startDateInMs;
-            let autumn = ((thisyear - 2000) * 365.24 + 186.41 + 2 / 24 + Math.floor((thisyear - 2000) / 12) * 0.02) * dayToMs + startDateInMs;
-            let winter = ((thisyear - 2000) * 365.24 + 276.26 + 1 / 24 + Math.floor((thisyear - 2000) / 12) * 0.02) * dayToMs + startDateInMs;
+            let summer =
+                ((thisyear - 2000) * 365.24 + 92.76 + 2 / 24 + Math.floor((thisyear - 2000) / 12) * 0.01) * dayToMs +
+                startDateInMs;
+            let autumn =
+                ((thisyear - 2000) * 365.24 + 186.41 + 2 / 24 + Math.floor((thisyear - 2000) / 12) * 0.02) * dayToMs +
+                startDateInMs;
+            let winter =
+                ((thisyear - 2000) * 365.24 + 276.26 + 1 / 24 + Math.floor((thisyear - 2000) / 12) * 0.02) * dayToMs +
+                startDateInMs;
             let springdate_ty = new Date(spring);
             let summerdate_ty = new Date(summer);
             let autumndate_ty = new Date(autumn);
             let winterdate_ty = new Date(winter);
             spring = ((nextyear - 2000) * 365.24 + 1 / 24) * dayToMs + startDateInMs;
-            summer = ((nextyear - 2000) * 365.24 + 92.76 + 2 / 24 + Math.floor((nextyear - 2000) / 12) * 0.01) * dayToMs + startDateInMs;
-            autumn = ((nextyear - 2000) * 365.24 + 186.41 + 2 / 24 + Math.floor((nextyear - 2000) / 12) * 0.02) * dayToMs + startDateInMs;
-            winter = ((nextyear - 2000) * 365.24 + 276.26 + 1 / 24 + Math.floor((nextyear - 2000) / 12) * 0.02) * dayToMs + startDateInMs;
+            summer =
+                ((nextyear - 2000) * 365.24 + 92.76 + 2 / 24 + Math.floor((nextyear - 2000) / 12) * 0.01) * dayToMs +
+                startDateInMs;
+            autumn =
+                ((nextyear - 2000) * 365.24 + 186.41 + 2 / 24 + Math.floor((nextyear - 2000) / 12) * 0.02) * dayToMs +
+                startDateInMs;
+            winter =
+                ((nextyear - 2000) * 365.24 + 276.26 + 1 / 24 + Math.floor((nextyear - 2000) / 12) * 0.02) * dayToMs +
+                startDateInMs;
             let springdate_ny = new Date(spring);
             let summerdate_ny = new Date(summer);
             let autumndate_ny = new Date(autumn);
@@ -178,7 +193,7 @@ class Followthesun extends utils.Adapter {
                     days[i]['date'].setMinutes(0);
                     days[i]['date'].setSeconds(0);
                 }
-                this.log.debug('Timestamp used: ' + i + ' ' + days[i]['date']);
+                this.log.debug(`Timestamp used: ${i} ${days[i]['date']}`);
                 sunData[i] = await suncalc.getTimes(days[i]['date'], latitude, longitude);
             }
             todaySolarNoonTime = sunData['short term.today'].solarNoon;
@@ -186,18 +201,68 @@ class Followthesun extends utils.Adapter {
 
             for (let i in sunData) {
                 altitudes[i] = {};
-                altitudes[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
-                altitudes[i].sunset = Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
-                altitudes[i].sunrise = Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
-                altitudes[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
-                altitudes[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).altitude * 180 / Math.PI) * 10) / 10;
+                altitudes[i].solarnoon =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).altitude) * 180) /
+                            Math.PI) *
+                        10,
+                    ) / 10;
+                altitudes[i].sunset =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).altitude) * 180) /
+                            Math.PI) *
+                        10,
+                    ) / 10;
+                altitudes[i].sunrise =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).altitude) * 180) /
+                            Math.PI) *
+                        10,
+                    ) / 10;
+                altitudes[i].dawn =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).altitude) * 180) / Math.PI) *
+                        10,
+                    ) / 10;
+                altitudes[i].dusk =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).altitude) * 180) / Math.PI) *
+                        10,
+                    ) / 10;
 
                 azimuths[i] = {};
-                azimuths[i].solarnoon = Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
-                azimuths[i].sunset = Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
-                azimuths[i].sunrise = Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
-                azimuths[i].dawn = Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
-                azimuths[i].dusk = Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth * 180 / Math.PI + 180) * 10) / 10;
+                azimuths[i].solarnoon =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).azimuth) * 180) /
+                            Math.PI +
+                            180) *
+                        10,
+                    ) / 10;
+                azimuths[i].sunset =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).azimuth) * 180) / Math.PI +
+                            180) *
+                        10,
+                    ) / 10;
+                azimuths[i].sunrise =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).azimuth) * 180) /
+                            Math.PI +
+                            180) *
+                        10,
+                    ) / 10;
+                azimuths[i].dawn =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth) * 180) / Math.PI +
+                            180) *
+                        10,
+                    ) / 10;
+                azimuths[i].dusk =
+                    Math.round(
+                        (((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth) * 180) / Math.PI +
+                            180) *
+                        10,
+                    ) / 10;
 
                 jsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon.getTime());
                 jsonExplorer.stateSetCreate(`${i}.solarnoon_altitude`, `solarnoon altitude`, altitudes[i].solarnoon);
@@ -220,7 +285,7 @@ class Followthesun extends utils.Adapter {
                 jsonExplorer.stateSetCreate(`${i}.dusk_altitude`, `dusk altitude`, altitudes[i].dusk);
             }
         } catch (error) {
-            let eMsg = 'Error in CalcSunData: ' + error;
+            let eMsg = `Error in CalcSunData: ${error}`;
             this.log.error(eMsg);
             console.error(eMsg);
             this.sendSentry(error);
@@ -236,25 +301,33 @@ class Followthesun extends utils.Adapter {
             let altitude_old = altitude;
             let azimuth_old = azimuth;
             //calculate
-            altitude = Math.round((sunpos.altitude * 180 / Math.PI) * 10) / 10;
-            azimuth = Math.round((sunpos.azimuth * 180 / Math.PI + 180) * 10) / 10;
-            this.log.silly('Altitude: ' + altitude + ' Azimuth: ' + azimuth);
+            altitude = Math.round(((sunpos.altitude * 180) / Math.PI) * 10) / 10;
+            azimuth = Math.round(((sunpos.azimuth * 180) / Math.PI + 180) * 10) / 10;
+            this.log.silly(`Altitude: ${altitude} Azimuth: ${azimuth}`);
             //compare, if there is any change
             if (altitude != altitude_old || azimuth != azimuth_old) {
-                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and/or azimuth (' + azimuth_old + '|' + azimuth + ') changed');
+                this.log.debug(
+                    `Altitude (${altitude_old}|${altitude}) and/or azimuth (${azimuth_old}|${azimuth}) changed`,
+                );
                 this.calcAdditionalInfo(altitude, azimuth);
             } else {
-                this.log.debug('Altitude (' + altitude_old + '|' + altitude + ') and azimuth (' + azimuth_old + '|' + azimuth + ') did not change');
+                this.log.debug(
+                    `Altitude (${altitude_old}|${altitude}) and azimuth (${azimuth_old}|${azimuth}) did not change`,
+                );
             }
             //Timmer
-            (function () { if (polling) { clearTimeout(polling); polling = null; } })();
+            (function () {
+                if (polling) {
+                    clearTimeout(polling);
+                    polling = null;
+                }
+            })();
             polling = setTimeout(() => {
                 this.log.debug(`New calculation triggered by polling (every ${executioninterval} seconds)`);
                 this.calcPosition();
             }, executioninterval * 1000);
-
         } catch (error) {
-            let eMsg = 'Error in calcPosition: ' + error;
+            let eMsg = `Error in calcPosition: ${error}`;
             this.log.error(eMsg);
             console.error(eMsg);
             this.sendSentry(error);
@@ -274,14 +347,17 @@ class Followthesun extends utils.Adapter {
         this.log.debug(`Sunposition is '${sunPositon}'`);
 
         let NowInMinutes = now.getHours() * 60 + now.getMinutes() + now.getSeconds() / 60;
-        let SolarNoonInMinutes = todaySolarNoonTime.getHours() * 60 + todaySolarNoonTime.getMinutes() + todaySolarNoonTime.getSeconds() / 60;
-        let NadirInMinutes = todayNadirTime.getHours() * 60 + todayNadirTime.getMinutes() + todayNadirTime.getSeconds() / 60;
+        let SolarNoonInMinutes =
+            todaySolarNoonTime.getHours() * 60 + todaySolarNoonTime.getMinutes() + todaySolarNoonTime.getSeconds() / 60;
+        let NadirInMinutes =
+            todayNadirTime.getHours() * 60 + todayNadirTime.getMinutes() + todayNadirTime.getSeconds() / 60;
 
         this.log.silly(`NowInMinutes: ${NowInMinutes}`);
         this.log.silly(`SolarNoonInMinutes: ${SolarNoonInMinutes}`);
         this.log.silly(`NadirInMinutes: ${NadirInMinutes}`);
 
-        if (NadirInMinutes < 720) { //Sun is in the lowest position after midnight
+        if (NadirInMinutes < 720) {
+            //Sun is in the lowest position after midnight
             this.log.silly(`Sun is in the lowest position after midnight`);
             if (NowInMinutes > NadirInMinutes && NowInMinutes < SolarNoonInMinutes) {
                 jsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
@@ -290,10 +366,10 @@ class Followthesun extends utils.Adapter {
                 jsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunset');
                 this.log.debug(`Movement is 'Sunset'`);
             }
-        }
-        else { //Sun is in the lowest position before midnight
+        } else {
+            //Sun is in the lowest position before midnight
             this.log.silly(`Sun is in the lowest position before midnight`);
-            if ((NowInMinutes > NadirInMinutes || NowInMinutes > 0) && (NowInMinutes < SolarNoonInMinutes)) {
+            if ((NowInMinutes > NadirInMinutes || NowInMinutes > 0) && NowInMinutes < SolarNoonInMinutes) {
                 jsonExplorer.stateSetCreate(`current.movement`, `movement`, 'sunrise');
                 this.log.debug(`Movement is 'Sunrise'`);
             } else {
@@ -307,6 +383,7 @@ class Followthesun extends utils.Adapter {
 
     /**
      * Is called when adapter shuts down - callback has to be called under any circumstances!
+     *
      * @param {() => void} callback
      */
     onUnload(callback) {
@@ -325,6 +402,7 @@ class Followthesun extends utils.Adapter {
 
     /**
      * Is called if a subscribed state changes
+     *
      * @param {string} id
      * @param {ioBroker.State | null | undefined} state
      */
@@ -359,9 +437,9 @@ class Followthesun extends utils.Adapter {
 if (module.parent) {
     // Export the constructor in compact mode
     /**
-     * @param {Partial<utils.AdapterOptions>} [options={}]
+     * @param {Partial<utils.AdapterOptions>} [options]
      */
-    module.exports = (options) => new Followthesun(options);
+    module.exports = options => new Followthesun(options);
 } else {
     // otherwise start the instance directly
     new Followthesun();
