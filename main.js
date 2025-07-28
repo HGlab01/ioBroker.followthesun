@@ -27,7 +27,7 @@ const dayToMs = 24 * 60 * 60 * 1000;
 
 class Followthesun extends utils.Adapter {
     /**
-     * @param {Partial<utils.AdapterOptions>} [options]
+     * @param {Partial<utils.AdapterOptions>} [options] is the options to use for creating the adapter instance
      */
     constructor(options) {
         super({
@@ -77,8 +77,12 @@ class Followthesun extends utils.Adapter {
                 if (err || !obj) {
                     this.log.error('Adapter could not read latitude/longitude in System Settings!');
                 } else {
-                    if (obj?.common?.latitude) latitude = obj.common.latitude;
-                    if (obj?.common?.longitude) longitude = obj.common.longitude;
+                    if (obj?.common?.latitude) {
+                        latitude = obj.common.latitude;
+                    }
+                    if (obj?.common?.longitude) {
+                        longitude = obj.common.longitude;
+                    }
                     console.log(`LATITUDE from config: ${latitude}`);
                     console.log(`LONGITUDE from config: ${longitude}`);
                     this.log.debug(`LATITUDE from config: ${latitude}`);
@@ -205,29 +209,29 @@ class Followthesun extends utils.Adapter {
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).altitude) * 180) /
                             Math.PI) *
-                        10,
+                            10,
                     ) / 10;
                 altitudes[i].sunset =
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).altitude) * 180) /
                             Math.PI) *
-                        10,
+                            10,
                     ) / 10;
                 altitudes[i].sunrise =
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).altitude) * 180) /
                             Math.PI) *
-                        10,
+                            10,
                     ) / 10;
                 altitudes[i].dawn =
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).altitude) * 180) / Math.PI) *
-                        10,
+                            10,
                     ) / 10;
                 altitudes[i].dusk =
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).altitude) * 180) / Math.PI) *
-                        10,
+                            10,
                     ) / 10;
 
                 azimuths[i] = {};
@@ -236,32 +240,32 @@ class Followthesun extends utils.Adapter {
                         (((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).azimuth) * 180) /
                             Math.PI +
                             180) *
-                        10,
+                            10,
                     ) / 10;
                 azimuths[i].sunset =
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).azimuth) * 180) / Math.PI +
                             180) *
-                        10,
+                            10,
                     ) / 10;
                 azimuths[i].sunrise =
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).azimuth) * 180) /
                             Math.PI +
                             180) *
-                        10,
+                            10,
                     ) / 10;
                 azimuths[i].dawn =
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth) * 180) / Math.PI +
                             180) *
-                        10,
+                            10,
                     ) / 10;
                 azimuths[i].dusk =
                     Math.round(
                         (((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth) * 180) / Math.PI +
                             180) *
-                        10,
+                            10,
                     ) / 10;
 
                 jsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon.getTime());
@@ -384,7 +388,7 @@ class Followthesun extends utils.Adapter {
     /**
      * Is called when adapter shuts down - callback has to be called under any circumstances!
      *
-     * @param {() => void} callback
+     * @param {() => void} callback is the callback that has to be called when unloading is finished
      */
     onUnload(callback) {
         try {
@@ -403,8 +407,8 @@ class Followthesun extends utils.Adapter {
     /**
      * Is called if a subscribed state changes
      *
-     * @param {string} id
-     * @param {ioBroker.State | null | undefined} state
+     * @param {string} id is the ID of the state that changed
+     * @param {ioBroker.State | null | undefined} state is the state object with the old and new values
      */
     onStateChange(id, state) {
         if (state) {
@@ -417,7 +421,7 @@ class Followthesun extends utils.Adapter {
     }
 
     /**
-     * @param {any} errorObject
+     * @param {any} errorObject is the error object to be sent to Sentry
      */
     sendSentry(errorObject) {
         try {
@@ -433,11 +437,11 @@ class Followthesun extends utils.Adapter {
     }
 }
 
-// @ts-ignore parent is a valid property on module
+// @ts-expect-error parent is a valid property on module
 if (module.parent) {
     // Export the constructor in compact mode
     /**
-     * @param {Partial<utils.AdapterOptions>} [options]
+     * @param {Partial<utils.AdapterOptions>} [options] is the options to use for creating the adapter instance
      */
     module.exports = options => new Followthesun(options);
 } else {
