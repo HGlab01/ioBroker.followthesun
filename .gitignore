@@ -1,5 +1,6 @@
 iob_npm.done
 .git
+.commitinfo
 .idea
 *.code-workspace
 node_modules
