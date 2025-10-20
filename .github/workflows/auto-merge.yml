@@ -41,17 +41,13 @@ jobs:
 
             if [[ "$OLD_MAJOR" == "$NEW_MAJOR" && "$OLD_MINOR" == "$NEW_MINOR" ]]; then
               echo "version_change=patch" >> $GITHUB_OUTPUT
-              echo "::notice::Detected PATCH update from $OLD to $NEW"
             elif [[ "$OLD_MAJOR" == "$NEW_MAJOR" ]]; then
               echo "version_change=minor" >> $GITHUB_OUTPUT
-              echo "::notice::Detected MINOR update from $OLD to $NEW"
             else
               echo "version_change=major" >> $GITHUB_OUTPUT
-              echo "::notice::Detected MAJOR update from $OLD to $NEW – skipping auto-merge"
             fi
           else
             echo "version_change=unknown" >> $GITHUB_OUTPUT
-            echo "::notice::Could not parse SemVer from PR title. Skipping auto-merge."
           fi
           echo "::endgroup::"
 
@@ -60,43 +56,36 @@ jobs:
         id: devcheck
         run: |
           TITLE="${{ github.event.pull_request.title }}"
-          echo "::group::Checking for devDependency in PR title"
-          echo "PR title: $TITLE"
-
           if echo "$TITLE" | grep -iq "deps-dev"; then
             echo "is_dev_dependency=true" >> $GITHUB_OUTPUT
-            echo "::notice::PR targets a devDependency."
           else
             echo "is_dev_dependency=false" >> $GITHUB_OUTPUT
-            echo "::notice::PR does not target a devDependency."
           fi
-          echo "::endgroup::"
           
-      # --- Set labels ---
+      # --- Set labels (SemVer immer, DevDependency nur wenn zutreffend) ---
       - name: Add labels based on SemVer and dependency type
         env:
           GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+          IS_DEV_DEP: ${{ steps.devcheck.outputs.is_dev_dependency }}
+          VERSION_CHANGE: ${{ steps.version.outputs.version_change }}
         run: |
           NUMBER=${{ github.event.pull_request.number }}
-          TYPE_LABEL=""
-          SEMVER_LABEL=""
-      
-          # Dependency-Typ
-          if [[ "${{ steps.devcheck.outputs.is_dev_dependency }}" == "true" ]]; then
-            TYPE_LABEL="dev-dependency"
-          else
-            # TYPE_LABEL="dependency"
+          LABEL_ARGS=()
+
+          # Nur DevDependency bekommt ein Label
+          if [[ "$IS_DEV_DEP" == "true" ]]; then
+            LABEL_ARGS+=(--add-label "dev-dependency")
           fi
-      
-          # SemVer
-          case "${{ steps.version.outputs.version_change }}" in
-            patch) SEMVER_LABEL="patch" ;;
-            minor) SEMVER_LABEL="minor" ;;
-            major) SEMVER_LABEL="major" ;;
+
+          # SemVer-Label immer hinzufügen
+          case "$VERSION_CHANGE" in
+            patch) LABEL_ARGS+=(--add-label "patch") ;;
+            minor) LABEL_ARGS+=(--add-label "minor") ;;
+            major) LABEL_ARGS+=(--add-label "major") ;;
           esac
-      
-          echo "Adding labels: $TYPE_LABEL, $SEMVER_LABEL"
-          gh pr edit "$NUMBER" --add-label "$TYPE_LABEL" --add-label "$SEMVER_LABEL"
+
+          echo "Adding labels: ${LABEL_ARGS[*]}"
+          gh pr edit "$NUMBER" "${LABEL_ARGS[@]}"
 
       # --- Merge-Schritt ---
       - name: Enable Auto-Merge if patch or minor devDependency
