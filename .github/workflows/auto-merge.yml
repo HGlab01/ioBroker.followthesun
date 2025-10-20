@@ -36,4 +36,4 @@ jobs:
           echo "Versuche, PR Nummer '$PR_NUMBER' zu mergen..."
           
           # gh pr merge nutzt die Nummer, um den PR eindeutig zu finden und zu mergen.
-          gh pr merge $PR_NUMBER --squash --delete-branch
+          gh pr merge $PR_NUMBER --auto --squash --delete-branch
