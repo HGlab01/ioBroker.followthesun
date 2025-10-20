@@ -27,19 +27,16 @@ jobs:
         # Logic check based on expected labels provided by Dependabot.
         # The merge is only attempted if one of the three conditions is met.
         if: |
-          # Logic 1: Patch updates for Production dependencies
           (
             contains(github.event.pull_request.labels.*.name, 'dependency-type:production') && 
             contains(github.event.pull_request.labels.*.name, 'semver:patch')
           )
           ||
-          # Logic 2: Minor updates for Security fixes
           (
             contains(github.event.pull_request.labels.*.name, 'dependency-type:security') && 
             contains(github.event.pull_request.labels.*.name, 'semver:minor')
           )
           ||
-          # Logic 3: Minor updates for Development dependencies
           (
             contains(github.event.pull_request.labels.*.name, 'dependency-type:development') && 
             contains(github.event.pull_request.labels.*.name, 'semver:minor')
