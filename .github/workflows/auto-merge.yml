@@ -1,4 +1,4 @@
-name: Auto-Merge Dependabot PRs
+name: Auto-Merge Dependabot PRs (Patch & Minor Dev)
 
 on:
   pull_request_target:
@@ -8,44 +8,106 @@ on:
       - synchronize
 
 jobs:
-  auto_merge_conditional:
-    # Pre-check: Only run if the pull request author is 'dependabot[bot]'
+  auto-merge:
     if: github.actor == 'dependabot[bot]'
-    
     runs-on: ubuntu-latest
-    
-    # Permissions: Essential for merging and deleting the branch using GITHUB_TOKEN
+
     permissions:
       contents: write
       pull-requests: write
-      
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Enable Auto-Merge (Patch/Minor Logic) ✅
-        # Logic check based on expected labels provided by Dependabot.
-        # The merge is only attempted if one of the three conditions is met.
-        if: |
-          (
-            contains(github.event.pull_request.labels.*.name, 'dependency-type:production') && 
-            contains(github.event.pull_request.labels.*.name, 'semver:patch')
-          )
-          ||
-          (
-            contains(github.event.pull_request.labels.*.name, 'dependency-type:security') && 
-            contains(github.event.pull_request.labels.*.name, 'semver:minor')
-          )
-          ||
-          (
-            contains(github.event.pull_request.labels.*.name, 'dependency-type:development') && 
-            contains(github.event.pull_request.labels.*.name, 'semver:minor')
-          )
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+      # --- Versionslogik aus dem Titel ---
+      - name: Extract version change type
+        id: version
         run: |
-          echo "Conditions met. Enabling auto-merge for PR number '$PR_NUMBER'."
+          TITLE="${{ github.event.pull_request.title }}"
+          echo "::group::Parsing SemVer from PR title"
+          echo "PR title: $TITLE"
+
+          if [[ "$TITLE" =~ [Bb]ump[[:space:]]+[^[:space:]]+[[:space:]]+from[[:space:]]+([0-9]+\.[0-9]+\.[0-9]+)[[:space:]]+to[[:space:]]+([0-9]+\.[0-9]+\.[0-9]+) ]]; then
+            OLD="${BASH_REMATCH[1]}"
+            NEW="${BASH_REMATCH[2]}"
+            echo "Old version: $OLD"
+            echo "New version: $NEW"
+
+            OLD_MAJOR=$(echo $OLD | cut -d. -f1)
+            OLD_MINOR=$(echo $OLD | cut -d. -f2)
+            NEW_MAJOR=$(echo $NEW | cut -d. -f1)
+            NEW_MINOR=$(echo $NEW | cut -d. -f2)
+
+            if [[ "$OLD_MAJOR" == "$NEW_MAJOR" && "$OLD_MINOR" == "$NEW_MINOR" ]]; then
+              echo "version_change=patch" >> $GITHUB_OUTPUT
+              echo "::notice::Detected PATCH update from $OLD to $NEW"
+            elif [[ "$OLD_MAJOR" == "$NEW_MAJOR" ]]; then
+              echo "version_change=minor" >> $GITHUB_OUTPUT
+              echo "::notice::Detected MINOR update from $OLD to $NEW"
+            else
+              echo "version_change=major" >> $GITHUB_OUTPUT
+              echo "::notice::Detected MAJOR update from $OLD to $NEW – skipping auto-merge"
+            fi
+          else
+            echo "version_change=unknown" >> $GITHUB_OUTPUT
+            echo "::notice::Could not parse SemVer from PR title. Skipping auto-merge."
+          fi
+          echo "::endgroup::"
+
+      # --- DevDependency-Erkennung aus dem PR-Titel ---
+      - name: Check if PR targets a devDependency
+        id: devcheck
+        run: |
+          TITLE="${{ github.event.pull_request.title }}"
+          echo "::group::Checking for devDependency in PR title"
+          echo "PR title: $TITLE"
+
+          if echo "$TITLE" | grep -iq "deps-dev"; then
+            echo "is_dev_dependency=true" >> $GITHUB_OUTPUT
+            echo "::notice::PR targets a devDependency."
+          else
+            echo "is_dev_dependency=false" >> $GITHUB_OUTPUT
+            echo "::notice::PR does not target a devDependency."
+          fi
+          echo "::endgroup::"
           
-          # gh pr merge --auto waits for all required branch protection checks (e.g., tests) to pass.
-          gh pr merge $PR_NUMBER --auto --squash --delete-branch
+      # --- Set labels ---
+      - name: Add labels based on SemVer and dependency type
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+        run: |
+          NUMBER=${{ github.event.pull_request.number }}
+          TYPE_LABEL=""
+          SEMVER_LABEL=""
+      
+          # Dependency-Typ
+          if [[ "${{ steps.devcheck.outputs.is_dev_dependency }}" == "true" ]]; then
+            TYPE_LABEL="dev-dependency"
+          else
+            # TYPE_LABEL="dependency"
+          fi
+      
+          # SemVer
+          case "${{ steps.version.outputs.version_change }}" in
+            patch) SEMVER_LABEL="patch" ;;
+            minor) SEMVER_LABEL="minor" ;;
+            major) SEMVER_LABEL="major" ;;
+          esac
+      
+          echo "Adding labels: $TYPE_LABEL, $SEMVER_LABEL"
+          gh pr edit "$NUMBER" --add-label "$TYPE_LABEL" --add-label "$SEMVER_LABEL"
+
+      # --- Merge-Schritt ---
+      - name: Enable Auto-Merge if patch or minor devDependency
+        if: steps.version.outputs.version_change == 'patch' || 
+            (steps.version.outputs.version_change == 'minor' && steps.devcheck.outputs.is_dev_dependency == 'true')
+        env:
+          GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+        run: |
+          echo "::group::Activating auto-merge"
+          echo "Version type: ${{ steps.version.outputs.version_change }}"
+          echo "DevDependency: ${{ steps.devcheck.outputs.is_dev_dependency }}"
+          echo "PR #${{ github.event.pull_request.number }} will be merged."
+          gh pr merge "${{ github.event.pull_request.number }}" --auto --merge --delete-branch
+          echo "::endgroup::"
