@@ -17,10 +17,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Set up GitHub CLI
-        uses: cli/cli@v2
-
       - name: Merge Dependabot PR using gh
         env:
           GH_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
