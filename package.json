@@ -31,7 +31,7 @@
     "@typescript-eslint/eslint-plugin": "^8.46.3",
     "@typescript-eslint/parser": "^8.46.3",
     "axios": "^1.12.2",
-    "iobroker-jsonexplorer": "^0.2.1",
+    "iobroker-jsonexplorer": "^0.2.2",
     "node-schedule": "^2.0.0",
     "suncalc": "^1.9.0",
     "windrose": "^2.1.0"
