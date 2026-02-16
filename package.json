@@ -29,7 +29,7 @@
   "dependencies": {
     "@iobroker/adapter-core": "^3.3.2",
     "@typescript-eslint/eslint-plugin": "^8.51.0",
-    "@typescript-eslint/parser": "^8.53.1",
+    "@typescript-eslint/parser": "^8.55.0",
     "axios": "^1.13.5",
     "iobroker-jsonexplorer": "^0.2.2",
     "node-schedule": "^2.0.0",
