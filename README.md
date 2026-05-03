@@ -52,6 +52,8 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 ### 0.4.1 (2023-02-05)
 * (HGlab01) Improve error log if coordinates are not set
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
