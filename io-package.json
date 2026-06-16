@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "news": {
+      "0.5.3": {
+        "en": "code quality improvements\ndependecy updates",
+        "de": "verbesserung der codequalität\ndependecy updates",
+        "ru": "улучшение качества кода\nобновления dependecy",
+        "pt": "melhorias na qualidade do código\natualizações de dependência",
+        "nl": "verbetering van de codekwaliteit\nafhankelijkheidsupdates",
+        "fr": "amélioration de la qualité du code\nmises à jour de la dépendance",
+        "it": "miglioramento della qualità del codice\naggiornamenti di dipendenza",
+        "es": "mejoras de calidad de código\nactualizaciones de dependencia",
+        "pl": "poprawa jakości kodu\naktualizacje zależności",
+        "uk": "покращення якості коду\nоновлення залежності",
+        "zh-cn": "代码质量改进\n依赖性更新"
+      },
       "0.5.2": {
         "en": "Bump axios to 1.8.3",
         "de": "Bump axios zu 1.8.3",
@@ -80,19 +93,6 @@
         "pl": "Zmiany\nNodeJS 18 (ang.)\nioBroker host (js-controller) 5.0 lub wyższe\nKoordynacje mogą być konfigurowane na poziomie instancji (opcjonalnym)",
         "uk": "Зміни\nNodeJS 18 або вище\nioBroker host (js-controller) 5.0 або вище\nГеографічні координати можна налаштувати на рівні екземпляра (за бажанням)",
         "zh-cn": "断 变\n第18条或以上要求\nio Broker收容(控制员)5.0或更高。\n可以调整协调水平(方案)"
-      },
-      "0.4.2": {
-        "en": "Improve admin5 UI usage",
-        "de": "Verbessern Sie die Nutzung von admin5 UI",
-        "ru": "Улучшение использования admin5 UI",
-        "pt": "Melhorar o uso de UI admin5",
-        "nl": "Improbeer admin 5 UI gebruik",
-        "fr": "Améliorez l'utilisation de l'interface utilisateur admin5",
-        "it": "Migliorare l'utilizzo di admin5 UI",
-        "es": "Mejorar el uso de UI admin5",
-        "pl": "Poprawa admin5",
-        "uk": "Поліпшити використання ад5 UI",
-        "zh-cn": "改进特明5 UI的使用"
       }
     },
     "titleLang": {

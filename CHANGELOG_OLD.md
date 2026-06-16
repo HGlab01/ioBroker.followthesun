@@ -1,4 +1,8 @@
 # Older changes
+## 0.4.1 (2023-02-05)
+* (HGlab01) Improve error log if coordinates are not set
+
+
 ## 0.4.0 (2022-11-19)
 * (Jey-Cee) Updated object definitions: use of roles, multilanguage names
 * (Jey-Cee) Added missing objects for folders
