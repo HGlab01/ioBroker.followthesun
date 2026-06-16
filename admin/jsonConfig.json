@@ -5,13 +5,37 @@
     "_intervall": {
       "newLine": true,
       "type": "header",
-      "text": "Please set the interval",
+      "text": {
+        "en": "Please set the interval",
+        "de": "Bitte Intervall festlegen",
+        "ru": "Пожалуйста, задайте интервал",
+        "pt": "Por favor, defina o intervalo",
+        "nl": "Stel het interval in",
+        "fr": "Veuillez définir l'intervalle",
+        "it": "Imposta l'intervallo",
+        "es": "Por favor, establezca el intervalo",
+        "pl": "Ustaw interwał",
+        "uk": "Будь ласка, встановіть інтервал",
+        "zh-cn": "请设置间隔"
+      },
       "size": 3
     },
     "executioninterval": {
       "newLine": true,
       "type": "number",
-      "label": "Interval of execution in seconds",
+      "label": {
+        "en": "Interval of execution in seconds",
+        "de": "Ausführungsintervall in Sekunden",
+        "ru": "Интервал выполнения в секундах",
+        "pt": "Intervalo de execução em segundos",
+        "nl": "Uitvoeringsinterval in seconden",
+        "fr": "Intervalle d'exécution en secondes",
+        "it": "Intervallo di esecuzione in secondi",
+        "es": "Intervalo de ejecución en segundos",
+        "pl": "Interwał wykonania w sekundach",
+        "uk": "Інтервал виконання в секундах",
+        "zh-cn": "执行间隔（秒）"
+      },
       "min": 30,
       "max": 3600,
       "step": 5,
@@ -24,13 +48,37 @@
     "_overwrite": {
       "newLine": true,
       "type": "header",
-      "text": "Use adapter specific coordinates",
+      "text": {
+        "en": "Use adapter specific coordinates",
+        "de": "Adapterspezifische Koordinaten verwenden",
+        "ru": "Использовать координаты адаптера",
+        "pt": "Usar coordenadas específicas do adaptador",
+        "nl": "Adapterspecifieke coördinaten gebruiken",
+        "fr": "Utiliser les coordonnées spécifiques à l'adaptateur",
+        "it": "Usa coordinate specifiche dell'adattatore",
+        "es": "Usar coordenadas específicas del adaptador",
+        "pl": "Użyj współrzędnych specyficznych dla adaptera",
+        "uk": "Використовувати координати адаптера",
+        "zh-cn": "使用适配器特定坐标"
+      },
       "size": 3
     },
     "overwrite": {
       "newLine": true,
       "type": "checkbox",
-      "label": "Use adapter specific coordinates",
+      "label": {
+        "en": "Use adapter specific coordinates",
+        "de": "Adapterspezifische Koordinaten verwenden",
+        "ru": "Использовать координаты адаптера",
+        "pt": "Usar coordenadas específicas do adaptador",
+        "nl": "Adapterspecifieke coördinaten gebruiken",
+        "fr": "Utiliser les coordonnées spécifiques à l'adaptateur",
+        "it": "Usa coordinate specifiche dell'adattatore",
+        "es": "Usar coordenadas específicas del adaptador",
+        "pl": "Użyj współrzędnych specyficznych dla adaptera",
+        "uk": "Використовувати координати адаптера",
+        "zh-cn": "使用适配器特定坐标"
+      },
       "xs": 12,
       "sm": 12,
       "md": 6,
@@ -40,7 +88,19 @@
     "latOR": {
       "newLine": true,
       "type": "number",
-      "label": "Latitude",
+      "label": {
+        "en": "Latitude",
+        "de": "Breitengrad",
+        "ru": "Широта",
+        "pt": "Latitude",
+        "nl": "Breedtegraad",
+        "fr": "Latitude",
+        "it": "Latitudine",
+        "es": "Latitud",
+        "pl": "Szerokość geograficzna",
+        "uk": "Широта",
+        "zh-cn": "纬度"
+      },
       "hidden": "!data.overwrite",
       "xs": 12,
       "sm": 12,
@@ -51,7 +111,19 @@
     "longOR": {
       "newLine": false,
       "type": "number",
-      "label": "Longitude",
+      "label": {
+        "en": "Longitude",
+        "de": "Längengrad",
+        "ru": "Долгота",
+        "pt": "Longitude",
+        "nl": "Lengtegraad",
+        "fr": "Longitude",
+        "it": "Longitudine",
+        "es": "Longitud",
+        "pl": "Długość geograficzna",
+        "uk": "Довгота",
+        "zh-cn": "经度"
+      },
       "hidden": "!data.overwrite",
       "xs": 12,
       "sm": 12,

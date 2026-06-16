@@ -65,7 +65,7 @@ class Followthesun extends utils.Adapter {
             if (this.config.overwrite) {
                 if (!this.config.longOR || !this.config.latOR) {
                     this.log.error(`Latitude or longitude not set in Adapter Settings!`);
-                    this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                    this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT);
                     return;
                 }
                 this.log.info('Coordinates available in adapter settings - use this settings');
@@ -89,7 +89,7 @@ class Followthesun extends utils.Adapter {
                     this.log.debug(`LONGITUDE from config: ${longitude}`);
                     if (!latitude || !longitude) {
                         this.log.error(`Latitude or longitude not set in System Settings!`);
-                        this.terminate ? this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT) : process.exit(0);
+                        this.terminate(utils.EXIT_CODES.INVALID_CONFIG_OBJECT);
                         return;
                     }
                 }
@@ -320,13 +320,11 @@ class Followthesun extends utils.Adapter {
                 );
             }
             //Timmer
-            (function () {
-                if (polling) {
-                    clearTimeout(polling);
-                    polling = null;
-                }
-            })();
-            polling = setTimeout(() => {
+            if (polling) {
+                this.clearTimeout(polling);
+                polling = null;
+            }
+            polling = this.setTimeout(() => {
                 this.log.debug(`New calculation triggered by polling (every ${executioninterval} seconds)`);
                 this.calcPosition();
             }, executioninterval * 1000);
