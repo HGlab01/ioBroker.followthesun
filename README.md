@@ -23,7 +23,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 
 ## Requires
 * Node.js 22 or higher
-* ioBroker host (js-controller) 5.0 or higher
+* ioBroker host (js-controller) 6.0.11 or higher
 
 ## Changelog
 <!--
