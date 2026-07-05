@@ -30,7 +30,7 @@
     "@iobroker/adapter-core": "^3.4.1",
     "iobroker-jsonexplorer": "^0.2.2",
     "node-schedule": "^2.1.1",
-    "suncalc": "^1.9.0",
+    "suncalc": "^2.0.0",
     "windrose": "^2.1.0"
   },
   "description": "followthesun",
