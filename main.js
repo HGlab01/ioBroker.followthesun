@@ -206,67 +206,29 @@ class Followthesun extends utils.Adapter {
             for (let i in sunData) {
                 altitudes[i] = {};
                 altitudes[i].solarnoon =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).altitude) * 180) /
-                            Math.PI) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude)).altitude * 10) /
+                    10;
                 altitudes[i].sunset =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).altitude) * 180) /
-                            Math.PI) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude)).altitude * 10) / 10;
                 altitudes[i].sunrise =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).altitude) * 180) /
-                            Math.PI) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude)).altitude * 10) / 10;
                 altitudes[i].dawn =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).altitude) * 180) / Math.PI) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude)).altitude * 10) / 10;
                 altitudes[i].dusk =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).altitude) * 180) / Math.PI) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude)).altitude * 10) / 10;
 
                 azimuths[i] = {};
                 azimuths[i].solarnoon =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude).azimuth) * 180) /
-                            Math.PI +
-                            180) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].solarNoon, latitude, longitude)).azimuth * 10) /
+                    10;
                 azimuths[i].sunset =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].sunset, latitude, longitude).azimuth) * 180) / Math.PI +
-                            180) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].sunset, latitude, longitude)).azimuth * 10) / 10;
                 azimuths[i].sunrise =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude).azimuth) * 180) /
-                            Math.PI +
-                            180) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].sunrise, latitude, longitude)).azimuth * 10) / 10;
                 azimuths[i].dawn =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].dawn, latitude, longitude).azimuth) * 180) / Math.PI +
-                            180) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].dawn, latitude, longitude)).azimuth * 10) / 10;
                 azimuths[i].dusk =
-                    Math.round(
-                        (((await suncalc.getPosition(sunData[i].dusk, latitude, longitude).azimuth) * 180) / Math.PI +
-                            180) *
-                            10,
-                    ) / 10;
+                    Math.round((await suncalc.getPosition(sunData[i].dusk, latitude, longitude)).azimuth * 10) / 10;
 
                 jsonExplorer.stateSetCreate(`${i}.solarnoon_time`, `solarnoon time`, sunData[i].solarNoon.getTime());
                 jsonExplorer.stateSetCreate(`${i}.solarnoon_altitude`, `solarnoon altitude`, altitudes[i].solarnoon);
@@ -305,8 +267,10 @@ class Followthesun extends utils.Adapter {
             let altitude_old = altitude;
             let azimuth_old = azimuth;
             //calculate
-            altitude = Math.round(((sunpos.altitude * 180) / Math.PI) * 10) / 10;
-            azimuth = Math.round(((sunpos.azimuth * 180) / Math.PI + 180) * 10) / 10;
+            //altitude = Math.round(((sunpos.altitude * 180) / Math.PI) * 10) / 10;
+            //azimuth = Math.round(((sunpos.azimuth * 180) / Math.PI + 180) * 10) / 10;
+            altitude = Math.round(sunpos.altitude * 10) / 10;
+            azimuth = Math.round(sunpos.azimuth * 10) / 10;
             this.log.silly(`Altitude: ${altitude} Azimuth: ${azimuth}`);
             //compare, if there is any change
             if (altitude != altitude_old || azimuth != azimuth_old) {
