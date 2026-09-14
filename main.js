@@ -267,8 +267,6 @@ class Followthesun extends utils.Adapter {
             let altitude_old = altitude;
             let azimuth_old = azimuth;
             //calculate
-            //altitude = Math.round(((sunpos.altitude * 180) / Math.PI) * 10) / 10;
-            //azimuth = Math.round(((sunpos.azimuth * 180) / Math.PI + 180) * 10) / 10;
             altitude = Math.round(sunpos.altitude * 10) / 10;
             azimuth = Math.round(sunpos.azimuth * 10) / 10;
             this.log.silly(`Altitude: ${altitude} Azimuth: ${azimuth}`);
