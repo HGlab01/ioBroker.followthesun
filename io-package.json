@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.5.3",
+    "version": "0.5.4-alpha.0",
     "news": {
+      "0.5.4-alpha.0": {
+        "en": "Improved accuracy (check https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nUpdate suncalc to 2.0.2",
+        "de": "Höhere Genauigkeit (siehe https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nUpdate Suncalc auf 2.0.2",
+        "ru": "Повышенная точность (см. https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nОбновите suncalc до версии 2.0.2",
+        "pt": "Maior precisão (veja https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nAtualize suncalc à 2.0.2",
+        "nl": "Verbeterde nauwkeurigheid (zie https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nSuncalc updaten naar 2.0.2",
+        "fr": "Précision accrue (voir https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nMettre à jour Suncalc à 2.0.2",
+        "it": "Più precisione (vedi https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nAggiorna Suncalc a 2.0.2",
+        "es": "Precisión mejorada (consulte https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nActualice suncalc a 2.0.2",
+        "pl": "Poprawiona dokładność (sprawdź https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nZaktualizuj suncalc do wersji 2.0.2",
+        "uk": "Покращена точність (перевірте https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nОновлення suncalc до 2.0.2",
+        "zh-cn": "提高了准确性（查看 https://github.com/mourner/suncalc/releases/tag/v2.0.0）\n将 suncalc 更新到 2.0.2"
+      },
       "0.5.3": {
         "en": "code quality improvements\ndependecy updates",
         "de": "verbesserung der codequalität\ndependecy updates",
@@ -80,19 +93,6 @@
         "pl": "Zmiany\n18 lub więcej wymagań\nioBroker host (js-controller) 5.0 lub wyższe\nKoordynacje mogą być konfigurowane na poziomie instancji (opcjonalnym)\nBump iobroker-jsonexplorer to v0.1.14",
         "uk": "Зміни\nNode.js 18 або вище\nioBroker host (js-controller) 5.0 або вище\nГеографічні координати можна налаштувати на рівні екземпляра (за бажанням)\nBump iobroker-jsonexplorer до v0.1.14",
         "zh-cn": "断 变\n第18条或以上要求\nio Broker收容(控制员)5.0或更高。\n可以调整协调水平(方案)\nBumpiobroker-jsonexplorer to v0.1.14"
-      },
-      "0.5.0-alpha.0": {
-        "en": "Breaking changes\nNodeJS 18 or higher required\nioBroker host (js-controller) 5.0 or higher\nCoordinates can be configured on instance level (optional)",
-        "de": "Veränderungsraten\nNodeJS 18 oder höher erforderlich\nioBroker host (js-controller) 5.0 oder höher\nKoordinaten können auf Instanzebene (optional) konfiguriert werden",
-        "ru": "Перерыв изменений\nNodeJS 18 или выше требуется\nioBroker host (js-controller) 5.0 или выше\nКоординаты могут быть настроены на уровень (необязательно)",
-        "pt": "Alterações de ruptura\nNodeJS 18 ou superior exigido\nhospedeiro ioBroker (js-controller) 5.0 ou superior\nCoordenadas podem ser configuradas no nível de instância (opcional)",
-        "nl": "Breaking changes\nNodeJS 18 of hoger vereiste\nioBroker gastheer (js-controller) 5,0 of hoger\nCoördinaten kunnen in beslag genomen worden op instance niveau (optioneel)",
-        "fr": "Changements de rupture\nNodeJS 18 ou plus requis\nioBroker host (js-controller) 5.0 ou supérieur\nLes coordonnées peuvent être configurées au niveau de l'instance (optionnel)",
-        "it": "Cambiamenti di rottura\nNodeJS 18 o superiore richiesto\nioBroker host (js-controller) 5.0 o superiore\nLe coordinate possono essere configurate a livello di istanza (opzionale)",
-        "es": "Cambios de ruptura\nNodeJS 18 o superior requerido\nioBroker host (js-controller) 5.0 o superior\nLas coordenadas pueden configurarse a nivel de instancia (opcional)",
-        "pl": "Zmiany\nNodeJS 18 (ang.)\nioBroker host (js-controller) 5.0 lub wyższe\nKoordynacje mogą być konfigurowane na poziomie instancji (opcjonalnym)",
-        "uk": "Зміни\nNodeJS 18 або вище\nioBroker host (js-controller) 5.0 або вище\nГеографічні координати можна налаштувати на рівні екземпляра (за бажанням)",
-        "zh-cn": "断 变\n第18条或以上要求\nio Broker收容(控制员)5.0或更高。\n可以调整协调水平(方案)"
       }
     },
     "titleLang": {
