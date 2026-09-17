@@ -2,7 +2,6 @@
 ## 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 
-
 ## 0.4.1 (2023-02-05)
 * (HGlab01) Improve error log if coordinates are not set
 

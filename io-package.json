@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "followthesun",
-    "version": "0.5.4-alpha.0",
+    "version": "0.5.4",
     "news": {
+      "0.5.4": {
+        "en": "Improved accuracy (check https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nUpdate suncalc to 2.0.2",
+        "de": "Höhere Genauigkeit (siehe https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nUpdate Suncalc auf 2.0.2",
+        "ru": "Повышенная точность (см. https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nОбновите suncalc до версии 2.0.2",
+        "pt": "Maior precisão (veja https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nAtualize suncalc à 2.0.2",
+        "nl": "Verbeterde nauwkeurigheid (zie https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nSuncalc updaten naar 2.0.2",
+        "fr": "Précision accrue (voir https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nMettre à jour Suncalc à 2.0.2",
+        "it": "Più precisione (vedi https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nAggiorna Suncalc a 2.0.2",
+        "es": "Precisión mejorada (consulte https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nActualice suncalc a 2.0.2",
+        "pl": "Poprawiona dokładność (sprawdź https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nZaktualizuj suncalc do wersji 2.0.2",
+        "uk": "Покращена точність (перевірте https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nОновлення suncalc до 2.0.2",
+        "zh-cn": "提高了准确性（查看 https://github.com/mourner/suncalc/releases/tag/v2.0.0）\n将 suncalc 更新到 2.0.2"
+      },
       "0.5.4-alpha.0": {
         "en": "Improved accuracy (check https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nUpdate suncalc to 2.0.2",
         "de": "Höhere Genauigkeit (siehe https://github.com/mourner/suncalc/releases/tag/v2.0.0)\nUpdate Suncalc auf 2.0.2",
@@ -69,19 +82,6 @@
         "zh-cn": "修复仓库检查器问题"
       },
       "0.5.0": {
-        "en": "Breaking changes\nNode.js 18 or higher required\nioBroker host (js-controller) 5.0 or higher\nCoordinates can be configured on instance level (optional)\nBump iobroker-jsonexplorer to v0.1.14",
-        "de": "Veränderungsraten\nNode.js 18 oder höher erforderlich\nioBroker host (js-controller) 5.0 oder höher\nKoordinaten können auf Instanzebene (optional) konfiguriert werden\nBump iobroker-jsonexplorer zu v0.1.14",
-        "ru": "Перерыв изменений\nNode.js 18 или выше требуется\nioBroker host (js-controller) 5.0 или выше\nКоординаты могут быть настроены на уровень (необязательно)\nBump iobroker-jsonexplorer на v0.1.14",
-        "pt": "Alterações de ruptura\nNode.js 18 ou mais necessários\nhospedeiro ioBroker (js-controller) 5.0 ou superior\nCoordenadas podem ser configuradas no nível de instância (opcional)\nBump iobroker-jsonexplorer para v0.1.14",
-        "nl": "Breaking changes\n_\nioBroker gastheer (js-controller) 5,0 of hoger\nCoördinaten kunnen in beslag genomen worden op instance niveau (optioneel)\nBump iobroker-Jsonexplorer naar V01.14",
-        "fr": "Changements de rupture\nNode.js 18 ou plus requis\nioBroker host (js-controller) 5.0 ou supérieur\nLes coordonnées peuvent être configurées au niveau de l'instance (optionnel)\nBump iobroker-jsonexplorer to v0.1.14",
-        "it": "Cambiamenti di rottura\nNode.js 18 o superiore richiesto\nioBroker host (js-controller) 5.0 o superiore\nLe coordinate possono essere configurate a livello di istanza (opzionale)\nBump iobroker-jsonexplorer a v0.1.14",
-        "es": "Cambios de ruptura\nNode.js 18 o superior requerido\nioBroker host (js-controller) 5.0 o superior\nLas coordenadas pueden configurarse a nivel de instancia (opcional)\nBump iobroker-jsonexplorer to v0.1.14",
-        "pl": "Zmiany\n18 lub więcej wymagań\nioBroker host (js-controller) 5.0 lub wyższe\nKoordynacje mogą być konfigurowane na poziomie instancji (opcjonalnym)\nBump iobroker-jsonexplorer to v0.1.14",
-        "uk": "Зміни\nNode.js 18 або вище\nioBroker host (js-controller) 5.0 або вище\nГеографічні координати можна налаштувати на рівні екземпляра (за бажанням)\nBump iobroker-jsonexplorer до v0.1.14",
-        "zh-cn": "断 变\n第18条或以上要求\nio Broker收容(控制员)5.0或更高。\n可以调整协调水平(方案)\nBumpiobroker-jsonexplorer to v0.1.14"
-      },
-      "0.5.0-alpha.1": {
         "en": "Breaking changes\nNode.js 18 or higher required\nioBroker host (js-controller) 5.0 or higher\nCoordinates can be configured on instance level (optional)\nBump iobroker-jsonexplorer to v0.1.14",
         "de": "Veränderungsraten\nNode.js 18 oder höher erforderlich\nioBroker host (js-controller) 5.0 oder höher\nKoordinaten können auf Instanzebene (optional) konfiguriert werden\nBump iobroker-jsonexplorer zu v0.1.14",
         "ru": "Перерыв изменений\nNode.js 18 или выше требуется\nioBroker host (js-controller) 5.0 или выше\nКоординаты могут быть настроены на уровень (необязательно)\nBump iobroker-jsonexplorer на v0.1.14",
